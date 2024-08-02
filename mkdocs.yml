@@ -1,0 +1,139 @@
+site_name: Techdox Docs
+site_url: https://docs.techdox.nz
+nav:
+  - Home: index.md
+  - Docker Containers:
+      - Overview: docker-containers.md
+      - Security & Authentication:
+          - 2FAuth: 2fa.md
+          - Adguard: adguard.md
+          - Authentik: authentik.md
+          - Headscale: headscale.md
+          - WG-Easy: wgeasy.md
+          - Wireguard: wireguard.md
+      - File Management & Sharing:
+          - Chibisafe: chibisafe.md
+          - Filebrowser: filebrowser.md
+          - Matrix: matrix.md
+          - Nextcloud: nextcloud.md
+          - PingVin: pingvin.md
+          - Syncthing: syncthing.md
+      - Backup & Sync:
+          - Duplicati: duplicati.md
+          - Pairdrop: pairdrop.md
+      - Note Taking & Collaboration:
+          - Excalidraw: excalidraw.md
+          - Focalboard: focalboard.md
+          - Joplin: joplin.md
+          - Mealie: mealie.md
+          - Memos: memos.md
+      - Media & Streaming:
+          - Jellyfin: jellyfin.md
+          - Logitech Media Server: logitech.md
+          - Photoprism: photoprism.md
+      - Productivity & Organization:
+          - Homepage: homepage.md
+          - IT Tools: ittools.md
+          - Linkstack: linkstack.md
+          - Paperless: paperless.md
+          - PrivateBin: privatebin.md
+          - MkDocs: mkdocs.md
+          - FreshRSS: freshrss.md
+      - Monitoring & Management:
+          - Grafana: grafana.md
+          - Nginx Proxy Manager: npm.md
+          - Prometheus: prometheus.md
+          - Speedtest Tracker: speedtest-tracker.md
+          - Traefik: traefik.md
+          - Uptime Kuma: uptimekuma.md
+          - Watchtower: watchtower.md
+      - Docker Management & Deployment:
+          - Cosmos Cloud: cosmos.md
+          - Dockge: dockge.md
+  - Networking:
+      - Overview: networking-overview.md
+      - GlusterFS: glusterfs.md
+  - Logging:
+      - Overview: logging-overview.md
+      - Node Exporter: node-exporter.md
+  - General Guides:
+      - Overview: general-guides.md
+      - Access Pihole via NPM: pihole-on-npm.md
+  - Donate / Get Support: support.md
+  - Techdox Merch: https://store.techdox.nz
+
+#  - About: about.md
+theme:
+  name: material
+  logo: 0dq28DF.png
+  favicon: favicon.png
+  features:
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+
+plugins:
+    - social
+    - search
+markdown_extensions:
+
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/@techdox
+    - icon: fontawesome/brands/discord
+      link: https://discord.com/invite/8mX2KRxDw8
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to enhance your experience on our site, recognize your repeat visits and preferences, as well as to track the effectiveness of our documentation and the relevance of the content we provide. Your consent will help us improve our resources and ensure they meet your needs. You have the option to customize your cookie settings to best suit your privacy preferences. Your support in this helps us continually refine our content and tools to better serve you and the community."
+copyright: Copyright &copy; 2024 Techdox

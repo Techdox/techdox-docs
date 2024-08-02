@@ -1,0 +1,199 @@
+---
+title: Setting Up 2FAuth with Docker Compose
+description: 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
+---
+# Setting Up 2FAuth with Docker Compose and Configuration Guide
+
+## Introduction to 2FAuth
+
+2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
+
+!!! note
+    Offical documentaion for the Docker compose deployment can be found here - [2FAuth Docker Compose Installation Guide](https://docs.2fauth.app/getting-started/installation/docker/docker compose/)
+
+## Docker Compose Configuration
+
+This Docker Compose file sets up 2FAuth for personal or organizational use. It's designed to be straightforward, ensuring 2FAuth runs smoothly on your system.
+
+!!! note
+    To use live QR Code scanning you need to run 2FAuth via HTTPS
+### Docker Compose File (`docker-compose.yml`)
+
+```yaml
+version: "3"
+services:
+  2fauth:
+    image: 2fauth/2fauth
+    container_name: 2fauth
+    volumes:
+      - ./2fauth:/2fauth
+    ports:
+      - 8000:8000/tcp #Change this to a port you wish to use
+    environment:
+      # You can change the name of the app
+      - APP_NAME=2FAuth
+      # You can leave this on "local". If you change it to production most console commands will ask for extra confirmation.
+      # Never set it to "testing".
+      - APP_ENV=local
+      # Set to true if you want to see debug information in error screens.
+      - APP_DEBUG=false
+      # This should be your email address
+      - SITE_OWNER=mail@example.com
+      # The encryption key for  our database and sessions. Keep this very secure.
+      # If you generate a new one all existing data must be considered LOST.
+      # Change it to a string of exactly 32 chars or use command `php artisan key:generate` to generate it or php -r "echo base64_encode(openssl_random_pseudo_bytes(32));"
+      - APP_KEY=base64:SomeRandomStringOf32CharsExactly
+      # This variable must match your installation's external address.
+      # Webauthn won't work otherwise.
+      - APP_URL=http://ip of host:8000 #if you change the port, make sure to change it here as well, or if via https change to https://domainname
+      # If you want to serve js assets from a CDN (like https://cdn.example.com),
+      # you need to set this custom URL here.
+      # Otherwise, this should be the exact same value as APP_URL.
+      - ASSET_URL=http://ip of host:8000
+      # Turn this to true if you want your app to react like a demo.
+      # The Demo mode reset the app content every hours and set a generic demo user.
+      - IS_DEMO_APP=false
+      # The log channel defines where your log entries go to.
+      # 'daily' is the default logging mode giving you 7 daily rotated log files in /storage/logs/.
+      # Also available are 'errorlog', 'syslog', 'stderr', 'papertrail', 'slack' and a 'stack' channel
+      # to combine multiple channels into a single one.
+      - LOG_CHANNEL=daily
+      # Log level. You can set this from least severe to most severe:
+      # debug, info, notice, warning, error, critical, alert, emergency
+      # If you set it to debug your logs will grow large, and fast. If you set it to emergency probably
+      # nothing will get logged, ever.
+      - LOG_LEVEL=notice
+      # Database config (can only be sqlite)
+      - DB_DATABASE="/srv/database/database.sqlite"
+      # If you're looking for performance improvements, you could install memcached.
+      - CACHE_DRIVER=file
+      - SESSION_DRIVER=file
+      # Mail settings
+      # Refer your email provider documentation to configure your mail settings
+      # Set a value for every available setting to avoid issue
+      - MAIL_DRIVER=log
+      - MAIL_HOST=smtp.mailtrap.io
+      - MAIL_PORT=2525
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - MAIL_FROM_NAME=null
+      - MAIL_FROM_ADDRESS=null
+      # SSL peer verification.
+      # Set this to false to disable the SSL certificate validation.
+      # WARNING
+      # Disabling peer verification can result in a major security flaw.
+      # Change it only if you know what you're doing.
+      - MAIL_VERIFY_SSL_PEER=true
+      # API settings
+      # The maximum number of API calls in a minute from the same IP.
+      # Once reached, all requests from this IP will be rejected until the minute has elapsed.
+      # Set to null to disable the API throttling.
+      - THROTTLE_API=60
+      # Authentication settings
+      # The number of times per minute a user can fail to log in before being locked out.
+      # Once reached, all login attempts will be rejected until the minute has elapsed.
+      # This setting applies to both email/password and webauthn login attemps.
+      - LOGIN_THROTTLE=5
+      # The default authentication guard
+      # Supported:
+      #   'web-guard' : The Laravel built-in auth system (default if nulled)
+      #   'reverse-proxy-guard' : When 2FAuth is deployed behind a reverse-proxy that handle authentication
+      # WARNING
+      # When using 'reverse-proxy-guard' 2FAuth only look for the dedicated headers and skip all other built-in
+      # authentication checks. That means your proxy is fully responsible of the authentication process, 2FAuth will
+      # trust him as long as headers are presents.
+      - AUTHENTICATION_GUARD=web-guard
+      # Name of the HTTP headers sent by the reverse proxy that identifies the authenticated user at proxy level.
+      # Check your proxy documentation to find out how these headers are named (i.e 'REMOTE_USER', 'REMOTE_EMAIL', etc...)
+      # (only relevant when AUTHENTICATION_GUARD is set to 'reverse-proxy-guard')
+      - AUTH_PROXY_HEADER_FOR_USER=null
+      - AUTH_PROXY_HEADER_FOR_EMAIL=null
+      # Custom logout URL to open when using an auth proxy.
+      - PROXY_LOGOUT_URL=null
+      # WebAuthn settings
+      # Relying Party name, aka the name of the application. If null, defaults to APP_NAME
+      - WEBAUTHN_NAME=2FAuth
+      # Relying Party ID. If null, the device will fill it internally.
+      # See https://webauthn-doc.spomky-labs.com/prerequisites/the-relying-party#how-to-determine-the-relying-party-id
+      - WEBAUTHN_ID=null
+      # Optional image data in BASE64 (128 bytes maximum) or an image url
+      # See https://webauthn-doc.spomky-labs.com/prerequisites/the-relying-party#relying-party-icon
+      - WEBAUTHN_ICON=null
+      # Use this setting to control how user verification behave during the
+      # WebAuthn authentication flow.
+      #
+      # Most authenticators and smartphones will ask the user to actively verify
+      # themselves for log in. For example, through a touch plus pin code,
+      # password entry, or biometric recognition (e.g., presenting a fingerprint).
+      # The intent is to distinguish one user from any other.
+      #
+      # Supported:
+      #   'required': Will ALWAYS ask for user verification
+      #   'preferred' (default) : Will ask for user verification IF POSSIBLE
+      #   'discouraged' : Will NOT ask for user verification (for example, to minimize disruption to the user interaction flow)
+      - WEBAUTHN_USER_VERIFICATION=preferred
+      #### SSO settings (for Socialite) ####
+      # Uncomment and complete lines for the OAuth providers you want to enable.
+      # - OPENID_AUTHORIZE_URL=
+      # - OPENID_TOKEN_URL=
+      # - OPENID_USERINFO_URL=
+      # - OPENID_CLIENT_ID=
+      # - OPENID_CLIENT_SECRET=
+      # - GITHUB_CLIENT_ID=
+      # - GITHUB_CLIENT_SECRET=
+      # Use this setting to declare trusted proxied.
+      # Supported:
+      #   '*': to trust any proxy
+      #   A comma separated IP list: The list of proxies IP to trust
+      - TRUSTED_PROXIES=null
+      # Proxy for outgoing requests like new releases detection or logo fetching.
+      # You can provide a proxy URL that contains a scheme, username, and password.
+      # For example, "http://username:password@192.168.16.1:10".
+      - PROXY_FOR_OUTGOING_REQUESTS=null
+      # Leave the following configuration vars as is.
+      # Unless you like to tinker and know what you're doing.
+      - BROADCAST_DRIVER=log
+      - QUEUE_DRIVER=sync
+      - SESSION_LIFETIME=120
+      - REDIS_HOST=127.0.0.1
+      - REDIS_PASSWORD=null
+      - REDIS_PORT=6379
+      - PUSHER_APP_ID=
+      - PUSHER_APP_KEY=
+      - PUSHER_APP_SECRET=
+      - PUSHER_APP_CLUSTER=mt1
+      - VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+      - VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+      - MIX_ENV=local
+```
+
+## Configuration Details and Customization
+
+- **Ports**: The default port for accessing 2FAuth is `8000`, which you can change according to your network setup.
+- **Environment Variables**: Provides detailed configuration for the app's operation, including:
+  - `APP_NAME`: Customizable to change the name of your 2FAuth application.
+  - `APP_KEY`: Critical for encryption; use `php artisan key:generate` to create a secure key.
+  - `SITE_OWNER`: Your email address for site ownership verification.
+  - `APP_URL` and `ASSET_URL`: Set these to match your installation's external address.
+  - `LOG_CHANNEL` and `LOG_LEVEL`: Configure how and where your logs are stored and their verbosity.
+  - `DB_DATABASE`: Specifies the path to your SQLite database.
+  - `MAIL_*` settings: Configure according to your mail service provider for email functionalities.
+  - `WEBAUTHN_USER_VERIFICATION`: Controls the behavior of user verification during WebAuthn authentication.
+
+## Deployment Instructions
+
+1. **Prepare Environment**:
+   - Ensure the volume directory (`./2fauth`) exists on your host to store persistent data. Make this manually, otherwise it will be owned by root and it can lead to permission issues
+2. **Environment Configuration**:
+   - Fill in or adjust the environment variables in the `docker-compose.yml` file as necessary. Pay special attention to secure values like `APP_KEY`.
+3. **Starting the Service**:
+   - Deploy 2FAuth by running `docker compose up -d` from the directory containing your `docker-compose.yml` file.
+
+## Notes
+
+- **Security**: Keep your `APP_KEY` secure and confidential. If you change this key, all existing data encrypted with the old key will be lost.
+- **Mail Configuration**: It's crucial to configure the mail settings correctly to enable features like email verification and notifications.
+- **Ports Adjustment**: You're free to adjust the port mappings to fit your network environment and avoid conflicts with other services.
+
+This setup provides a robust foundation for deploying 2FAuth, ensuring you have a private, secure 2FA management system.
