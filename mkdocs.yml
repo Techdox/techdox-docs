@@ -61,6 +61,7 @@ nav:
       - Overview: general-guides.md
       - Access Pihole via NPM: pihole-on-npm.md
   - Donate / Get Support: support.md
+  - RackNerd Deals: racknerd.md
   - Techdox Merch: https://store.techdox.nz
 
 #  - About: about.md
