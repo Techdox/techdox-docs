@@ -3,7 +3,7 @@
 Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting small to medium-sized projects, these offers provide excellent value for your money.
 
 ## 1 GB KVM VPS
-![1 GB KVM VPS](https://imgur.com/wDoqXpX)
+![1 GB KVM VPS](1GB.png)
 
 - **Deploy In:** San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
 - **Price:** $11.49 per year
@@ -20,7 +20,7 @@ Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting sma
 [Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=826&ref=techdox.nz)
 
 ## 2 GB KVM VPS
-![2 GB KVM VPS](https://imgur.com/p8VAt28)
+![2 GB KVM VPS](2GB.png)
 
 - **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
 - **Price:** $17.38 per year
@@ -37,7 +37,7 @@ Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting sma
 [Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=827&ref=techdox.nz)
 
 ## 3 GB KVM VPS
-![3 GB KVM VPS](https://imgur.com/fHBhhAw)
+![3 GB KVM VPS](3GB.png)
 
 - **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
 - **Price:** $27.98 per year
@@ -54,7 +54,7 @@ Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting sma
 [Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=828&ref=techdox.nz)
 
 ## 4 GB KVM VPS
-![4 GB KVM VPS](https://imgur.com/JvkUeoN)
+![4 GB KVM VPS](4GB.png)
 
 - **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
 - **Price:** $37.38 per year
