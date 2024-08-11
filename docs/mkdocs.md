@@ -125,11 +125,6 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences
   # More pymdownx extensions...
-
-extra:
-  analytics:
-    provider: google
-    property: G-1CXE00KE0K
 ```
 ## Youtube Video
 

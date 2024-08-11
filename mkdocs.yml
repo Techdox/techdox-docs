@@ -135,6 +135,9 @@ extra:
       link: https://youtube.com/@techdox
     - icon: fontawesome/brands/discord
       link: https://discord.com/invite/8mX2KRxDw8
+  analytics:
+    provider: google
+    property: G-1CXE00KE0K
   consent:
     title: Cookie consent
     description: >- 
