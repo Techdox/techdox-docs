@@ -129,7 +129,7 @@ markdown_extensions:
 extra:
   analytics:
     provider: google
-    property: G-1XXXXXX
+    property: !ENV [GOOGLE_ANALYTICS_ID, 'default_value']
 ```
 ## Youtube Video
 
