@@ -42,6 +42,7 @@ nav:
       - Monitoring & Management:
           - Beszel: beszel.md
           - Grafana: grafana.md
+          - Loki and Promtail: loki.md
           - Nginx Proxy Manager: npm.md
           - Prometheus: prometheus.md
           - Speedtest Tracker: speedtest-tracker.md
