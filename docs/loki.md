@@ -24,6 +24,7 @@ services:
     container_name: loki                            # Names the container for easier management.
     volumes:
       - ./loki-config.yaml:/mnt/config/loki-config.yaml # Mounts the Loki configuration file.
+      - ./data:/tmp
     ports:
       - "3100:3100"                                 # Maps port 3100 on the host to port 3100 in the container.
     command: -config.file=/mnt/config/loki-config.yaml # Runs Loki with the specified configuration file.
@@ -44,7 +45,7 @@ services:
 - **Loki Service**:
   - **Image**: Specifies the Docker image for Loki, ensuring the correct version is used.
   - **Ports**: Exposes port `3100` on the host, which is used by Loki to receive and query logs.
-  - **Volumes**: Mounts the Loki configuration file from the host to the container.
+  - **Volumes**: Mounts the Loki configuration file from the host to the container and a folder to saving the logs persistent
   - **Command**: Instructs Loki to use the specified configuration file.
   
 - **Promtail Service**:
