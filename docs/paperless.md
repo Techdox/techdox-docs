@@ -154,3 +154,5 @@ USERMAP_GID=1000
    - Start the services using `docker compose up -d`.
 
 Paperless-ngx offers a digital solution for managing your documents securely and efficiently. With this Docker Compose setup, you can easily deploy Paperless-ngx along with its dependencies for a comprehensive document management system.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

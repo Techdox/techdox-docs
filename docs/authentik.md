@@ -242,3 +242,5 @@ volumes:
 - **Manual Preparation**: Prior to deployment, manually create necessary directories for volumes to avoid permission issues.
 - **App URL**: For public deployments, ensure the app URL is defined correctly to match  your domain or IP address.
 
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

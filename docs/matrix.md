@@ -159,3 +159,5 @@ For those looking to make their Synapse Matrix Server accessible publicly, setti
 Once your server is up and running, you can connect using any Matrix-compatible client, such as Element, by pointing it to your server's URL.
 
 By following these detailed steps, you'll have a fully functional Synapse Matrix Server ready for secure communication across your devices and with others on the Matrix network.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

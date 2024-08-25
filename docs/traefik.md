@@ -202,3 +202,5 @@ volumes:
 4. **Deploy Services**: Repeat the deployment process for your services, ensuring they include the appropriate Traefik labels.
 
 This guide provides a structured approach to deploying Traefik with Docker Compose, creating a secure environment for hosting web services with automatic HTTPS configuration.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

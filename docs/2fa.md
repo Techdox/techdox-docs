@@ -197,3 +197,5 @@ services:
 - **Ports Adjustment**: You're free to adjust the port mappings to fit your network environment and avoid conflicts with other services.
 
 This setup provides a robust foundation for deploying 2FAuth, ensuring you have a private, secure 2FA management system.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

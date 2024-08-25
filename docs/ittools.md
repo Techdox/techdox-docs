@@ -43,3 +43,5 @@ services:
    Open a web browser and navigate to `http://<host-ip>:8080` to access the IT Tools interface.
 
 By following these steps, you can easily deploy and manage the IT Tools container, which provides a suite of utilities for IT management and troubleshooting.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

@@ -48,3 +48,5 @@ After deployment, Excalidraw is ready to use through its web interface, providin
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yk5bBo8JAG4?si=8MztGs2h7a3i9ubE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
