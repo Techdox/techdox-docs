@@ -60,3 +60,5 @@ This command starts PhotoPrism in detached mode, running in the background.
 
 4. **Access PhotoPrism**: Once the services are up and running, you can access PhotoPrism through http://localhost:2342 or the domain you have configured.
 
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

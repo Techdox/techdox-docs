@@ -97,3 +97,5 @@ It's important to regularly back up and monitor the contents of the `privatebin-
 
 After deployment, PrivateBin is ready to use with minimal configuration required. Access the web interface to start sharing texts and files securely.
 
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

@@ -107,3 +107,5 @@ To synchronize your Joplin notes across devices using your self-hosted Joplin Se
 6. **Initiate Synchronization**: Use the synchronize button or feature within your Joplin application to start syncing your notes with your self-hosted Joplin Server.
 
 By following these steps, you will have configured your Joplin applications to synchronize with your self-hosted Joplin Server, ensuring that your notes are up-to-date across all your devices. This setup provides a private and secure way to manage and sync your notes.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

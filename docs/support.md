@@ -34,3 +34,5 @@ When you support Techdox Docs, you're not just donating; you're actively partici
 - **Community Support**: More time spent on community forums and one-on-one support sessions.
 
 I appreciate your support, and I pledge to keep all resources open and free to the selfhosting community. Thank you for being a part of Techdox Docs!
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
