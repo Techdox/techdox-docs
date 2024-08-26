@@ -12,6 +12,9 @@ cAdvisor (Container Advisor) is a tool developed by Google that provides real-ti
 In this guide, we'll walk through deploying cAdvisor using Docker Compose, along with Prometheus and Redis for a complete monitoring setup. If you already have Prometheus running, you can add cAdvisor and Redis services to your existing setup.
 
 > **Note:** For more detailed information on deploying Prometheus, please refer to the [Prometheus deployment guide](https://docs.techdox.nz/prometheus/). This guide will focus primarily on setting up cAdvisor.
+> 
+> If you already have Prometheus installed, click [here](https://docs.techdox.nz/cadvisor/#adding-cadvisor-to-an-existing-prometheus-setup) to jump to the section on adding cAdvisor to your existing setup.
+
 
 ## Docker Compose Configuration for cAdvisor
 
