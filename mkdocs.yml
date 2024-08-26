@@ -41,6 +41,7 @@ nav:
           - FreshRSS: freshrss.md
       - Monitoring & Management:
           - Beszel: beszel.md
+          - cAdvisor: cadvisor.md
           - Grafana: grafana.md
           - Loki and Promtail: loki.md
           - Nginx Proxy Manager: npm.md
