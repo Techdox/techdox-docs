@@ -38,27 +38,29 @@ services:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
     depends_on:
-    - cadvisor
+      - cadvisor
+
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
-    - 8083:8080
+      - 8083:8080
     volumes:
-    - /:/rootfs:ro
-    - /var/run:/var/run:rw
-    - /sys:/sys:ro
-    - /var/lib/docker/:/var/lib/docker:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
     depends_on:
-    - redis
+      - redis
+
   redis:
     image: redis:latest
     container_name: redis
     ports:
-    - 6379:6379
+      - 6379:6379
 
 volumes:
-  prom_data:                                    # Exposes Redis on port 6379.
+  prom_data:                                  # Exposes Redis on port 6379.
 ```
 
 ### Explanation of Key Components
