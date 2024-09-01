@@ -25,38 +25,42 @@ Here's how to set up cAdvisor using Docker Compose, including Prometheus and Red
 Below is an example of a complete deployment with Prometheus, cAdvisor, and Redis:
 
 ```yaml
-version: '3.2'
 services:
   prometheus:
-    image: prom/prometheus:latest                     # Specifies the Prometheus Docker image.
-    container_name: prometheus                        # Names the container for easier management.
-    ports:
-      - 9090:9090                                     # Exposes Prometheus on port 9090.
+    image: prom/prometheus
+    container_name: prometheus
     command:
-      - --config.file=/etc/prometheus/prometheus.yml  # Points to the Prometheus configuration file.
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    restart: unless-stopped
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro # Mounts the Prometheus configuration file.
+      - ./prometheus:/etc/prometheus
+      - prom_data:/prometheus
     depends_on:
-      - cadvisor                                      # Ensures Prometheus starts after cAdvisor.
+      - cadvisor
 
   cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest            # Specifies the cAdvisor Docker image.
-    container_name: cadvisor                          # Names the container for easier management.
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
     ports:
-      - 8080:8080                                     # Exposes cAdvisor on port 8080.
+      - 8083:8080
     volumes:
-      - /:/rootfs:ro                                  # Mounts the root filesystem as read-only.
-      - /var/run:/var/run:rw                          # Mounts the var run directory as read-write.
-      - /sys:/sys:ro                                  # Mounts the sys directory as read-only.
-      - /var/lib/docker/:/var/lib/docker:ro           # Mounts the Docker lib directory as read-only.
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
     depends_on:
-      - redis                                         # Ensures cAdvisor starts after Redis.
+      - redis
 
   redis:
-    image: redis:latest                               # Specifies the Redis Docker image.
-    container_name: redis                             # Names the container for easier management.
+    image: redis:latest
+    container_name: redis
     ports:
-      - 6379:6379                                     # Exposes Redis on port 6379.
+      - 6379:6379
+
+volumes:
+  prom_data:                                  # Exposes Redis on port 6379.
 ```
 
 ### Explanation of Key Components
