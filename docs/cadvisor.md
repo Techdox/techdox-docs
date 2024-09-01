@@ -128,6 +128,7 @@ This configuration tells Prometheus to scrape metrics from cAdvisor every 5 seco
 If you already have Prometheus running, you can simply add the cAdvisor and Redis services to your existing `docker-compose.yml`:
 
 ```yaml
+services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
