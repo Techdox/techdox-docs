@@ -45,6 +45,7 @@ nav:
           - Grafana: grafana.md
           - Loki and Promtail: loki.md
           - Nginx Proxy Manager: npm.md
+          - Ntfy: ntfy.md
           - Prometheus: prometheus.md
           - Speedtest Tracker: speedtest-tracker.md
           - Traefik: traefik.md
