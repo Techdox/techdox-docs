@@ -49,7 +49,7 @@ services:
       - media:/usr/src/paperless/media
       - ./export:/usr/src/paperless/export
       - ./consume:/usr/src/paperless/consume
-    env_file: docker compose.env
+    env_file: docker-compose.env
     environment:
       PAPERLESS_REDIS: redis://broker:6379
       PAPERLESS_DBHOST: db
@@ -95,7 +95,7 @@ volumes:
 - **Port 8000**: Paperless-ngx is accessible on this port.
 - **Environment Variables**: Critical for configuring the connections between Paperless-ngx, Redis, and Postgres, as well as enabling integration with Tika and Gotenberg.
 
-### Docker Compose Env File (`docker compose.env`)
+### Docker Compose Env File (`docker-compose.env`)
 
 ```yaml
 # The UID and GID of the user used to run paperless in the container. Set this
