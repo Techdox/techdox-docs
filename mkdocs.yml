@@ -44,6 +44,7 @@ nav:
           - cAdvisor: cadvisor.md
           - Grafana: grafana.md
           - Loki and Promtail: loki.md
+          - Nexterm: nexterm.md
           - Nginx Proxy Manager: npm.md
           - Ntfy: ntfy.md
           - Prometheus: prometheus.md
