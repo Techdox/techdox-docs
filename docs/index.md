@@ -7,6 +7,8 @@ description: Welcome to the official documentation hub for Techdox, your go-to r
 
 Welcome to the official documentation hub for **Techdox**, your go-to resource for all things related to self-hosting, Docker, and tech tutorials as featured on the Techdox YouTube channel. Our documentation aims to be a practical companion to the video content, offering detailed guides, configuration files, and more.
 
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
 ## What You'll Find Here
 
 - **In-Depth Tutorials**: Comprehensive guides that complement our YouTube tutorials, providing step-by-step instructions and additional insights.
@@ -41,7 +43,5 @@ Stay engaged with our content:
 
 Thank you for visiting Techdox Docs. Dive into our documentation and enhance your tech journey!
 
-
 Techdox Docs - Enhancing your self-hosting and Docker experiences through practical documentation.
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
