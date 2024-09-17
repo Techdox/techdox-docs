@@ -74,3 +74,5 @@ From here, you can start managing your subscriptions and expenses with ease.
 ## Conclusion
 
 Wallos provides a simple, self-hosted solution for tracking your subscriptions and managing your finances. By following this guide, you can deploy Wallos using Docker Compose and ensure that your data is stored persistently with proper volume management.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
