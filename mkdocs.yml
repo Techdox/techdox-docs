@@ -39,6 +39,7 @@ nav:
           - PrivateBin: privatebin.md
           - MkDocs: mkdocs.md
           - FreshRSS: freshrss.md
+          - Wallos: wallos.md
       - Monitoring & Management:
           - Beszel: beszel.md
           - cAdvisor: cadvisor.md
