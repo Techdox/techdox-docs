@@ -21,8 +21,9 @@ nav:
       - Backup & Sync:
           - Duplicati: duplicati.md
           - Pairdrop: pairdrop.md
-      - Note Taking & Collaboration:
+      - Note Taking & Utility:
           - Excalidraw: excalidraw.md
+          - Firefly III: firefly.md 
           - Focalboard: focalboard.md
           - Joplin: joplin.md
           - Mealie: mealie.md
