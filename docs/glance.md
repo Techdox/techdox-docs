@@ -142,3 +142,4 @@ docker compose restart glance
 
 By following this guide, you have successfully deployed Glance using Docker Compose with a custom configuration file. You can now enjoy a centralized dashboard with various integrations to enhance your productivity.
 
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
