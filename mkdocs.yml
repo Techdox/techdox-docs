@@ -33,6 +33,7 @@ nav:
           - Logitech Media Server: logitech.md
           - Photoprism: photoprism.md
       - Productivity & Organization:
+          - Glance: glance.md
           - Homepage: homepage.md
           - IT Tools: ittools.md
           - Linkstack: linkstack.md
