@@ -30,23 +30,25 @@ services:
       - 8280:8080                                 # Exposes Glance on port 8280.
     restart: unless-stopped                       # Restarts container unless manually stopped.
 ```
+
 ## Explanation of Key Components
 
 ### Service
 
-	•	glance: Runs the Glance application.
-	•	Image: Pulls the latest glanceapp/glance image from Docker Hub.
-	•	Ports: Maps port 8280 on the host to port 8080 in the container, making Glance accessible via http://<your-server-ip>:8280.
-	•	Volumes:
-	•	./glance.yml:/app/glance.yml: Mounts the local glance.yml file, containing Glance’s configuration settings.
-	•	/etc/timezone:/etc/timezone:ro: Syncs the container timezone with the host.
-	•	/etc/localtime:/etc/localtime:ro: Syncs the container’s local time with the host’s local time.
+- **glance**: Runs the Glance application.
+- **Image**: Pulls the latest glanceapp/glance image from Docker Hub.
+- **Ports**: Maps port 8280 on the host to port 8080 in the container, making Glance accessible via `http://<your-server-ip>:8280`.
+- **Volumes**:
+  - `./glance.yml:/app/glance.yml`: Mounts the local `glance.yml` file, containing Glance’s configuration settings.
+  - `/etc/timezone:/etc/timezone:ro`: Syncs the container timezone with the host.
+  - `/etc/localtime:/etc/localtime:ro`: Syncs the container’s local time with the host’s local time.
 
 ## Glance Configuration File
 
-The Glance dashboard is configured using the glance.yml file. This file must be created before deploying the container. Below is an example configuration file that users can customize.
+The Glance dashboard is configured using the `glance.yml` file. This file must be created before deploying the container. Below is an example configuration file that users can customize.
 
-## Example glance.yml File
+### Example `glance.yml` File
+
 ```yaml
 pages:
   - name: Home
@@ -109,35 +111,33 @@ pages:
                 name: Google
               - symbol: AMD
                 name: AMD
-              - symbol: RDDT
 ```
-Note:
-•	Customize the glance.yml file based on your preferences.
-•	Widgets are organized under pages and columns with options for size and type.
-[See the Glance documentation for more info on widgets](https://github.com/glanceapp/glance/blob/main/docs/configuration.md)
+
+**Note**:
+- Customize the `glance.yml` file based on your preferences.
+- Widgets are organized under pages and columns with options for size and type.  
+[See the Glance documentation for more info on widgets](https://github.com/glanceapp/glance/blob/main/docs/configuration.md).
 
 ## Deployment Steps
 
 To deploy Glance, follow these steps:
-1.	Create the glance.yml Configuration File: Ensure you have created the glance.yml file as shown above or modified it with your desired widgets and settings.
-2.	Run Docker Compose: In the directory containing your docker-compose.yml file, start the Glance service with:
-```bash 
-docker compose up -d
-```
-This command will start the Glance container in detached mode.
 
-3.	Verify Deployment: Check that the Glance service is running by accessing:
+1. **Create the `glance.yml` Configuration File**: Ensure you have created the `glance.yml` file as shown above or modified it with your desired widgets and settings.
+2. **Run Docker Compose**: In the directory containing your `docker-compose.yml` file, start the Glance service with:
+   ```bash
+   docker compose up -d
+   ```
+   This command will start the Glance container in detached mode.
 
-```bash 
-http://<your-server-ip>:8280
-```
+3. **Verify Deployment**: Check that the Glance service is running by accessing:
+   ```bash
+   http://<your-server-ip>:8280
+   ```
 
-
-4.	Restarting the Service: After making changes to glance.yml, restart the container for changes to take effect:
-```bash
-docker compose restart glance
-```
-
+4. **Restarting the Service**: After making changes to `glance.yml`, restart the container for changes to take effect:
+   ```bash
+   docker compose restart glance
+   ```
 
 ## Conclusion
 
