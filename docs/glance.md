@@ -111,11 +111,12 @@ pages:
                 name: AMD
               - symbol: RDDT
 ```
-	Note:
-		•	Customize the glance.yml file based on your preferences.
-	•	Widgets are organized under pages and columns with options for size and type.
+Note:
+•	Customize the glance.yml file based on your preferences.
+•	Widgets are organized under pages and columns with options for size and type.
+[See the Glance documentation for more info on widgets](https://github.com/glanceapp/glance/blob/main/docs/configuration.md)
 
-Deployment Steps
+## Deployment Steps
 
 To deploy Glance, follow these steps:
 1.	Create the glance.yml Configuration File: Ensure you have created the glance.yml file as shown above or modified it with your desired widgets and settings.
