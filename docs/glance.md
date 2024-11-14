@@ -118,21 +118,21 @@ pages:
 Deployment Steps
 
 To deploy Glance, follow these steps:
-	1.	Create the glance.yml Configuration File: Ensure you have created the glance.yml file as shown above or modified it with your desired widgets and settings.
-	2.	Run Docker Compose: In the directory containing your docker-compose.yml file, start the Glance service with:
+1.	Create the glance.yml Configuration File: Ensure you have created the glance.yml file as shown above or modified it with your desired widgets and settings.
+2.	Run Docker Compose: In the directory containing your docker-compose.yml file, start the Glance service with:
 ```bash 
 docker compose up -d
 ```
 This command will start the Glance container in detached mode.
 
-	3.	Verify Deployment: Check that the Glance service is running by accessing:
+3.	Verify Deployment: Check that the Glance service is running by accessing:
 
 ```bash 
 http://<your-server-ip>:8280
 ```
 
 
-	4.	Restarting the Service: After making changes to glance.yml, restart the container for changes to take effect:
+4.	Restarting the Service: After making changes to glance.yml, restart the container for changes to take effect:
 ```bash
 docker compose restart glance
 ```
