@@ -1,3 +1,8 @@
+---
+title: Deploying WG-Easy with Docker Compose
+description: WG-Easy is a simple, web-based management interface for WireGuard VPN.
+---
+
 # Deploying WG-Easy with Docker Compose
 
 ## Introduction to WG-Easy
