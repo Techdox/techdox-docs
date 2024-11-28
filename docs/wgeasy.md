@@ -1,6 +1,6 @@
 ---
 title: Deploying WG-Easy with Docker Compose
-description: WG-Easy is a simple, web-based management interface for WireGuard VPN, which si>
+description: WG-Easy is a simple, web-based management interface for WireGuard VPN.
 ---
 
 # Deploying WG-Easy with Docker Compose
@@ -24,7 +24,7 @@ services:
     environment:                    # Environment variables to configure the instance.
       - LANG=en                     # Language settings.
       - WG_HOST=<Your IP/Domain>    # Public IP or domain name where WG-Easy is accessible.
-      - PASSWORD=<Your Password>    # Password for accessing the WG-Easy web interface.
+      - PASSWORD_HASH='<🚨YOUR_ADMIN_PASSWORD_HASH>' # Bcrypt hash for Web UI login.
       - PORT=51821                  # Port for the web interface.
       - WG_PORT=51820               # WireGuard port for VPN traffic.
     volumes:
@@ -46,7 +46,8 @@ services:
 - **Environment Variables**:
   - `LANG`: Supports: en, ua, ru, tr, no, pl, fr, de, ca, es, ko, vi, nl, is, pt, chs, cht, it, th, hi
   - `WG_HOST`: Specifies the public IP or DNS name where the WireGuard server can be accessed.
-  - `PASSWORD`: Sets a password to secure access to the WG-Easy web interface.
+  - `PASSWORD_HASH`: Replace `<🚨YOUR_ADMIN_PASSWORD_HASH>` with a bcrypt password hash for accessing the WG-Easy web interface.  
+    See [How to generate a bcrypt hash](https://github.com/wg-easy/wg-easy/blob/master/How_to_generate_an_bcrypt_hash.md) for instructions on creating the hash.
   - `PORT` and `WG_PORT`: Define the ports for the web interface and WireGuard respectively.
 - **Volumes**: Maps a local directory (`wg-easy/`) to the container's configuration directory (`/etc/wireguard`). This is where WG-Easy will store its configuration files.
 - **Capabilities (`cap_add`)**: `NET_ADMIN` and `SYS_MODULE` are necessary for WG-Easy to manage network interfaces and routes effectively within the container.
@@ -74,7 +75,7 @@ This command starts the WG-Easy service in detached mode, running in the backgro
 
 ## Accessing WG-Easy
 
-Once deployed, access the WG-Easy web interface through `http://your-server-ip:51821`. You'll need to enter the password specified in the `PASSWORD` environment variable to manage your VPN settings.
+Once deployed, access the WG-Easy web interface through `http://your-server-ip:51821`. You'll need to enter the bcrypt password specified in the `PASSWORD_HASH` environment variable to manage your VPN settings.
 
 ## Conclusion
 
