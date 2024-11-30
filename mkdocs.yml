@@ -9,6 +9,7 @@ nav:
           - Adguard: adguard.md
           - Authentik: authentik.md
           - Headscale: headscale.md
+          - Safeline: safeline.md
           - WG-Easy: wgeasy.md
           - Wireguard: wireguard.md
       - File Management & Sharing:
