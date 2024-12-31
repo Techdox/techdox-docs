@@ -24,7 +24,7 @@ services:
       - redis
     environment:
       APP_URL: 'http://localhost:3090'
-      APP_SECRET: 'P1a8uK$G!F#B7dNj3E!^sXq9Zm@4kT%V&r2LfCwY*Qz'
+      APP_SECRET: '<APP SECRET>'
       DATABASE_URL: 'postgresql://docmost:STRONG_DB_PASSWORD@db:5432/docmost?schema=public'
       REDIS_URL: 'redis://redis:6379'
     ports:
@@ -61,7 +61,7 @@ volumes:
 - **Image**: `docmost/docmost:latest` is the official Docker image for Docmost.
 - **Environment Variables**:
   - `APP_URL`: Replace with your domain or local IP/port (e.g., `https://docmost.example.com`).
-  - `APP_SECRET`: A secure key generated with `openssl rand -hex 32`.
+  - `APP_SECRET`: A secure key generated with `openssl rand -hex 32`, replace with your own key.
   - `DATABASE_URL`: Connection string for the PostgreSQL database.
   - `REDIS_URL`: Connection string for Redis.
 - **Ports**: `3090:3000` maps port 3090 on the host to port 3000 in the container for accessing Docmost's web interface.
