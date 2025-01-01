@@ -41,3 +41,8 @@ To add Pi-hole to Nginx Proxy Manager, you can follow these steps:
 Now, Nginx Proxy Manager should be set up to forward requests to Pi-hole at `pihole.domainname.com`. Make sure to adjust the domain name and IP address to match your setup.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+
+---
+
+If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).

@@ -45,3 +45,8 @@ Thank you for visiting Techdox Docs. Dive into our documentation and enhance you
 
 Techdox Docs - Enhancing your self-hosting and Docker experiences through practical documentation.
 
+
+
+---
+
+If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
