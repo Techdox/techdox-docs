@@ -21,6 +21,7 @@ Explore a variety of resources tailored to self-hosters and tech enthusiasts:
 ### Wazuh Overview and Deployment
 <details>
 <summary>View Wazuh Overview</summary>
+
 [![Wazuh Tutorial](https://img.youtube.com/vi/IP7zPeMEuL8/0.jpg)](https://youtu.be/IP7zPeMEuL8)
 An in-depth look at Wazuh, covering its features and how to deploy it for your self-hosted network.
 </details>
@@ -28,6 +29,7 @@ An in-depth look at Wazuh, covering its features and how to deploy it for your s
 ### Traefik Made Easy
 <details>
 <summary>View Traefik Tutorial</summary>
+
 [![Traefik Tutorial](https://img.youtube.com/vi/PzbdEZ4DQTg/0.jpg)](https://youtu.be/PzbdEZ4DQTg)
 Learn how to easily set up and manage Traefik for your self-hosted services.
 </details>
