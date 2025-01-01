@@ -3,13 +3,13 @@
 Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting small to medium-sized projects, these offers provide excellent value for your money.
 
 ## 1 GB KVM VPS
-![1 GB KVM VPS](1GB.png)
+![1 GB KVM VPS](1gb.jpg)
 
-- **Deploy In:** San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
-- **Price:** $11.49 per year
+- **Deploy In:** Multiple Locations
+- **Price:** $11.29 per year
 - **Specifications:**
   - 1 vCPU Core
-  - 21 GB Pure SSD Storage
+  - 24 GB Pure SSD Storage
   - 1 GB RAM
   - 1500 GB Monthly Transfer
   - 1 Gbps Network Port
@@ -17,58 +17,75 @@ Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting sma
   - 1 Dedicated IPv4 Address
   - KVM/SolusVM Control Panel
 
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=826&ref=techdox.nz)
+[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=903&ref=techdox.nz)
 
 ## 2 GB KVM VPS
-![2 GB KVM VPS](2GB.png)
+![2 GB KVM VPS](2gb.jpg)
 
-- **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
-- **Price:** $17.38 per year
+- **Deploy In:** Multiple Locations
+- **Price:** $18.29 per year
 - **Specifications:**
   - 1 vCPU Core
-  - 35 GB Pure SSD Storage
+  - 40 GB Pure SSD Storage
   - 2 GB RAM
-  - 2500 GB Monthly Transfer
+  - 3500 GB Monthly Transfer
   - 1 Gbps Network Port
   - Full Root Admin Access
   - 1 Dedicated IPv4 Address
   - KVM/SolusVM Control Panel
 
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=827&ref=techdox.nz)
+[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=904&ref=techdox.nz)
 
-## 3 GB KVM VPS
-![3 GB KVM VPS](3GB.png)
+## 3.5 GB KVM VPS
+![3 GB KVM VPS](3.5gb.jpg)
 
-- **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
-- **Price:** $27.98 per year
+- **Deploy In:** Multiple Locations
+- **Price:** $32.49 per year
 - **Specifications:**
   - 2 vCPU Core
-  - 45 GB Pure SSD Storage
-  - 3 GB RAM
-  - 5000 GB Monthly Transfer
+  - 65 GB Pure SSD Storage
+  - 3.5 GB RAM
+  - 7000 GB Monthly Transfer
   - 1 Gbps Network Port
   - Full Root Admin Access
   - 1 Dedicated IPv4 Address
   - KVM/SolusVM Control Panel
 
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=828&ref=techdox.nz)
+[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=905&ref=techdox.nz)
 
 ## 4 GB KVM VPS
-![4 GB KVM VPS](4GB.png)
+![4 GB KVM VPS](4gb.jpg)
 
-- **Deploy In:** Los Angeles DC-02, San Jose, Seattle, Dallas, Chicago, New York, Atlanta, or Ashburn
-- **Price:** $37.38 per year
+- **Deploy In:** Multiple Locations
+- **Price:** $43.88 per year
 - **Specifications:**
-  - 2 vCPU Core
-  - 60 GB Pure SSD Storage
+  - 3 vCPU Core
+  - 105 GB Pure SSD Storage
   - 4 GB RAM
-  - 8000 GB Monthly Transfer
+  - 9000 GB Monthly Transfer
   - 1 Gbps Network Port
   - Full Root Admin Access
   - 1 Dedicated IPv4 Address
   - KVM/SolusVM Control Panel
 
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=829&ref=techdox.nz)
+[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=906&ref=techdox.nz)
+
+## 6 GB KVM VPS
+![6 GB KVM VPS](6gb.jpg)
+
+- **Deploy In:** Multiple Locations
+- **Price:** $59.99 per year
+- **Specifications:**
+  - 4 vCPU Core
+  - 140 GB Pure SSD Storage
+  - 6 GB RAM
+  - 12000 GB Monthly Transfer
+  - 1 Gbps Network Port
+  - Full Root Admin Access
+  - 1 Dedicated IPv4 Address
+  - KVM/SolusVM Control Panel
+
+[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=907&ref=techdox.nz)
 
 ---
 
