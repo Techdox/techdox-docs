@@ -63,3 +63,7 @@ From here, you can manage your SSH, VNC, and RDP connections using Nexterm's uni
 ## Conclusion
 
 Nexterm is an excellent solution for managing multiple remote connection protocols (SSH, VNC, RDP) in one place. By following this guide, you can deploy Nexterm using Docker Compose and ensure that your configuration and data are stored persistently using Docker volumes.
+
+---
+
+If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).

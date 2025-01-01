@@ -63,3 +63,8 @@ After deployment, Pingvin Share will be accessible via `http://your-host-ip:3000
 Setting up Pingvin Share with Docker Compose is straightforward, provided the necessary directories are prepared in advance to avoid permission issues. This setup allows you to host a private file sharing service, enhancing your control over file distribution and access within your network.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+
+---
+
+If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
