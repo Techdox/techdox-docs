@@ -12,29 +12,29 @@ nav:
           - Safeline: safeline.md
           - WG-Easy: wgeasy.md
           - Wireguard: wireguard.md
-      - File Management & Sharing:
+      - File Management:
           - Chibisafe: chibisafe.md
           - Filebrowser: filebrowser.md
           - Matrix: matrix.md
           - Nextcloud: nextcloud.md
-          - PingVin: pingvin.md
           - Syncthing: syncthing.md
       - Backup & Sync:
           - Duplicati: duplicati.md
           - Pairdrop: pairdrop.md
-      - Note Taking & Utility:
+      - Productivity:
           - Docmost: docmost.md
           - Excalidraw: excalidraw.md
-          - Firefly III: firefly.md 
+          - Firefly III: firefly.md
           - Focalboard: focalboard.md
+          - Hoarder: hoarder.md
           - Joplin: joplin.md
           - Mealie: mealie.md
           - Memos: memos.md
-      - Media & Streaming:
+      - Media:
           - Jellyfin: jellyfin.md
           - Logitech Media Server: logitech.md
           - Photoprism: photoprism.md
-      - Productivity & Organization:
+      - Tools & Utilities:
           - Glance: glance.md
           - Homepage: homepage.md
           - IT Tools: ittools.md
@@ -49,7 +49,7 @@ nav:
           - Beszel: beszel.md
           - cAdvisor: cadvisor.md
           - Grafana: grafana.md
-          - Loki and Promtail: loki.md
+          - Loki & Promtail: loki.md
           - Nexterm: nexterm.md
           - Nginx Proxy Manager: npm.md
           - Ntfy: ntfy.md
@@ -58,7 +58,7 @@ nav:
           - Traefik: traefik.md
           - Uptime Kuma: uptimekuma.md
           - Watchtower: watchtower.md
-      - Docker Management & Deployment:
+      - Docker Management:
           - Cosmos Cloud: cosmos.md
           - Dockge: dockge.md
   - Networking:
@@ -70,9 +70,10 @@ nav:
   - General Guides:
       - Overview: general-guides.md
       - Access Pihole via NPM: pihole-on-npm.md
-  - Donate / Get Support: support.md
-  - RackNerd Deals - Cheap VPS: racknerd.md
-  - Techdox Merch: https://store.techdox.nz
+  - Resources:
+      - Donate / Get Support: support.md
+      - RackNerd Deals - Cheap VPS: racknerd.md
+      - Merch: https://store.techdox.nz
 
 #  - About: about.md
 theme:
@@ -144,6 +145,8 @@ extra:
       link: https://youtube.com/@techdox
     - icon: fontawesome/brands/discord
       link: https://discord.com/invite/8mX2KRxDw8
+    - icon: fontawesome/brands/github
+      link: https://github.com/Techdox/techdox-docs
   analytics:
     provider: google
     property: G-1CXE00KE0K
