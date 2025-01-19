@@ -45,4 +45,4 @@ Now, Nginx Proxy Manager should be set up to forward requests to Pi-hole at `pih
 
 ---
 
-If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
+If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).

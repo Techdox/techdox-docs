@@ -45,4 +45,4 @@ Thank you for visiting **Techdox Docs**! Your journey into self-hosting and tech
 ---
 
 ### Feedback or Suggestions?
-Help us improve by opening a PR on [GitHub](https://github.com/Techdox/techdox-docs) or sending us an email. Your contributions make Techdox Docs better for everyone!
+Help us improve by raising an issue on [GitHub](https://github.com/Techdox/techdox-docs) or sending us an email. Your contributions make Techdox Docs better for everyone!

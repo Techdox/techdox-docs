@@ -134,4 +134,4 @@ Files created in the **/mnt** directory will now show up in the**/gluster/volume
 
 ---
 
-If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
+If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).

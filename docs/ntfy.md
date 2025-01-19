@@ -89,4 +89,4 @@ Deploying ntfy with Docker Compose allows you to set up a self-hosted notificati
 
 ---
 
-If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
+If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).
