@@ -165,4 +165,4 @@ By following these detailed steps, you'll have a fully functional Synapse Matrix
 
 ---
 
-If there is an issue with this guide or you wish to suggest changes, please raise a PR on [GitHub](https://github.com/Techdox/techdox-docs).
+If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).
