@@ -40,7 +40,7 @@ Stay in the loop and connect with our community:
 
 ---
 
-Thank you for visiting **Techdox Docs**! Your journey into self-hosting and tech mastery starts here. Ready to explore? [Browse Our Guides](#).
+Thank you for visiting **Techdox Docs**! Your journey into self-hosting and tech mastery starts here. Ready to explore?
 
 ---
 
