@@ -1,35 +1,48 @@
 ---
-title: Welcome to Techdox Docs
-description: Your ultimate hub for self-hosting, Docker, and tech tutorials, complementing the Techdox YouTube channel with detailed guides and resources.
+title: Techdox Docs | Self-Hosting and Docker Tutorials
+description: Explore practical guides, Docker Compose tutorials, and self-hosting resources to complement the Techdox YouTube channel. Your ultimate hub for tech enthusiasts.
 ---
 
-# Welcome to Techdox Docs
+# Techdox Docs: Self-Hosting and Docker Tutorials
 
-Welcome to **Techdox Docs**, your companion to the Techdox YouTube channel. Dive into practical guides, configuration files, and resources on self-hosting, Docker, and more.
+Welcome to **Techdox Docs**, the go-to resource for mastering **self-hosting**, **Docker**, and all things tech. Whether you're just starting out or looking to fine-tune your setup, our practical guides and resources will help you succeed.
 
-## What You'll Find Here
+## Explore Techdox Docs
 
-Explore a variety of resources tailored to self-hosters and tech enthusiasts:
+Dive into a variety of resources tailored for tech enthusiasts and self-hosters:
 
-- **Master self-hosting** with step-by-step tutorials that expand on our YouTube videos.
-- **Set up services** using our extensive library of Docker Compose files.
-- **Learn best practices** for managing your own services and applications.
-- **Sharpen your skills** with expert tips and tricks.
+- **Step-by-Step Self-Hosting Tutorials**  
+  Learn how to set up, manage, and optimize your services with in-depth guides that expand on our [YouTube tutorials](https://www.youtube.com/@techdox).
 
-## Support Us
+- **Comprehensive Docker Compose Files**  
+  Save time with our library of ready-to-use Docker Compose configurations.
 
-Love our content? Help us keep creating by buying us a cup of tea!
+- **Expert Tips and Best Practices**  
+  Discover tips for managing your services efficiently and securely.
+
+- **Tech Skills Development**  
+  Sharpen your skills with practical advice and hands-on projects.
+
+## Support Our Work
+
+Love our content? Help us keep creating high-quality guides!  
+Your support allows us to bring you more tutorials and resources. 
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ## Connect with Techdox
 
-- **[Join the Discord Community](http://discord.com/invite/8mX2KRxDw8):** Meet fellow self-hosters and share insights.
-- **[Subscribe on YouTube](https://www.youtube.com/@techdox):** Stay updated with regular tutorials and walkthroughs.
-- **[Send Feedback or Contribute](mailto:admin@techdox.nz):** Have suggestions or want to contribute? We’d love to hear from you.
+Stay in the loop and connect with our community:
 
-Thank you for visiting **Techdox Docs**. Dive into our documentation and enhance your tech journey!
+- **[Join Our Discord Community](http://discord.com/invite/8mX2KRxDw8):** Exchange ideas and insights with fellow self-hosters.
+- **[Subscribe to Techdox on YouTube](https://www.youtube.com/@techdox):** Watch our latest tutorials and walkthroughs.
+- **[Share Feedback or Contribute](mailto:admin@techdox.nz):** Have suggestions? Want to contribute? We'd love to hear from you.
 
 ---
 
-Have feedback or want to suggest changes? Open a PR on [GitHub](https://github.com/Techdox/techdox-docs) or reach out via email. We appreciate your contributions!
+Thank you for visiting **Techdox Docs**! Your journey into self-hosting and tech mastery starts here. Ready to explore? [Browse Our Guides](#).
+
+---
+
+### Feedback or Suggestions?
+Help us improve by opening a PR on [GitHub](https://github.com/Techdox/techdox-docs) or sending us an email. Your contributions make Techdox Docs better for everyone!
