@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up MkDocs with Docker Compose
 description: MkDocs is a static site generator that's geared towards project documentation. With the Material theme, it provides a sleek, responsive, and user-friendly interface for your documentation projects.

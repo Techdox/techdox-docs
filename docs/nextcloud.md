@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Nextcloud with Docker Compose
 description: Nextcloud is an open-source, self-hosted file share and collaboration platform. It provides a secure and private alternative to cloud-based storage services.

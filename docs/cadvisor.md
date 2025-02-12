@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Deploying cAdvisor with Docker Compose
 description: cAdvisor (Container Advisor) is a tool that provides insights into the resource usage and performance characteristics of running containers. This guide details deploying cAdvisor alongside Prometheus and Redis using Docker Compose, including setup instructions for monitoring container metrics.

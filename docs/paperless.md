@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Paperless-ngx with Docker Compose
 description: Paperless-ngx is an open-source document management tool designed to digitize your physical documents into a searchable archive. It supports a wide range of hardware architectures including amd64, arm, and arm64.

@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Hoarder with Docker Compose
 description: Hoarder is a self-hosted application for managing and organizing content efficiently. This guide explains how to deploy Hoarder using Docker Compose.

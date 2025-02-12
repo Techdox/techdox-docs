@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up FreshRSS with Docker Compose
 description: FreshRSS is a self-hosted RSS feed aggregator. It is lightweight, easy to work with, and allows you to keep all your favorite news feeds and blogs organized in one place.

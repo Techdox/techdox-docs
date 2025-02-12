@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Deploying ntfy with Docker Compose
 description: ntfy is a simple and flexible notification service that allows you to send notifications to devices via web, email, or apps. This guide details deploying ntfy using Docker Compose, including configuration settings and health checks.

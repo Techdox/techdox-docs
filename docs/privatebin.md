@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up PrivateBin with Docker Compose
 description: PrivateBin is a secure, minimalist, open-source online pastebin where the server has zero knowledge of pasted data. It allows you to share sensitive information securely and anonymously.

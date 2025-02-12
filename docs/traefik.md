@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Traefik with Docker Compose
 description: Traefik is a reverse proxy which allows for seamless service communication

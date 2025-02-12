@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up 2FAuth with Docker Compose
 description: 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.

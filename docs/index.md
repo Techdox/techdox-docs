@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Techdox Docs | Self-Hosting and Docker Tutorials
 description: Explore practical guides, Docker Compose tutorials, and self-hosting resources to complement the Techdox YouTube channel. Your ultimate hub for tech enthusiasts.

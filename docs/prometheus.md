@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Prometheus with Docker Compose
 description: Prometheus is an open-source monitoring and alerting toolkit, widely used for its powerful querying language, efficient storage, and ease of integration with various metrics sources.

@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Memos with Docker Compose
 description: Memos is a self-hosted note-taking application that offers a convenient way to organize and store personal notes, memos, and other pieces of information.

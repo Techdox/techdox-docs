@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Nginx Proxy Manager with Docker Compose
 description: Nginx Proxy Manager (NPM) simplifies the process of managing Nginx proxy configurations for web services.

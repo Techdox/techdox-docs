@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Deploying Loki and Promtail with Docker Compose
 description: Loki is a log aggregation system and Promtail is an agent that ships the logs to Loki. This guide details deploying Loki and Promtail using Docker Compose, including the steps to download necessary configuration files and set up additional hosts.

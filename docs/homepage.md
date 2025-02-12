@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Homepage with Docker Compose
 description: Homepage is a customizable start page or dashboard for your browser, designed to provide quick access to your frequently used websites, services, and tools.

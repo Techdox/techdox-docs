@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Joplin with Docker Compose
 description: Joplin Server acts as a self-hosted synchronization server for Joplin notes. It allows you to synchronize your notes across multiple>

@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Deploying Firefly III with Docker Compose
 description: Firefly III is a free and open-source personal finance manager. This guide provides steps for deploying Firefly III using Docker Compose, including important notes on configuring environment variables, setting up cron jobs, and handling optional configurations.

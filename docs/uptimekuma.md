@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 ---
 title: Setting Up Uptime Kuma with Docker Compose
 description: Uptime Kuma is a self-hosted monitoring tool similar to "Uptime Robot." It monitors your websites, services, and applications and provides uptime notifications.
