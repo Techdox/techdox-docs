@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Deploying Tududi with Docker Compose  
 description: Tududi is a lightweight, open-source task management tool. This guide provides step-by-step instructions for deploying Tududi using Docker Compose, including setting up the required directory, creating a `docker-compose.yml` file, and configuring the environment variables for secure and seamless operation.  
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Deploying Tududi with Docker Compose  
 

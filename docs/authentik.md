@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Setting Up Authentik with Docker Compose
 description: Authentik is an open-source Identity Provider (IdP) designed to be flexible and versatile. It offers a robust solution for authentication, authorization, and federation, enabling secure access management across your applications.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Authentik with Docker Compose
 

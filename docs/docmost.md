@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Setting Up Docmost with Docker Compose
 description: Docmost is a self-hosted document collaboration and management platform. This guide will help you set up Docmost using Docker Compose for a seamless and secure deployment.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Docmost with Docker Compose
 

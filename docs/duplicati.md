@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Duplicati - Docker Setup
 description: Duplicati is a free and open-source backup software that allows you to securely store backups online in various standard protocols and services.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Duplicati - Docker Setup
 

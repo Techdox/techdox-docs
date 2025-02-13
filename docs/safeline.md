@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Deploying Safeline with Docker Compose
 description: Safeline is a web application firewall that provides advanced protection against web threats. This guide provides steps for deploying Safeline using Docker Compose, setting up the required `.env` file, and breaking down the provided Compose configuration.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Deploying Safeline with Docker Compose
 

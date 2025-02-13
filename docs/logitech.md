@@ -1,12 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Setting Up Logitech Media Server with Docker Compose
 description: Logitech Media Server (LMS) is a software that powers audio streaming to Logitech Squeezebox players.
 ---
-
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Logitech Media Server with Docker Compose
 

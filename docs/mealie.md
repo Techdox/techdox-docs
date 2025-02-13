@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Deploying Mealie with Docker Compose
 description: Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Deploying Mealie with Docker Compose
 

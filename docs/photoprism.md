@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Setting Up PhotoPrism with Docker Compose
 description: Learn how to deploy PhotoPrism using Docker Compose to easily manage your photo collections with powerful AI capabilities.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 ## PhotoPrism Docker Compose Setup
 

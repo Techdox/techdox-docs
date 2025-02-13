@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Deploying Beszel with Docker Compose
 description: Beszel is a self-hosted web application designed to provide a chat interface for various platforms. This guide details deploying Beszel using Docker Compose, including configuration settings for optimized performance.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Deploying Beszel with Docker Compose
 

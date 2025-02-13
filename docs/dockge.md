@@ -1,11 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
-
 ---
 title: Setting Up Dockge with Docker
 description: Dockge is a self-hosted, reactive Docker stack manager, offering an easy-to-use interface for managing Docker containers and compose stacks. It's created by the same developer as Uptime-Kuma.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Dockge with Docker
 
