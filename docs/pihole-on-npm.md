@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 To add Pi-hole to Nginx Proxy Manager, you can follow these steps:
 
 1. **Login to Nginx Proxy Manager**: Open your web browser and navigate to your Nginx Proxy Manager dashboard.

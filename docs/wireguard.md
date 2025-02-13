@@ -2,7 +2,9 @@
 title: Setting Up Wireguard and Wireguard UI with Docker Compose
 description: Wireguard is a modern VPN (Virtual Private Network) software that provides fast and secure connections. The Wireguard UI is a web interface that makes it easier to manage your Wireguard setup.
 ---
-
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Wireguard and Wireguard UI with Docker Compose
 

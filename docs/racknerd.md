@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 # RackNerd VPS Deals
 
 Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting small to medium-sized projects, these offers provide excellent value for your money.

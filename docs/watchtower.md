@@ -2,6 +2,9 @@
 title: Setting Up Watchtower with Docker Compose
 description: Watchtower is an application that automatically updates your running Docker containers to the latest images. It monitors all containers and updates them in real-time whenever a new image is released.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Watchtower with Docker Compose
 

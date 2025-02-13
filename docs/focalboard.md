@@ -2,6 +2,9 @@
 title: Setting Up Focalboard with Docker Compose
 description: Focalboard is an open-source, self-hosted project management tool that's an alternative to Trello, Notion, and Asana. It's designed to help teams stay organized and aligned.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Focalboard with Docker Compose
 

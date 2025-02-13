@@ -2,6 +2,10 @@
 title: Setting Up Syncthing with Docker Compose
 description: Syncthing is an open-source continuous file synchronization program. It synchronizes files between two or more computers in real time, safely and efficiently.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 # Setting Up Syncthing with Docker Compose
 
 ## Introduction to Syncthing

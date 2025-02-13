@@ -2,7 +2,9 @@
 title: Setting Up Filebrowser with Docker Compose
 description: Filebrowser is a self-hosted file managing interface that allows you to manage files and directories through a web interface. It's a simple and convenient way to access, upload, and manage your files remotely.
 ---
-
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Filebrowser with Docker Compose
 

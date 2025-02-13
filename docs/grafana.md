@@ -2,6 +2,9 @@
 title: Setting Up Grafana with Docker Compose
 description: Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Grafana with Docker Compose
 

@@ -1,3 +1,7 @@
+<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
+
 # Support Techdox Docs
 
 Thank you for considering supporting Techdox Docs! Your support helps continue providing and expanding valuable resources dedicated to the selfhosting community. Every contribution, big or small, goes directly into maintaining and enhancing the documentation and support services.

@@ -2,6 +2,9 @@
 title: Setting Up Chibisafe with Docker Compose
 description: Chibisafe is a file uploader and manager that's easy to use, allowing for the quick and secure sharing of files. It's a self-hosted solution for those who need control over their file-sharing environment.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Setting Up Chibisafe with Docker Compose
 

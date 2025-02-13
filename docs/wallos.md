@@ -2,6 +2,9 @@
 title: Deploying Wallos with Docker Compose
 description: Wallos is a powerful open-source subscription tracker and financial management tool. This guide provides steps for deploying Wallos using Docker Compose, with important notes on setting up volumes to avoid permissions errors.
 ---
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
+    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
+</a>
 
 # Deploying Wallos with Docker Compose
 
