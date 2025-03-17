@@ -30,6 +30,7 @@ nav:
           - Joplin: joplin.md
           - Mealie: mealie.md
           - Memos: memos.md
+          - Peppermint: peppermint.md
       - Media:
           - Jellyfin: jellyfin.md
           - Logitech Media Server: logitech.md
