@@ -71,6 +71,7 @@ nav:
   - General Guides:
       - Overview: general-guides.md
       - Access Pihole via NPM: pihole-on-npm.md
+      - Setting up Pihole Exporter: piexporter.md
   - Resources:
       - Donate / Get Support: support.md
       - RackNerd Deals - Cheap VPS: racknerd.md
