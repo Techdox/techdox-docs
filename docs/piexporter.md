@@ -6,8 +6,6 @@ description: This guide provides step-by-step instructions for deploying PiHole 
     <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
 </a>
 
-# Deploying PiHole Exporter with Docker Compose
-
 ## Introduction to PiHole Exporter
 
 [PiHole Exporter](https://github.com/eko/pihole-exporter) is a monitoring tool designed to export PiHole metrics for use with Prometheus and Grafana. This guide covers deploying PiHole Exporter using Docker Compose, configuring required environment variables, and integrating it with Prometheus for effective monitoring and visualization.
@@ -99,7 +97,7 @@ By following this guide, you've successfully deployed PiHole Exporter with Docke
 
 ---
 
-<a href=\"https://www.buymeacoffee.com/techdox\"><img src=\"https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff\" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 
