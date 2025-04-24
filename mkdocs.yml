@@ -9,6 +9,7 @@ nav:
           - Adguard: adguard.md
           - Authentik: authentik.md
           - Headscale: headscale.md
+          - Pocket ID: pocketid.md
           - Safeline: safeline.md
           - WG-Easy: wgeasy.md
           - Wireguard: wireguard.md
