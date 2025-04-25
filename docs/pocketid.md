@@ -2,7 +2,7 @@
 title: Deploying Pocket ID with Docker Compose
 description: Pocket ID is a self-hosted, privacy-focused identity management solution. This guide provides step-by-step instructions for deploying Pocket ID using Docker Compose, including the required Docker Compose configuration and environment variables.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
     <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
 </a>
 
@@ -84,7 +84,13 @@ To deploy Pocket ID, follow these steps:
    http://<your-server-ip>:3055
    ```
 
-4. **Restarting the Service**: After changes to `.env`, restart the container:
+4. **Setup Admin Account**: To set up your admin account, navigate to:
+   ```bash
+   http://<your-server-ip>:3055/login/setup
+   ```
+   You can now sign in with the admin account and begin managing your identities.
+
+5. **Restarting the Service**: After changes to `.env`, restart the container:
    ```bash
    docker compose restart pocket-id
    ```
