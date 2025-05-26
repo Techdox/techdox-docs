@@ -19,19 +19,18 @@ Below is the Docker Compose file necessary for deploying Pocket ID, including ex
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
-
 services:
   pocket-id:
-    image: ghcr.io/pocket-id/pocket-id:latest     # Uses the official Pocket ID Docker image.
-    restart: unless-stopped                       # Restarts container unless manually stopped.
-    env_file: .env                                # Loads environment variables from .env file.
+    image: ghcr.io/pocket-id/pocket-id
+    restart: unless-stopped
+    env_file: .env
     ports:
-      - 3055:80                                   # Exposes Pocket ID on port 3055.
+      - 3055:1411
     volumes:
-      - "./data:/app/backend/data"                # Mounts data directory for persistence.
-    healthcheck:                                 # Optional healthcheck to monitor container health.
-      test: "curl -f http://localhost/health"
+      - "./data:/app/data"
+    # Optional healthcheck
+    healthcheck:
+      test: "curl -f http://localhost:1411/healthz"
       interval: 1m30s
       timeout: 5s
       retries: 2
@@ -57,7 +56,7 @@ Pocket ID requires environment variables for proper configuration. These setting
 
 ```env
 # Documentation: https://pocket-id.org/docs/configuration/environment-variables
-PUBLIC_APP_URL=https://pocket.techdox.nz  # Public URL for your Pocket ID instance
+APP_URL=https://pocket.techdox.nz         # Public URL for your Pocket ID instance
 TRUST_PROXY=true                          # Enables reverse proxy support
 MAXMIND_LICENSE_KEY=                      # (Optional) License key for GeoIP features
 PUID=1000                                 # User ID for file permission management
