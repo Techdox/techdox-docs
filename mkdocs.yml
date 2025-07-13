@@ -38,6 +38,7 @@ nav:
           - Logitech Media Server: logitech.md
           - Photoprism: photoprism.md
       - Tools & Utilities:
+          - Dockpeek: dockpeek.md
           - Glance: glance.md
           - Homepage: homepage.md
           - IT Tools: ittools.md
