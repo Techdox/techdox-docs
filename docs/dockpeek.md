@@ -92,31 +92,28 @@ Environment Variable Notes
 You can add more hosts by increasing the number (DOCKER_HOST_3_URL, etc.).
 
 Deployment Steps
-	1.	Prepare Docker Compose Files
+1.	Prepare Docker Compose Files
 Set up the main host with both dockpeek and dockpeek-socket-proxy, and ensure remote hosts are running the socket proxy.
-	2.	Run Docker Compose
+
+2.	Run Docker Compose
 From your compose directory:
-
+```
 docker compose up -d
+```
 
-
-	3.	Access the Web UI
+3.	Access the Web UI
 Open your browser and navigate to:
-
+```
 http://<your-server-ip>:3420
+```
 
-
-	4.	Login and Configure
+4.	Login and Configure
 Use the username and password you set via environment variables. You’ll see the connected hosts listed on the left.
 
 Conclusion
 
 Dockpeek makes it easy to manage and monitor multiple Docker hosts from one sleek interface. With just a few containers and environment variables, you can get visibility into your entire Docker ecosystem.
 
-
-
 ⸻
 
 If there is an issue with this guide or you wish to suggest changes, please raise an issue on GitHub.
-
-Let me know if you'd like a thumbnail or summary for the video to go with it.
