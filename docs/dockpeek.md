@@ -1,8 +1,3 @@
-Here’s a complete MkDocs-style page for your new Dockpeek video, following the structure and tone of your existing Pocket ID documentation:
-
-⸻
-
-
 ---
 title: Deploying Dockpeek with Docker Compose
 description: Dockpeek is a self-hosted web UI for monitoring multiple Docker hosts in one place. This guide shows how to deploy Dockpeek using Docker Compose with optional remote host support.
