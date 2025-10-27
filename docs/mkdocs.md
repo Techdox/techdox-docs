@@ -26,9 +26,10 @@ services:
     ports:
       - "8005:8000"
     volumes:
-      - ./:/docs
+      - ./mkdocs-data:/docs
     stdin_open: true
     tty: true
+    restart: unless-stopped
 ```
 
 ## Key Components of the Configuration
@@ -37,7 +38,7 @@ services:
 - **Ports**: 
   - `8005:8000` maps port 8005 on the host to port 8000 in the container, where MkDocs's web interface is accessible.
 - **Volumes**: 
-  - `./:/docs`: Maps the current directory (project documentation) to the `/docs` directory in the container.
+  - `./mkdocs-data:/docs`: Maps the mkdocs-data folder inside the curent directory (project documentation) to the `/docs` directory in the container.
 - **Interactive Mode**: `stdin_open: true` and `tty: true` allow interactive processes, which is useful for live reloading during documentation development.
 
 ## Deploying MkDocs
@@ -49,7 +50,7 @@ To deploy MkDocs with Docker Compose, follow these steps:
 
 2. **Docker Compose File**:
    - Inside this new directory, create a `docker-compose.yml` file.
-   - Save the following Docker Compose configuration into this file:
+   - Save the directoryfollowing Docker Compose configuration into this file:
 
     ```yaml
     version: '3'
@@ -59,17 +60,22 @@ To deploy MkDocs with Docker Compose, follow these steps:
         ports:
           - "8005:8000"
         volumes:
-          - ./:/docs
+          - ./mkdocs-data:/docs
         stdin_open: true
         tty: true
+        restart: unless-stopped
     ```
 
 3. **Create Documentation Directory**:
-   - Within the `mkdocs` directory, create another directory called `docs`. This will hold all your documentation files.
+   - Within the `mkdocs` directory, create another directory called `mkdocs-data`. This will hold all your documentation files.
 
 4. **Create MkDocs Configuration File**:
-   - In the root of your `mkdocs` directory, create a file named `mkdocs.yml`.
+  
+   - In the root of your `mkdocs-data` directory,
+      - Create a folder called `docs`
+      - create a file named `mkdocs.yml`.
    - Add the following base structure to the `mkdocs.yml` file:
+   
 
     ```yaml
     site_name: Techdox Doc
