@@ -27,11 +27,16 @@ If you're looking for an affordable VPS, consider [RackNerd](https://my.racknerd
 
 ### 1. Download and Run the Installer
 
-Download the installer for your system:
+Download the latest installer for your system:
 
 ```bash
-wget -O installer "https://github.com/fosrl/pangolin/releases/download/1.2.0/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && chmod +x ./installer
+PANGOLIN_VERSION=$(curl -s https://api.github.com/repos/fosrl/pangolin/releases/latest | grep '"tag_name"' | cut -d'"' -f4) && \
+wget -O installer "https://github.com/fosrl/pangolin/releases/download/${PANGOLIN_VERSION}/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && \
+chmod +x ./installer
 ```
+
+!!! tip
+    The command above automatically fetches the latest release. You can check available releases at the [Pangolin releases page](https://github.com/fosrl/pangolin/releases).
 
 Run the installer with root privileges:
 

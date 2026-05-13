@@ -1,8 +1,11 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
+<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
     <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
 </a>
 
 # Setting Up Headscale with Docker Compose
+
+!!! warning "Upgrade Warning"
+    Headscale has significant breaking configuration changes between minor versions. **Do not skip versions when upgrading** — you must upgrade sequentially through each minor release (e.g., 0.22 → 0.23 → 0.24 → ... → 0.28). Review the [official upgrade guide](https://headscale.net/stable/ref/upgrading/) before proceeding.
 
 ## Introduction to Headscale
 
@@ -13,11 +16,10 @@ Headscale is an open-source implementation of the Tailscale control server, prov
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.5'
 services:
   headscale:
     container_name: headscale
-    image: headscale/headscale:0.22.3
+    image: headscale/headscale:0.28.0
     volumes:
       - ./config:/etc/headscale/  # Configuration files
       - ./data:/var/lib/headscale # Data persistence
@@ -29,7 +31,7 @@ services:
 
 ### Key Components
 
-- **Image**: Uses the specific version `0.22.3` of Headscale.
+- **Image**: Uses version `0.28.0` of Headscale. Check the [releases page](https://github.com/juanfont/headscale/releases) for newer versions.
 - **Volumes**:
   - `./config`: Directory for configuration files, specifically `config.yaml`.
   - `./data`: Stores persistent data used by Headscale.
@@ -117,9 +119,9 @@ noise:
 # IPv6: https://github.com/tailscale/tailscale/blob/22ebb25e833264f58d7c3f534a8b166894a89536/net/tsaddr/tsaddr.go#LL81C52-L81C71
 # IPv4: https://github.com/tailscale/tailscale/blob/22ebb25e833264f58d7c3f534a8b166894a89536/net/tsaddr/tsaddr.go#L33
 # Any other range is NOT supported, and it will cause unexpected issues.
-ip_prefixes:
-  - 100.64.0.0/10 # you can change this value to any private ip range you want.
-  - fd7a:115c:a1e0::/48
+prefixes:
+  v4: 100.64.0.0/10
+  v6: fd7a:115c:a1e0::/48
 
 # DERP is a relay system that Tailscale uses when a direct
 # connection cannot be established.
@@ -254,58 +256,29 @@ acl_policy_path: ""
 # - https://tailscale.com/kb/1081/magicdns/
 # - https://tailscale.com/blog/2021-09-private-dns-with-magicdns/
 #
-dns_config:
+dns:
   # Whether to prefer using Headscale provided DNS or use local.
   override_local_dns: true
 
   # List of DNS servers to expose to clients.
   nameservers:
-    - 1.1.1.1
+    global:
+      - 1.1.1.1
 
-  # NextDNS (see https://tailscale.com/kb/1218/nextdns/).
-  # "abc123" is example NextDNS ID, replace with yours.
-  #
-  # With metadata sharing:
-  # nameservers:
-  #   - https://dns.nextdns.io/abc123
-  #
-  # Without metadata sharing:
-  # nameservers:
-  #   - 2a07:a8c0::ab:c123
-  #   - 2a07:a8c1::ab:c123
-
-  # Split DNS (see https://tailscale.com/kb/1054/dns/),
-  # list of search domains and the DNS to query for each one.
-  #
+  # Split DNS – list of search domains and the DNS servers to query for each.
   # restricted_nameservers:
   #   foo.bar.com:
   #     - 1.1.1.1
-  #   darp.headscale.net:
-  #     - 1.1.1.1
-  #     - 8.8.8.8
 
   # Search domains to inject.
   domains: []
 
-  # Extra DNS records
-  # so far only A-records are supported (on the tailscale side)
-  # See https://github.com/juanfont/headscale/blob/main/docs/dns-records.md#Limitations
-  # extra_records:
-  #   - name: "grafana.myvpn.example.com"
-  #     type: "A"
-  #     value: "100.64.0.3"
-  #
-  #   # you can also put it in one line
-  #   - { name: "prometheus.myvpn.example.com", type: "A", value: "100.64.0.3" }
-
-  # Whether to use [MagicDNS](https://tailscale.com/kb/1081/magicdns/).
-  # Only works if there is at least a nameserver defined.
+  # Whether to use MagicDNS (https://tailscale.com/kb/1081/magicdns/).
+  # Only works if there is at least one nameserver defined.
   magic_dns: true
 
-  # Defines the base domain to create the hostnames for MagicDNS.
-  # `base_domain` must be a FQDNs, without the trailing dot.
-  # The FQDN of the hosts will be
-  # `hostname.user.base_domain` (e.g., _myhost.myuser.example.com_).
+  # Defines the base domain for MagicDNS hostnames.
+  # Must be a FQDN without the trailing dot.
   base_domain: headscale.example.com
 
 # Unix socket used for the CLI to connect without authentication

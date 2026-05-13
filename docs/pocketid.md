@@ -43,7 +43,7 @@ services:
 
 - **pocket-id**: Runs the Pocket ID application.
 - **Image**: Pulls the latest image from the Pocket ID GitHub Container Registry.
-- **Ports**: Maps port 3055 on the host to port 80 in the container, making Pocket ID accessible via `http://<your-server-ip>:3055`.
+- **Ports**: Maps port 3055 on the host to port 1411 in the container, making Pocket ID accessible via `http://<your-server-ip>:3055`.
 - **Volumes**:
   - `./data:/app/backend/data`: Mounts the local data directory for persistent storage.
 - **Healthcheck**: Ensures the container is running properly and provides automated health monitoring.
@@ -57,13 +57,13 @@ Pocket ID requires environment variables for proper configuration. These setting
 ```env
 # Documentation: https://pocket-id.org/docs/configuration/environment-variables
 APP_URL=https://pocket.techdox.nz         # Public URL for your Pocket ID instance
+ENCRYPTION_KEY=your_32_byte_base64_key    # REQUIRED – generate with: openssl rand -base64 32
 TRUST_PROXY=true                          # Enables reverse proxy support
 MAXMIND_LICENSE_KEY=                      # (Optional) License key for GeoIP features
-PUID=1000                                 # User ID for file permission management
-PGID=1000                                 # Group ID for file permission management
 ```
 
 **Note**:
+- `ENCRYPTION_KEY` is **mandatory** since Pocket ID v2.0. The container will not start without it. Generate a key with `openssl rand -base64 32`.
 - Replace the placeholder values with your specific configuration.
 - For detailed explanations, visit the [Pocket ID environment variables documentation](https://pocket-id.org/docs/configuration/environment-variables).
 
