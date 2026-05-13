@@ -45,7 +45,6 @@ Instead of directly using the setup from the project page, the following steps a
 Here's an example `docker-compose.yml` file for Dockge:
 
 ```yaml
-version: "3.8"
 services:
   dockge:
     image: louislam/dockge:latest
@@ -58,6 +57,8 @@ services:
       - /opt/stacks:/opt/stacks
     environment:
       - DOCKGE_STACKS_DIR=/opt/stacks
+      # Uncomment the line below to re-enable the built-in terminal (disabled by default since v1.5)
+      # - DOCKGE_ENABLE_CONSOLE=true
 ```
 
 ## Key Components of the Configuration
@@ -69,8 +70,9 @@ services:
   - `/var/run/docker.sock:/var/run/docker.sock` allows Dockge to interact with the Docker daemon.
   - `./data:/app/data` provides persistent storage for Dockge's data.
   - `/opt/stacks:/opt/stacks` maps a local directory for Docker stacks.
-- **Environment Variables**: 
+- **Environment Variables**:
   - `DOCKGE_STACKS_DIR=/opt/stacks` sets the directory path for Docker stacks within Dockge.
+  - `DOCKGE_ENABLE_CONSOLE=true` re-enables the built-in terminal, which is **disabled by default since v1.5** for security reasons.
 
 ## Deploying Dockge
 

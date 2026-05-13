@@ -21,7 +21,7 @@ Below is the Docker Compose file used to deploy Nexterm, with an explanation of 
 ```yaml
 services:
   nexterm:
-    image: germannewsmaker/nexterm:1.0.1-OPEN-PREVIEW # Specifies the Docker image for Nexterm.
+    image: germannewsmaker/nexterm:1.0.9-OPEN-PREVIEW # Specifies the Docker image for Nexterm.
     ports:
       - "6989:6989"                                   # Exposes port 6989 for accessing Nexterm's interface.
     restart: always                                   # Ensures the container restarts automatically if stopped.
@@ -34,7 +34,7 @@ volumes:
 
 ### Explanation of Key Components
 
-- **Image**: Specifies the Docker image `germannewsmaker/nexterm:1.0.1-OPEN-PREVIEW`, which is the preview version of Nexterm.
+- **Image**: Specifies the Docker image `germannewsmaker/nexterm:1.0.9-OPEN-PREVIEW`. Nexterm is currently in open preview; check [releases](https://github.com/gnmyt/Nexterm/releases) for the latest tag.
 - **Ports**: Maps port `6989` on the host to port `6989` inside the container, allowing access to Nexterm via `http://<your-server-ip>:6989`.
 - **Volumes**: A named volume `nexterm:/app/data` is used to persist data. This volume ensures that configuration and data are retained across container restarts.
 - **Restart**: Configured to `always` so the container will automatically restart in case of failures.
