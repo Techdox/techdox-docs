@@ -115,7 +115,14 @@ sudo gluster volume start staging-gfs
 To ensure the volume automatically mounts on reboot or other circumstances, follow these steps on all machines:
 
 - - Switch to the root user by running: `sudo -s`.
-    - Append the following line to the `/etc/fstab` file using the command: `echo 'localhost:/staging-gfs /mnt glusterfs defaults,_netdev,backupvolfile-server=localhost 0 0' >> /etc/fstab`.
+    - Append the following line to the `/etc/fstab` file using the command:
+
+      ```bash
+      echo 'localhost:/staging-gfs /mnt glusterfs defaults,_netdev,noauto,x-systemd.automount,backupvolfile-server=localhost 0 0' >> /etc/fstab
+      ```
+
+      > **Note**: The `noauto,x-systemd.automount` options are important — they instruct systemd to delay the mount until the network and GlusterFS service are fully ready. Without them, the mount may fail after a reboot if GlusterFS hasn't finished starting up. If your mount fails after a reboot, manually running `mount /mnt` will recover immediately, but adding these options prevents the issue.
+
     - Mount the GlusterFS volume to the `/mnt` directory with the command: `mount.glusterfs localhost:/staging-gfs /mnt`.
     - Set the ownership of the `/mnt` directory and its contents to `root:docker` using: `chown -R root:docker /mnt`.
     - Exit the root user session by running: `exit`.

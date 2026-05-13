@@ -19,7 +19,6 @@ This Docker Compose setup deploys Prometheus in a Docker container, along with a
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
 services:
   prometheus:
     image: prom/prometheus
@@ -49,7 +48,7 @@ alerting:
       - targets: []
       scheme: http
       timeout: 10s
-      api_version: v1
+      api_version: v2
 scrape_configs:
   - job_name: prometheus
     honor_timestamps: true

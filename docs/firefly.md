@@ -19,8 +19,6 @@ Below is the Docker Compose file used to deploy Firefly III, along with explanat
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
-
 services:
   app:
     image: fireflyiii/core:latest            # Uses the latest Firefly III Docker image.
@@ -132,7 +130,7 @@ Create a `.env` file in the same directory as your `docker-compose.yml` with the
 APP_ENV=production
 APP_DEBUG=false
 SITE_OWNER=your_email@example.com          # Replace with your email address.
-APP_KEY=YOUR_APP_KEY                       # Generate using 'php artisan key:generate --show' inside the app container.
+APP_KEY=                                    # Leave blank on first run — generate with the command below after containers start.
 DEFAULT_LANGUAGE=en_US
 DEFAULT_LOCALE=equal
 TZ=Your/Timezone                           # Replace with your timezone, e.g., 'America/New_York'.
@@ -253,13 +251,22 @@ To deploy Firefly III, follow these steps:
 
    This command will start all the services in detached mode.
 
-4. **Generate the Application Key**: If you haven't generated the `APP_KEY` yet, run:
+4. **Generate the Application Key**: With `APP_KEY` left blank in `.env`, generate the key by running:
 
    ```bash
    docker compose exec app php artisan key:generate --show
    ```
 
-   Copy the output and paste it into the `APP_KEY` field in your `.env` file. Then, restart the app service:
+   !!! warning
+       You **must** leave `APP_KEY` blank (not a placeholder like `YOUR_APP_KEY`) before the first start, otherwise Laravel throws a cipher error when generating the key. If you see *"Unsupported cipher or incorrect key length"*, clear `APP_KEY=` in `.env` and restart the container before running the command again.
+
+   Copy the `base64:...` output and set it in your `.env` file:
+
+   ```ini
+   APP_KEY=base64:your_generated_key_here
+   ```
+
+   Then restart the app service:
 
    ```bash
    docker compose restart app

@@ -19,7 +19,6 @@ This Docker Compose setup deploys Joplin Server along with a PostgreSQL database
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3'
 services:
     db:
         image: postgres:16
@@ -81,6 +80,15 @@ These are the default login credentials for Joplin Server upon the first run. It
      docker compose up -d
      ```
    - After startup, Joplin Server will be accessible at the `APP_BASE_URL` you've configured, e.g., `http://192.168.68.105:22300`.
+
+!!! warning "Using a Reverse Proxy or Cloudflare?"
+    If you are exposing Joplin Server via a reverse proxy (Nginx Proxy Manager, Traefik) or Cloudflare, you **must** update `APP_BASE_URL` to your public domain — for example:
+
+    ```yaml
+    - APP_BASE_URL=https://joplin.yourdomain.com
+    ```
+
+    Joplin Server uses `APP_BASE_URL` to validate the origin of incoming requests. If the URL doesn't match the host your clients connect to, you will get an **"invalid origin"** error. Make sure the value uses the correct scheme (`https://` when TLS is terminated by the proxy) and does **not** include a trailing slash.
 
 ## Initial Setup and Synchronization Configuration
 
