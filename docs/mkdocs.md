@@ -19,14 +19,13 @@ This Docker Compose setup deploys MkDocs with the Material theme in a Docker con
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3'
 services:
   mkdocs:
     image: squidfunk/mkdocs-material
     ports:
       - "8005:8000"
     volumes:
-      - ./:/docs
+      - ./mkdocs-data:/docs
     stdin_open: true
     tty: true
 ```
@@ -37,7 +36,7 @@ services:
 - **Ports**: 
   - `8005:8000` maps port 8005 on the host to port 8000 in the container, where MkDocs's web interface is accessible.
 - **Volumes**: 
-  - `./:/docs`: Maps the current directory (project documentation) to the `/docs` directory in the container.
+  - `./mkdocs-data:/docs`: Maps a dedicated `mkdocs-data` subdirectory to `/docs` inside the container. This keeps your documentation files separate from the `docker-compose.yml`, which prevents the container from crashing due to unexpected files at the project root.
 - **Interactive Mode**: `stdin_open: true` and `tty: true` allow interactive processes, which is useful for live reloading during documentation development.
 
 ## Deploying MkDocs
@@ -45,34 +44,33 @@ services:
 To deploy MkDocs with Docker Compose, follow these steps:
 
 1. **Create a New Directory**:
-   - Create a new directory on your host system for your MkDocs container. You can name it `mkdocs` or any other name of your choice.
+   - Create a directory on your host system for the MkDocs stack (e.g. `mkdocs`).
 
 2. **Docker Compose File**:
-   - Inside this new directory, create a `docker-compose.yml` file.
-   - Save the following Docker Compose configuration into this file:
+   - Inside that directory, create a `docker-compose.yml` file with the configuration above.
 
-    ```yaml
-    version: '3'
-    services:
-      mkdocs:
-        image: squidfunk/mkdocs-material
-        ports:
-          - "8005:8000"
-        volumes:
-          - ./:/docs
-        stdin_open: true
-        tty: true
-    ```
+3. **Create the Data Directory and Docs Folder**:
+   - Inside the `mkdocs` directory, create the `mkdocs-data` subdirectory and a `docs` folder inside it:
 
-3. **Create Documentation Directory**:
-   - Within the `mkdocs` directory, create another directory called `docs`. This will hold all your documentation files.
+     ```bash
+     mkdir -p mkdocs-data/docs
+     ```
+
+   Your directory structure should look like this:
+
+   ```
+   mkdocs/
+   ├── docker-compose.yml
+   └── mkdocs-data/
+       ├── docs/
+       └── mkdocs.yml
+   ```
 
 4. **Create MkDocs Configuration File**:
-   - In the root of your `mkdocs` directory, create a file named `mkdocs.yml`.
-   - Add the following base structure to the `mkdocs.yml` file:
+   - Inside `mkdocs-data/`, create a file named `mkdocs.yml` with the following base structure:
 
     ```yaml
-    site_name: Techdox Doc
+    site_name: My Docs
 
     nav:
       - Home: index.md
@@ -82,14 +80,11 @@ To deploy MkDocs with Docker Compose, follow these steps:
       name: 'material'
     ```
 
-    - Feel free to customize the `site_name`, navigation (`nav`), and other configurations as needed.
-
 5. **Start the MkDocs Container**:
-   - Run `docker compose up -d` from within the `mkdocs` directory. This command starts the MkDocs container in detached mode.
+   - Run `docker compose up -d` from within the `mkdocs` directory.
 
 6. **Access MkDocs**:
-   - Once the container is running, access your MkDocs site by navigating to `http://<host-ip>:8005`.
-   - You should see your MkDocs site with the Material theme, ready for further customization and document addition.
+   - Once the container is running, navigate to `http://<host-ip>:8005` to view your site.
 
 By following these steps, you will have a fully functional MkDocs site running in a Docker container, which you can access and edit as needed.
 
