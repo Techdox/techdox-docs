@@ -75,6 +75,17 @@ nav:
       - Overview: general-guides.md
       - Access Pihole via NPM: pihole-on-npm.md
       - Setting up Pihole Exporter: piexporter.md
+  - Homelab Rebuild:
+      - Overview: homelab-rebuild/index.md
+      - OPNsense on Zimaboard 2: homelab-rebuild/opnsense-zimaboard.md
+      - Pi-hole + Unbound DNS: homelab-rebuild/dns-stack.md
+      - WireGuard VPN: homelab-rebuild/wireguard-vpn.md
+      - YubiKey SSH: homelab-rebuild/yubikey-ssh.md
+      - Cloudflare Tunnels: homelab-rebuild/cloudflare-tunnels.md
+      - Internal Hostnames: homelab-rebuild/internal-hostnames.md
+      - Proton Mail Migration: homelab-rebuild/proton-mail-custom-domain.md
+      - macOS Hardening: homelab-rebuild/macos-hardening.md
+      - Architecture: homelab-rebuild/architecture.md
   - Resources:
       - Donate / Get Support: support.md
       - RackNerd Deals - Cheap VPS: racknerd.md
