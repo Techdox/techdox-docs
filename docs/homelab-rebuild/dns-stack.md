@@ -2,9 +2,6 @@
 title: Pi-hole + Unbound DNS Stack
 description: Build a fully self-contained DNS stack with Pi-hole for ad blocking and Unbound for recursive resolution. No queries leave to Cloudflare, Google, or your ISP.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Pi-hole + Unbound DNS Stack
 

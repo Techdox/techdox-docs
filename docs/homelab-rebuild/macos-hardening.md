@@ -2,9 +2,6 @@
 title: macOS Security Hardening
 description: Practical macOS hardening using native protections and the Objective-See free toolkit. No third-party antivirus required.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # macOS Security Hardening
 

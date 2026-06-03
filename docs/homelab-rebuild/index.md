@@ -2,9 +2,6 @@
 title: Homelab Rebuild 2026 — Overview & Architecture
 description: A complete rebuild of a personal homelab and identity stack, covering open-source routing, full DNS sovereignty, encrypted remote access, zero exposed ports, and identity privacy.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Homelab Rebuild 2026 — Overview
 

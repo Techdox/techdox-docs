@@ -2,9 +2,6 @@
 title: Setting Up Karakeep with Docker Compose
 description: Karakeep (formerly Hoarder) is a self-hosted application for saving and organising bookmarks, links, and notes with AI-powered tagging. This guide explains how to deploy Karakeep using Docker Compose.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Karakeep with Docker Compose
 

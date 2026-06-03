@@ -1,102 +1,145 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
+---
+title: RackNerd Hosting Deals
+description: Current RackNerd VPS, shared, and reseller hosting deals with affiliate links. Great value hosting for self-hosted projects and homelabs.
+---
 
-# RackNerd VPS Deals
+# RackNerd Hosting Deals
 
-Take advantage of these amazing VPS deals from RackNerd. Perfect for hosting small to medium-sized projects, these offers provide excellent value for your money.
-
-## 1 GB KVM VPS
-![1 GB KVM VPS](1gb.jpg)
-
-- **Deploy In:** Multiple Locations
-- **Price:** $11.29 per year
-- **Specifications:**
-  - 1 vCPU Core
-  - 24 GB Pure SSD Storage
-  - 1 GB RAM
-  - 1500 GB Monthly Transfer
-  - 1 Gbps Network Port
-  - Full Root Admin Access
-  - 1 Dedicated IPv4 Address
-  - KVM/SolusVM Control Panel
-
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=903&ref=techdox.nz)
-
-## 2 GB KVM VPS
-![2 GB KVM VPS](2gb.jpg)
-
-- **Deploy In:** Multiple Locations
-- **Price:** $18.29 per year
-- **Specifications:**
-  - 1 vCPU Core
-  - 40 GB Pure SSD Storage
-  - 2 GB RAM
-  - 3500 GB Monthly Transfer
-  - 1 Gbps Network Port
-  - Full Root Admin Access
-  - 1 Dedicated IPv4 Address
-  - KVM/SolusVM Control Panel
-
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=904&ref=techdox.nz)
-
-## 3.5 GB KVM VPS
-![3 GB KVM VPS](3.5gb.jpg)
-
-- **Deploy In:** Multiple Locations
-- **Price:** $32.49 per year
-- **Specifications:**
-  - 2 vCPU Core
-  - 65 GB Pure SSD Storage
-  - 3.5 GB RAM
-  - 7000 GB Monthly Transfer
-  - 1 Gbps Network Port
-  - Full Root Admin Access
-  - 1 Dedicated IPv4 Address
-  - KVM/SolusVM Control Panel
-
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=905&ref=techdox.nz)
-
-## 4 GB KVM VPS
-![4 GB KVM VPS](4gb.jpg)
-
-- **Deploy In:** Multiple Locations
-- **Price:** $43.88 per year
-- **Specifications:**
-  - 3 vCPU Core
-  - 105 GB Pure SSD Storage
-  - 4 GB RAM
-  - 9000 GB Monthly Transfer
-  - 1 Gbps Network Port
-  - Full Root Admin Access
-  - 1 Dedicated IPv4 Address
-  - KVM/SolusVM Control Panel
-
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=906&ref=techdox.nz)
-
-## 6 GB KVM VPS
-![6 GB KVM VPS](6gb.jpg)
-
-- **Deploy In:** Multiple Locations
-- **Price:** $59.99 per year
-- **Specifications:**
-  - 4 vCPU Core
-  - 140 GB Pure SSD Storage
-  - 6 GB RAM
-  - 12000 GB Monthly Transfer
-  - 1 Gbps Network Port
-  - Full Root Admin Access
-  - 1 Dedicated IPv4 Address
-  - KVM/SolusVM Control Panel
-
-[Get this deal now](https://my.racknerd.com/aff.php?aff=5792&pid=907&ref=techdox.nz)
+[RackNerd](https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz) offer some of the best value hosting deals around, perfect for spinning up a VPS for self-hosted services, a cheap homelab node, or a test environment. The deals below are the current live offers.
 
 ---
 
-**Note:** All prices and specifications are subject to change. Please verify the details on RackNerd's website before making a purchase.
+## VPS Hosting
+
+### 1 GB RAM KVM VPS — $21.99/Year
+
+- 1x vCPU Core
+- 1 GB RAM
+- 20 GB SSD
+- 3 TB Bandwidth
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=952){ .md-button }
+
+---
+
+### 2 GB RAM KVM VPS — $35.99/Year
+
+- 2x vCPU Cores
+- 2 GB RAM
+- 35 GB SSD
+- 5 TB Bandwidth
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=953){ .md-button }
+
+---
+
+### 4 GB RAM KVM VPS — $59.99/Year
+
+- 3x vCPU Cores
+- 4 GB RAM
+- 60 GB SSD
+- 7 TB Bandwidth
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=954){ .md-button }
+
+---
+
+### 6 GB RAM KVM VPS — $89.99/Year
+
+- 6x vCPU Cores
+- 6 GB RAM
+- 100 GB SSD
+- 12 TB Bandwidth
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=955){ .md-button }
+
+---
+
+### 8 GB RAM KVM VPS — $119.99/Year
+
+- 7x vCPU Cores
+- 8 GB RAM
+- 150 GB SSD
+- 20 TB Bandwidth
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=956){ .md-button }
+
+---
+
+## Shared Hosting
+
+### 30 GB Shared Hosting — $10.49/Year
+
+- 30 GB NVMe Storage
+- 3 TB Transfer
+- Host 2 Domains
+- cPanel
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=933){ .md-button }
+
+---
+
+### 85 GB Shared Hosting — $24.99/Year
+
+- 85 GB NVMe Storage
+- 10 TB Transfer
+- Host 10 Domains
+- cPanel
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=934){ .md-button }
+
+---
+
+### 200 GB Shared Hosting — $59.00/Year
+
+- 200 GB NVMe Storage
+- 30 TB Transfer
+- Unlimited Domains
+- cPanel
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=935){ .md-button }
+
+---
+
+## Reseller Hosting
+
+### 75 GB Reseller Hosting — $34.88/Year
+
+- 75 GB NVMe Storage
+- 2.5 TB Transfer
+- 3 cPanel Accounts
+- cPanel / WHM
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=936){ .md-button }
+
+---
+
+### 110 GB Reseller Hosting — $64.88/Year
+
+- 110 GB NVMe Storage
+- 5 TB Transfer
+- 7 cPanel Accounts
+- cPanel / WHM
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=937){ .md-button }
+
+---
+
+### 180 GB Reseller Hosting — $94.88/Year
+
+- 180 GB NVMe Storage
+- 9 TB Transfer
+- 12 cPanel Accounts
+- cPanel / WHM
+
+[Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=938){ .md-button }
+
+---
+
+!!! note
+    Prices and specs are subject to change. Verify current details on RackNerd's site before purchasing. These are affiliate links — using them supports Techdox at no extra cost to you.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
-
 
 ---
 

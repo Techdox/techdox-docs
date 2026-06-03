@@ -3,9 +3,6 @@ title: Self-Hosting Pangolin with Installer
 description: Learn how to deploy Pangolin, a secure and self-hosted alternative to Cloudflare Tunnels, using the official installer.
 ---
 
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Self-Hosting Pangolin with the Official Installer
 
