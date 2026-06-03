@@ -2,9 +2,6 @@
 title: Cloudflare Tunnels for Public Services
 description: Expose self-hosted services to the internet without opening a single port. Cloudflare Tunnels create an outbound-only connection from cloudflared to Cloudflare's edge.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Cloudflare Tunnels for Public Services
 

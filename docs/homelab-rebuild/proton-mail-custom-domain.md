@@ -2,9 +2,6 @@
 title: Migrating Email to Proton Mail with Custom Domain
 description: Step-by-step guide to migrating your email from any provider to Proton Mail with a custom domain, including MX, SPF, DKIM, DMARC setup and importing historical mail.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Migrating Email to Proton Mail with Custom Domain
 

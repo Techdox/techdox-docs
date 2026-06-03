@@ -2,9 +2,6 @@
 title: Deploying Dockpeek with Docker Compose
 description: Dockpeek is a self-hosted web UI for monitoring multiple Docker hosts in one place. This guide shows how to deploy Dockpeek using Docker Compose with optional remote host support.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Dockpeek with Docker Compose
 

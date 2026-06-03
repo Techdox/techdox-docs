@@ -2,9 +2,6 @@
 title: Migrating to OPNsense on Zimaboard 2
 description: How to replace a consumer mesh router with OPNsense running on a Zimaboard 2, covering hardware, install, DHCP with Dnsmasq, host overrides, and the physical cutover.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Migrating to OPNsense on Zimaboard 2
 

@@ -2,9 +2,6 @@
 title: YubiKey FIDO2 SSH Authentication
 description: Set up hardware-bound SSH authentication using a YubiKey and FIDO2 ed25519-sk keys. Works on macOS with Homebrew OpenSSH, requires physical key presence for every login.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # YubiKey FIDO2 SSH Authentication
 
