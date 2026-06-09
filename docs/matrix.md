@@ -17,7 +17,7 @@ The stack runs:
 - **LiveKit JWT service** — authentication bridge between Synapse and LiveKit
 - **Redis** — LiveKit session state
 - **coturn** — TURN/STUN relay for NAT traversal
-- **Caddy** — internal hostname dispatcher (used inside the stack only)
+- **Caddy** — internal hostname dispatcher (inside the stack only)
 - **Nginx Proxy Manager** — your existing reverse proxy, the external front door
 
 ---
@@ -35,28 +35,28 @@ Nginx Proxy Manager
         ▼
 Caddy (internal dispatcher on port 18080)
         │
-        ├── matrix.example.com    → Synapse :8008
-        ├── element.example.com   → Element Web :80
-        ├── call.example.com      → Element Call :8080
-        ├── livekit.example.com   → LiveKit :7880
+        ├── matrix.example.com      → Synapse :8008
+        ├── element.example.com     → Element Web :80
+        ├── call.example.com        → Element Call :8080
+        ├── livekit.example.com     → LiveKit :7880
         └── livekit-jwt.example.com → LK JWT service :8080
 
-Synapse ──────────────────────── Postgres
+Synapse ──────────────────── Postgres
 Element Call → LiveKit → Redis
-NAT traversal ──────────────── coturn (STUN/TURN)
+NAT traversal ────────────── coturn (STUN/TURN)
 ```
 
-Caddy runs inside the Docker stack and routes based on the `Host` header that Nginx Proxy Manager passes through. All five domains point at the same NPM proxy — Caddy figures out where to send each request.
+All five domains point at the same Nginx Proxy Manager entry on port 18080. Caddy routes each request to the right container using the `Host` header that NPM passes through.
 
 ---
 
 ## Voice and Video Limitations
 
-Cloudflare Tunnel proxies HTTPS only. Matrix chat, file uploads, and the Element Web UI all work through the tunnel. Voice and video media are different — they use UDP paths that a Cloudflare Tunnel cannot carry.
+Cloudflare Tunnel proxies HTTPS only. Matrix chat, file uploads, and Element Web all work through the tunnel. Voice and video are different — they use UDP paths that Cloudflare Tunnel cannot carry.
 
 - **Chat, images, rooms:** work publicly via Cloudflare Tunnel
-- **Voice and video on LAN or VPN:** work fine — clients reach coturn/LiveKit directly
-- **Voice and video publicly:** require a VPS running coturn or a LiveKit relay with a real public IP
+- **Voice and video on LAN or VPN:** work fine
+- **Voice and video publicly:** require a VPS running coturn with a real public IP
 
 Do not open UDP ports on your home router. If you need reliable public calls, put coturn on a cheap VPS.
 
@@ -64,16 +64,20 @@ Do not open UDP ports on your home router. If you need reliable public calls, pu
 
 ## Prerequisites
 
-- Docker and Docker Compose installed
-- Nginx Proxy Manager running on your network
-- Five subdomains created in Cloudflare DNS pointing at your Cloudflare Tunnel (or at your NPM host for LAN-only)
-- Local DNS records pointing those same domains at your NPM host (Pi-hole, AdGuard Home, or router DNS)
+- Docker and Docker Compose installed on your server
+- Nginx Proxy Manager already running on your network
+- Five subdomains on your domain (e.g. `matrix.`, `element.`, `call.`, `livekit.`, `livekit-jwt.`)
+- Local DNS pointing those domains at your NPM host (Pi-hole, AdGuard Home, or router DNS)
+- Cloudflare Tunnel configured for public access (optional — LAN-only works without it)
 
-Replace `example.com` with your actual domain throughout.
+!!! tip
+    Replace every instance of `example.com` in this guide with your actual domain before copying any config.
 
 ---
 
 ## Step 1: Create the Project Directory
+
+Copy and run as-is:
 
 ```bash
 mkdir -p /opt/matrix
@@ -90,7 +94,7 @@ nano /opt/matrix/.env
 ```
 
 ```env
-# Domains
+# Domains — replace example.com with your domain
 MATRIX_SERVER_NAME=matrix.example.com
 MATRIX_PUBLIC_BASEURL=https://matrix.example.com
 ELEMENT_DOMAIN=element.example.com
@@ -98,7 +102,7 @@ ELEMENT_CALL_DOMAIN=call.example.com
 LIVEKIT_DOMAIN=livekit.example.com
 LIVEKIT_JWT_DOMAIN=livekit-jwt.example.com
 
-# Postgres
+# Postgres — DB name and user can stay as-is
 POSTGRES_DB=synapse
 POSTGRES_USER=synapse
 POSTGRES_PASSWORD=changeme
@@ -109,12 +113,12 @@ SYNAPSE_REGISTRATION_SHARED_SECRET=changeme
 # TURN
 TURN_SHARED_SECRET=changeme
 
-# LiveKit
+# LiveKit — key name can stay as-is, secret must be changed
 LIVEKIT_API_KEY=matrix_livekit
 LIVEKIT_API_SECRET=changeme
 ```
 
-Generate secure secrets to replace the `changeme` values:
+Generate all four secrets in one go and paste them into the file:
 
 ```bash
 for var in POSTGRES_PASSWORD SYNAPSE_REGISTRATION_SHARED_SECRET TURN_SHARED_SECRET LIVEKIT_API_SECRET; do
@@ -122,12 +126,20 @@ for var in POSTGRES_PASSWORD SYNAPSE_REGISTRATION_SHARED_SECRET TURN_SHARED_SECR
 done
 ```
 
+!!! note "What to change"
+    - All six domain values — replace `example.com` with your domain
+    - Replace all four `changeme` values with the output of the command above
+    - `POSTGRES_DB`, `POSTGRES_USER`, and `LIVEKIT_API_KEY` can stay as shown
+
 !!! warning "Keep `.env` private"
-    Never commit this file. Add it to `.gitignore` if you version-control this directory.
+    Never commit this file. Add `.env` to `.gitignore` if you version-control this directory.
 
 ---
 
 ## Step 3: Create `docker-compose.yml`
+
+!!! tip "Copy as-is — one line to change"
+    The only thing to edit in this file is the Caddy `ports:` line. Replace `192.168.1.x` with your server's actual LAN IP. Everything else copies unchanged.
 
 ```yaml
 services:
@@ -219,7 +231,7 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     ports:
-      - "192.168.1.x:18080:80"
+      - "192.168.1.x:18080:80"   # ← change this IP to your server's LAN IP
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
@@ -235,14 +247,14 @@ volumes:
   caddy_config:
 ```
 
-!!! note "Replace `192.168.1.x` with your server's LAN IP"
-    The `ports` line on Caddy exposes the dispatcher only to your LAN. Nginx Proxy Manager connects to it on port 18080.
-
 ---
 
 ## Step 4: Configure Caddy
 
 Create `caddy/Caddyfile`:
+
+!!! note "What to change"
+    Replace every occurrence of `example.com` with your domain. The structure, ports, and directives copy as-is.
 
 ```caddyfile
 {
@@ -288,13 +300,16 @@ http://livekit-jwt.example.com {
 ```
 
 !!! warning "Site labels must include `http://`"
-    Without `http://`, Caddy tries to get TLS certificates internally and the stack breaks. Keep `auto_https off` and use `http://` on every site block.
+    Without `http://`, Caddy tries to obtain TLS certificates internally and breaks. Keep `auto_https off` and prefix every site block with `http://`.
 
 ---
 
 ## Step 5: Configure Element Web
 
 Create `element-web/config.json`:
+
+!!! note "What to change"
+    Replace `example.com` with your domain. Everything else copies as-is.
 
 ```json
 {
@@ -323,13 +338,16 @@ chmod 644 element-web/config.json
 ```
 
 !!! warning "File permissions matter"
-    If `config.json` is mode `600`, the Element Web container will restart in a loop with a permission error.
+    If `config.json` is mode `600`, the Element Web container restarts in a loop with a permission error. Always run `chmod 644` after creating it.
 
 ---
 
 ## Step 6: Configure Element Call
 
 Create `element-call/config.json`:
+
+!!! note "What to change"
+    Replace `example.com` with your domain. Everything else copies as-is.
 
 ```json
 {
@@ -356,7 +374,10 @@ chmod 644 element-call/config.json
 
 ## Step 7: Configure LiveKit
 
-Create `livekit/livekit.yaml`. Paste in the `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET` values from your `.env`:
+Create `livekit/livekit.yaml`:
+
+!!! note "What to change"
+    Only the `keys:` section. Replace `matrix_livekit` with your `LIVEKIT_API_KEY` and the value after the colon with your `LIVEKIT_API_SECRET` from `.env`. Everything else copies as-is.
 
 ```yaml
 port: 7880
@@ -374,19 +395,22 @@ redis:
   address: redis:6379
 
 keys:
-  matrix_livekit: your-livekit-api-secret
+  matrix_livekit: your-livekit-api-secret   # ← paste LIVEKIT_API_KEY: LIVEKIT_API_SECRET
 
 logging:
   level: info
 ```
 
-Replace `matrix_livekit` with your `LIVEKIT_API_KEY` value and the secret with your `LIVEKIT_API_SECRET` value.
-
 ---
 
 ## Step 8: Configure coturn
 
-Create `coturn/turnserver.conf`. Replace `192.168.1.x` with your server's LAN IP and paste in your `TURN_SHARED_SECRET`:
+Create `coturn/turnserver.conf`:
+
+!!! note "What to change"
+    - `static-auth-secret` — paste your `TURN_SHARED_SECRET` from `.env`
+    - `realm` — your Matrix domain (e.g. `matrix.example.com`)
+    - `external-ip`, `listening-ip`, `relay-ip` — your server's LAN IP
 
 ```conf
 listening-port=3478
@@ -410,7 +434,7 @@ log-file=stdout
 simple-log
 ```
 
-coturn runs with `network_mode: host` so it has direct access to the network interface for UDP media relay.
+coturn uses `network_mode: host` in the Compose file so it has direct access to network interfaces for UDP relay. All other settings can stay as shown.
 
 ---
 
@@ -423,20 +447,30 @@ cd /opt/matrix
 docker compose run --rm synapse generate
 ```
 
-This creates `synapse/homeserver.yaml` and a signing key. Synapse defaults to SQLite — you need to switch it to Postgres and add TURN/LiveKit settings.
+This creates `synapse/homeserver.yaml` and a signing key file. Synapse defaults to SQLite and has no TURN or registration config — you need to add those now.
 
 ### Edit `synapse/homeserver.yaml`
 
-Open the generated file and apply these changes:
+Open the generated file:
 
-**Switch database from SQLite to Postgres** — find the `database:` block and replace it:
+```bash
+nano synapse/homeserver.yaml
+```
+
+Make the following changes:
+
+---
+
+**1. Switch from SQLite to Postgres**
+
+Find the existing `database:` block (it will reference SQLite) and replace the entire block:
 
 ```yaml
 database:
   name: psycopg2
   args:
     user: synapse
-    password: your-postgres-password
+    password: your-postgres-password   # ← your POSTGRES_PASSWORD from .env
     database: synapse
     host: postgres
     port: 5432
@@ -444,44 +478,63 @@ database:
     cp_max: 10
 ```
 
-**Add TURN configuration** — add this block (not present in the generated file):
+---
+
+**2. Add TURN configuration**
+
+This block does not exist in the generated file — add it:
 
 ```yaml
 turn_uris:
-  - "turn:192.168.1.x:3478?transport=udp"
+  - "turn:192.168.1.x:3478?transport=udp"   # ← your server's LAN IP
   - "turn:192.168.1.x:3478?transport=tcp"
-turn_shared_secret: your-turn-shared-secret
+turn_shared_secret: your-turn-shared-secret  # ← your TURN_SHARED_SECRET from .env
 turn_user_lifetime: 86400000
 turn_allow_guests: false
 ```
 
-Replace `192.168.1.x` with your server's LAN IP and fill in your `TURN_SHARED_SECRET`.
+---
 
-**Add registration shared secret** — find or add:
+**3. Add the registration shared secret**
+
+Find the existing `registration_shared_secret:` line or add it:
 
 ```yaml
-registration_shared_secret: your-synapse-registration-shared-secret
+registration_shared_secret: your-registration-secret  # ← SYNAPSE_REGISTRATION_SHARED_SECRET from .env
 ```
 
-**Enable well-known serving** — add:
+---
+
+**4. Enable well-known serving**
+
+Add this line (not in the generated file):
 
 ```yaml
 serve_server_wellknown: true
 ```
 
-**Disable public registration** (users are created manually):
+---
+
+**5. Disable public registration**
+
+Find and set (or add):
 
 ```yaml
 enable_registration: false
 ```
 
-**Set correct paths** — these should already be set by the generator, but verify:
+---
+
+**6. Verify these paths are correct** (the generator sets them, but double-check):
 
 ```yaml
 media_store_path: /data/media_store
 log_config: "/data/matrix.example.com.log.config"
 signing_key_path: "/data/matrix.example.com.signing.key"
 ```
+
+!!! tip
+    The `log_config` and `signing_key_path` filenames include your server name. If you used a different domain during `generate`, they'll already reflect that — just confirm they point to `/data/`.
 
 ---
 
@@ -498,7 +551,7 @@ Check all containers are running:
 docker compose ps
 ```
 
-Expected:
+Expected output:
 
 ```
 NAME             STATUS
@@ -513,7 +566,7 @@ coturn           running
 caddy            running
 ```
 
-If anything is unhealthy, check its logs:
+If anything is unhealthy, check its logs before continuing:
 
 ```bash
 docker compose logs synapse
@@ -525,41 +578,43 @@ docker compose logs element-web
 
 ## Step 11: Add Nginx Proxy Manager Hosts
 
-Create a proxy host in NPM for each of the five domains. All five point at the same backend:
+Create one proxy host for each of the five domains. All five use the **same backend settings**:
 
 | Field | Value |
 |-------|-------|
 | Scheme | `http` |
-| Forward Hostname / IP | `192.168.1.x` (your server LAN IP) |
+| Forward Hostname / IP | Your server's LAN IP |
 | Forward Port | `18080` |
-| Websockets Support | Enabled |
-| Block Common Exploits | Enabled |
-| SSL | Your existing cert or request new |
+| Websockets Support | ✅ Enabled |
+| Block Common Exploits | ✅ Enabled |
+| SSL | Request a new certificate or use an existing one |
 
-Nginx Proxy Manager forwards the `Host` header by default — Caddy uses this to route each request to the right service.
+NPM passes the `Host` header through by default — Caddy uses it to route each request to the correct container.
 
 ---
 
-## Step 12: DNS
+## Step 12: Configure DNS
 
-### Local / LAN access
+### LAN access (required)
 
-Add local DNS overrides (Pi-hole, AdGuard Home, or router DNS) pointing all five domains at your NPM host:
+Add local DNS records pointing all five domains at your NPM host IP (not your server IP — your NPM host IP):
 
 ```
-matrix.example.com      → NPM IP
-element.example.com     → NPM IP
-call.example.com        → NPM IP
-livekit.example.com     → NPM IP
-livekit-jwt.example.com → NPM IP
+matrix.example.com      → NPM host IP
+element.example.com     → NPM host IP
+call.example.com        → NPM host IP
+livekit.example.com     → NPM host IP
+livekit-jwt.example.com → NPM host IP
 ```
+
+Use Pi-hole local DNS records, AdGuard Home rewrites, or your router's DNS overrides.
 
 ### Public access via Cloudflare Tunnel
 
-In the Cloudflare Zero Trust dashboard, add public hostnames for all five domains routing to:
+In Cloudflare Zero Trust → Access → Tunnels, add a public hostname for each domain pointing to:
 
-- If `cloudflared` runs on the same host as the stack: `http://localhost:18080`
-- If `cloudflared` runs elsewhere on the LAN: `http://192.168.1.x:18080`
+- `http://localhost:18080` — if `cloudflared` runs on the same host as the stack
+- `http://192.168.1.x:18080` — if `cloudflared` runs elsewhere on the LAN
 
 ---
 
@@ -574,7 +629,7 @@ docker compose exec synapse register_new_matrix_user \
   http://localhost:8008
 ```
 
-You'll be prompted for a password. Add more users (without `-a` for non-admin):
+You'll be prompted for a password. To add regular (non-admin) users:
 
 ```bash
 docker compose exec synapse register_new_matrix_user \
@@ -588,9 +643,7 @@ docker compose exec synapse register_new_matrix_user \
 
 ## Step 14: Log In
 
-Open `https://element.example.com` in your browser.
-
-On the login screen, set the homeserver to `matrix.example.com` if it isn't already, then log in with the admin account you just created.
+Open `https://element.example.com` in your browser. On the login screen confirm the homeserver is set to `matrix.example.com`, then sign in with the admin account you just created.
 
 ---
 
@@ -602,11 +655,12 @@ curl https://matrix.example.com/_matrix/client/versions
 
 # Federation well-known
 curl https://matrix.example.com/.well-known/matrix/server
+# Should return: {"m.server":"matrix.example.com:443"}
 
-# Element Web config loading
+# Element Web config reachable
 curl https://element.example.com/config.json
 
-# Element Call loading
+# Element Call reachable
 curl -I https://call.example.com/
 ```
 
@@ -616,14 +670,14 @@ curl -I https://call.example.com/
 
 | Problem | Cause | Fix |
 |---------|-------|-----|
-| Synapse won't start | Database not ready | Check `docker compose logs postgres` — wait for healthy |
-| Synapse starts but crashes | homeserver.yaml still using SQLite | Update `database:` block to use psycopg2 |
-| Element Web restarts in a loop | `config.json` permission denied | Run `chmod 644 element-web/config.json` |
-| Caddy gives connection resets | Missing `http://` in Caddyfile | Add `http://` prefix to all site blocks |
-| 502 from NPM | Caddy not running or wrong port | Check `docker compose ps caddy` and confirm port 18080 |
-| Calls don't connect on LAN | TURN not reachable | Check coturn is running, confirm LAN IP in `turnserver.conf` |
-| Calls fail publicly | Expected — Cloudflare Tunnel can't carry UDP | Use a VPS with coturn for public calls |
-| Can't register users | `registration_shared_secret` mismatch | Must match between `homeserver.yaml` and the register command |
+| Synapse won't start | Postgres not ready yet | Check `docker compose logs postgres` — wait for healthy |
+| Synapse starts then crashes | `homeserver.yaml` still on SQLite | Replace the `database:` block with the psycopg2 config above |
+| Element Web restarts in a loop | `config.json` permissions | Run `chmod 644 element-web/config.json` |
+| Caddy connection resets | Missing `http://` in Caddyfile | Prefix every site block with `http://` |
+| 502 Bad Gateway from NPM | Wrong IP or port | Confirm Caddy is running and NPM is pointing at the right LAN IP:18080 |
+| Calls don't connect on LAN | coturn not reachable | Check coturn is running; confirm LAN IP in `turnserver.conf` |
+| Calls fail publicly | Cloudflare Tunnel can't carry UDP | Use a VPS with coturn for reliable public calls |
+| User registration fails | Secret mismatch | `registration_shared_secret` in `homeserver.yaml` must match `.env` |
 
 ---
 
