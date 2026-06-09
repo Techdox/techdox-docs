@@ -94,6 +94,7 @@ nav:
 #  - About: about.md
 theme:
   name: material
+  custom_dir: overrides
   logo: 0dq28DF.png
   favicon: favicon.png
   features:
