@@ -2,9 +2,6 @@
 title: Deploying Beszel with Docker Compose
 description: Beszel is a lightweight, self-hosted server monitoring hub with agent-based metrics collection. This guide details deploying Beszel using Docker Compose.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Beszel with Docker Compose
 

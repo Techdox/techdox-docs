@@ -2,9 +2,6 @@
 title: WireGuard VPN on OPNsense
 description: Set up WireGuard directly on your OPNsense router for kernel-level VPN performance, native firewall integration, and secure remote access with split or full tunnel support.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # WireGuard VPN on OPNsense
 

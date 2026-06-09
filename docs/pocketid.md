@@ -2,9 +2,6 @@
 title: Deploying Pocket ID with Docker Compose
 description: Pocket ID is a self-hosted, privacy-focused identity management solution. This guide provides step-by-step instructions for deploying Pocket ID using Docker Compose, including the required Docker Compose configuration and environment variables.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Pocket ID with Docker Compose
 
