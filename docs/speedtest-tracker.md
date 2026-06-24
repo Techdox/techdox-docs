@@ -3,6 +3,8 @@ title: Deploying Speedtest Tracker with Docker Compose
 description: Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
 ---
 
+# Deploying Speedtest Tracker with Docker Compose
+
 ## Deployment of Speedtest Tracker
 
 This section guides you through the setup of Speedtest Tracker using Docker Compose. Speedtest Tracker runs scheduled speed tests and provides a web-based interface to view the results.
@@ -13,6 +15,9 @@ This section guides you through the setup of Speedtest Tracker using Docker Comp
 ### Docker Compose Configuration
 
 Here's the Docker Compose file necessary for deploying the Speedtest Tracker service. Save this configuration as `docker-compose.yml` in your project directory.
+
+!!! warning "Generate APP_KEY before deploying"
+    `APP_KEY` must be set to a valid generated key before starting the container — the app will not start with a placeholder value. Generate your key at [https://speedtest-tracker.dev](https://speedtest-tracker.dev).
 
 ```yaml
 version: '3.8'

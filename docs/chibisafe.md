@@ -31,7 +31,13 @@ services:
     restart: always
 ```
 
-##Key Components of the Configuration
+## Key Components of the Configuration
+
+!!! warning "Create required directories before starting"
+    You must create the following directories manually before running `docker compose up -d`, otherwise the container will fail with permission errors:
+    ```bash
+    mkdir -p database uploads logs
+    ```
 
 ### Service: Chibisafe
 - **Image**: `chibisafe/chibisafe:latest` is the Docker image used for Chibisafe.
@@ -39,7 +45,6 @@ services:
   - `./database:/home/node/chibisafe/database:rw` stores Chibisafe's database files.
   - `./uploads:/home/node/chibisafe/uploads:rw` stores the uploaded files.
   - `./logs:/home/node/chibisafe/logs:rw` stores logs.
-  Each of these folders needs to be created manually before starting the container to avoid permission issues.
 - **Ports**: 
   - `24424:8000` maps port 24424 on the host to port 8000 in the container, where Chibisafe's web interface is accessible.
 - **Restart Policy**: `always` ensures that Chibisafe restarts automatically after a crash or reboot.

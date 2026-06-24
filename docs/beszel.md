@@ -55,7 +55,28 @@ This command starts the Beszel service in detached mode, running in the backgrou
 
 ## Accessing Beszel
 
-After deployment, Beszel will be accessible at `http://<your-server-ip>:8090` based on your port configuration. This setup ensures that Beszel is ready for chat interface management from your self-hosted environment.
+After deployment, Beszel will be accessible at `http://<your-server-ip>:8090` based on your port configuration. This setup ensures that Beszel is ready to collect metrics from your self-hosted environment.
+
+!!! warning "The Beszel agent is required"
+    Beszel requires a lightweight **agent** installed on each host you want to monitor. Without the agent, the Beszel hub will show no data.
+
+    Add the agent to each monitored host using the following Docker Compose snippet:
+
+    ```yaml
+    services:
+      beszel-agent:
+        image: henrygd/beszel-agent
+        container_name: beszel-agent
+        restart: unless-stopped
+        network_mode: host
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+        environment:
+          LISTEN_PORT: 45876
+          HUB_URL: http://<beszel-hub-ip>:8090
+    ```
+
+    Replace `<beszel-hub-ip>` with the IP of your Beszel hub container.
 
 ## Conclusion
 

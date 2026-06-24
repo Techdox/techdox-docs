@@ -1,6 +1,6 @@
 ---
 title: Deploying Mealie with Docker Compose
-description: Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>
+description: Mealie is a self-hosted recipe manager and meal planner. This guide covers deploying Mealie with Docker Compose including persistent storage and resource limits.
 ---
 
 # Deploying Mealie with Docker Compose
@@ -43,6 +43,9 @@ volumes:
   mealie-data:                                  # Declares a named volume for persisting application data.
 ```
 
+!!! warning "Disable open registration for public instances"
+    `ALLOW_SIGNUP=true` allows anyone to create an account on your Mealie instance. **Set this to `false` after creating your own account** if your instance is accessible from the internet.
+
 ### Explanation of Key Components
 
 - **Image**: Specifies the specific version of Mealie to be used, ensuring consistency and compatibility.
@@ -74,6 +77,9 @@ This command starts the Mealie service in detached mode, running in the backgrou
 ## Accessing Mealie
 
 After deployment, Mealie will be accessible at `https://mealie.yourdomain.com` or `http://<your-server-ip>:9925` based on your `BASE_URL` and port configuration. This setup ensures that Mealie is ready for recipe management and meal planning, all from your self-hosted environment.
+
+!!! warning "Change default credentials"
+    Mealie's default login credentials are `changeme@example.com` / `MyPassword`. **Change these immediately after first login.**
 
 ## Conclusion
 

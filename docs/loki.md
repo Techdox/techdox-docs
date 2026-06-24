@@ -58,6 +58,9 @@ services:
 
 Before deploying, you need to download the necessary configuration files for Loki and Promtail:
 
+!!! warning "Config file versions must match your image version"
+    The `wget` commands download config files pinned to a specific version. If you change the image tag in the compose file, update the version in the wget URLs to match — mismatched configs will cause startup failures.
+
 ```bash
 wget https://raw.githubusercontent.com/grafana/loki/v3.0.0/cmd/loki/loki-local-config.yaml -O loki-config.yaml
 wget https://raw.githubusercontent.com/grafana/loki/v3.0.0/clients/cmd/promtail/promtail-docker-config.yaml -O promtail-config.yaml
@@ -95,6 +98,14 @@ To add additional hosts for log shipping with Promtail, you can use the followin
     ```
 
 2. Make sure to update the `promtail-config.yaml` on the additional host to point to the Loki instance's IP address.
+
+!!! tip "Updating the Loki endpoint in Promtail config"
+    In `promtail-config.yaml`, update the `clients` section to point to your Loki instance:
+    ```yaml
+    clients:
+      - url: http://<loki-host-ip>:3100/loki/api/v1/push
+    ```
+    Replace `<loki-host-ip>` with the IP of your Loki container host.
 
 ## Conclusion
 

@@ -30,6 +30,9 @@ services:
     restart: unless-stopped                         # Ensures the container restarts automatically unless manually stopped.
 ```
 
+!!! tip "Set your timezone"
+    Replace `America/Toronto` with your local timezone. Find valid identifiers at [Wikipedia's TZ database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
 ### Explanation of Key Components
 
 - **Image**: Specifies the `bellamy/wallos:latest` Docker image, which contains the Wallos application.
@@ -39,7 +42,9 @@ services:
 - **Volumes**:
   - **`./db:/var/www/html/db`**: This volume ensures that the Wallos database is stored persistently on your host machine.
   - **`./logos:/var/www/html/images/uploads/logos`**: This volume stores the logos uploaded to Wallos, ensuring they persist between container restarts.
-  > **Note**: You need to manually create the `db` and `logos` directories on your host system before running the container. Failing to do so may result in permissions errors or the container not starting properly.
+
+!!! warning
+    You need to manually create the `db` and `logos` directories on your host system before running the container. Failing to do so may result in permissions errors or the container not starting properly.
 
 ### Creating Required Directories
 
@@ -65,15 +70,16 @@ This command will start the Wallos service in detached mode, allowing it to run 
 
 Once deployed, you can access Wallos by navigating to:
 
-```
+```text
 http://<your-server-ip>:8282
 ```
 
 From here, you can start managing your subscriptions and expenses with ease.
 
-## Conclusion
+## Next Steps
 
-Wallos provides a simple, self-hosted solution for tracking your subscriptions and managing your finances. By following this guide, you can deploy Wallos using Docker Compose and ensure that your data is stored persistently with proper volume management.
+- Place Wallos behind a reverse proxy with HTTPS using [Nginx Proxy Manager](npm.md) or [Traefik](traefik.md)
+- Back up the `./db` directory regularly — this contains all your subscription data
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

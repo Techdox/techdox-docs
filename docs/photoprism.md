@@ -3,6 +3,8 @@ title: Setting Up PhotoPrism with Docker Compose
 description: Learn how to deploy PhotoPrism using Docker Compose to easily manage your photo collections with powerful AI capabilities.
 ---
 
+# Setting Up PhotoPrism with Docker Compose
+
 ## PhotoPrism Docker Compose Setup
 
 This configuration sets up PhotoPrism, a personal photo management solution. It includes important notes on memory requirements, security considerations for public deployments, and advanced configuration options.
@@ -10,6 +12,9 @@ This configuration sets up PhotoPrism, a personal photo management solution. It 
 ### Docker Compose Configuration
 
 Below is the Docker Compose file you will need. Copy this into a `docker-compose.yml` file in your project directory:
+
+!!! warning "Change all passwords before deploying"
+    `PHOTOPRISM_ADMIN_PASSWORD` is set to `insecure`. Change this and both MySQL password variables (`PHOTOPRISM_DATABASE_PASSWORD` and `MYSQL_PASSWORD`) to strong values before starting the stack.
 
 ```yaml
 version: '3.9'
@@ -42,6 +47,9 @@ services:
 
 ### Configuration Notes
 
+!!! warning "Minimum 4 GB RAM required"
+    PhotoPrism requires at least **4 GB of RAM**. Running on lower-spec hardware will cause crashes during photo indexing.
+
 - **Memory Management**: PhotoPrism should run on a server with at least 4 GB of RAM and sufficient swap space to handle large files and intensive processes without crashing.
 - **Security**: If deploying publicly, ensure that PhotoPrism is behind an HTTPS reverse proxy like Traefik or Caddy to secure your data and credentials.
 - **Database**: Using MariaDB provides better performance than SQLite and is recommended for production environments.
@@ -58,7 +66,7 @@ services:
    ```
 This command starts PhotoPrism in detached mode, running in the background.
 
-4. **Access PhotoPrism**: Once the services are up and running, you can access PhotoPrism through http://localhost:2342 or the domain you have configured.
+4. **Access PhotoPrism**: Once the services are up and running, you can access PhotoPrism through `http://<your-server-ip>:2342` or the domain you have configured. Update `PHOTOPRISM_SITE_URL` in your compose file to match the URL you use to access the instance.
 
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

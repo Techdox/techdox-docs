@@ -98,7 +98,8 @@ By default, authentik listens internally on port 9000 for HTTP and 9443 for HTTP
 
 ### Startup and Final Steps
 
-- **Important Note**: Authentik is designed to operate with its internal timezone set to UTC. Avoid altering timezone settings within the containers to prevent authentication issues.
+!!! warning "Do not change the timezone setting"
+    Authentik requires the container to run in **UTC**. Changing the timezone will cause authentication token validation failures.
 - Start Authentik:
   ```shell
   docker compose pull
@@ -125,9 +126,9 @@ By following these steps, you'll have Authentik up and running, ready to manage 
 
     Don't use this compose file, this is just a break down of the file you downloaded and are using.
 
-# Docker Compose Configuration for Authentik
+## Docker Compose Configuration for Authentik
 
-## Docker Compose File (`docker-compose.yml`)
+### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
 version: "3.4"

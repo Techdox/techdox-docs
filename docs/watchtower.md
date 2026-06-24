@@ -48,7 +48,12 @@ services:
 
 ## How Watchtower Works
 
-Once deployed, Watchtower automatically checks for updates to the images of all running containers at the specified interval. If a new image is found, Watchtower updates the container without downtime.
+!!! warning "Watchtower updates ALL containers by default"
+    By default, Watchtower will automatically update **every running container** on your Docker host. This includes stateful services where a version bump may cause data loss or breaking configuration changes.
+
+    To limit Watchtower to specific containers, add `--label-enable` to the command and add `com.centurylinklabs.watchtower.enable=true` as a label on containers you want to be monitored. Alternatively, use `com.centurylinklabs.watchtower.enable=false` to exclude specific containers.
+
+Once deployed, Watchtower automatically checks for updates to the images of all running containers at the specified interval. The default check interval is **24 hours**. Customise it with `--interval <seconds>`, for example `--interval 3600` for hourly checks. If a new image is found, Watchtower updates the container without downtime.
 
 Remember to ensure that your containers are configured to handle updates gracefully!
 

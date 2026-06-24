@@ -132,6 +132,10 @@ DEFAULT_LANGUAGE=en_US
 DEFAULT_LOCALE=equal
 TZ=Your/Timezone                           # Replace with your timezone, e.g., 'America/New_York'.
 TRUSTED_PROXIES=*
+
+!!! warning "Restrict TRUSTED_PROXIES in production"
+    Setting `TRUSTED_PROXIES=*` trusts all upstream IP addresses unconditionally. On publicly accessible instances, scope this to your specific reverse proxy IP or CIDR instead.
+
 LOG_CHANNEL=stack
 APP_LOG_LEVEL=notice
 AUDIT_LOG_LEVEL=emergency
@@ -212,6 +216,13 @@ FIREFLY_III_LAYOUT=v1
 > - Similarly, mail configurations and other optional settings can be adjusted based on your requirements.
 
 ### Setting Up the Cron Service
+
+!!! warning "Replace the cron token before deploying"
+    The `YOUR_32_CHAR_CRON_TOKEN` placeholder **must** be replaced with a real 32-character token before starting the stack. Deploying with the placeholder means all scheduled tasks (recurring transactions, auto-budgets, etc.) will **silently never run**.
+
+    Generate a token with: `openssl rand -hex 16`
+
+    Set the same token in the cron service command and in the Firefly III environment variables.
 
 The `cron` service schedules a daily task to trigger Firefly III's scheduled jobs. To set this up:
 

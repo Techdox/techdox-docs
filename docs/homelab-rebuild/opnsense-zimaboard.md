@@ -70,7 +70,7 @@ Connect monitor, keyboard, and USB stick to the Zimaboard. Power it on and boot 
 
 At the login prompt:
 
-```
+```text
 Username: installer
 Password: opnsense
 ```
@@ -135,12 +135,16 @@ Navigate to **Services → Dnsmasq DNS & DHCP → General** and configure:
 - **DHCP Range**: Set a start and end IP that leaves room for your static reservations outside the pool. Example: `192.168.1.100` to `192.168.1.250`
 - **DHCP Option 6** (DNS server): Point this at your Pi-hole IP. This tells every DHCP client to use Pi-hole for DNS.
 
-```
+```text
 Option: 6 (dns-server)
 Value: 192.168.1.x    ← your Pi-hole's IP
 ```
 
 - **Dnsmasq DNS listen port**: Leave at `53053` — this avoids conflicting with Pi-hole on port 53 if they're on the same host. Since Pi-hole is on a separate machine, this doesn't matter, but leaving it non-standard avoids confusion.
+
+!!! warning "Disable Unbound DNS to avoid port conflicts"
+    If you leave Unbound running alongside Pi-hole, both will compete for port 53, causing DNS resolution failures that are difficult to diagnose. Disable Unbound in OPNsense before pointing clients to Pi-hole.
+
 - **Disable Unbound DNS**: Go to **Services → Unbound DNS** and disable it. Pi-hole owns DNS in this setup; you don't want Unbound competing.
 
 ---

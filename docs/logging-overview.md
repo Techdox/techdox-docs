@@ -5,13 +5,20 @@ description: Welcome to the Logging section of our self-hosting documentation.
 
 # Logging in Self-Hosting
 
-Welcome to the Logging section of our self-hosting documentation.
+Centralised logging and metrics guides for homelabs — covering system metrics collection, log aggregation, and visualisation.
 
+<div class="grid cards" markdown>
 
+-   :material-monitor-dashboard:{ .lg .middle } __Node Exporter__
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+    ---
 
+    Install Prometheus Node Exporter as a systemd service to expose hardware and OS metrics for scraping.
+
+    [:octicons-arrow-right-24: Read guide](node-exporter.md)
+
+</div>
 
 ---
 
-If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).
+If there is an issue with this article or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).

@@ -1,6 +1,6 @@
 ---
 title: Setting Up GlusterFS with Docker Compose
-description: Gluster is a free and open source scalable network filesystem. Gluster is a scalable network filesystem.
+description: Set up GlusterFS on Ubuntu 22.04 to create a replicated, distributed filesystem shared across multiple nodes.
 ---
 
 # GlusterFS Setup
@@ -13,7 +13,8 @@ This guide is created for Ubuntu 22.04 jammy
 
 ## Steps to follow
 
-**<span style="color: rgb(241, 196, 15);">Run the following commands on all systems that will be utilising the share, as well as the host system.</span>**
+!!! warning "Run on all systems"
+    Run the following commands on all systems that will be utilising the share, as well as the host system.
 
 ### Adding Hosts to /etc/hosts
 
@@ -27,7 +28,7 @@ sudo nano /etc/hosts
 
 Add in your IP addresses and Hostnames of your machines that will be using GlusterFS, this is my example on my GlusterFS host machine, but remember to add this to all your nodes that will be using GlusterFS
 
-```python
+```text
 127.0.0.1 localhost
 127.0.1.1 elzim
 
@@ -65,7 +66,8 @@ sudo systemctl enable glusterd
 
 ### Peering the Nodes
 
-**<span style="color: rgb(241, 196, 15);">This command is only run on the host machine</span>**
+!!! warning "Host machine only"
+    This command is only run on the host machine.
 
 Before running the peering command, make sure you run it under sudo via
 
@@ -85,19 +87,22 @@ Running the below command will show your hosts now connected to the pool.
 sudo gluster pool list
 ```
 
-[![image.png](https://bookstack.elzim.xyz/uploads/images/gallery/2023-06/scaled-1680-/image.png)](https://bookstack.elzim.xyz/uploads/images/gallery/2023-06/image.png)
 
 ### Creating the Gluster Volume
 
-Let's create the directory that will be used for the GlusterFS volume - **<span style="color: rgb(241, 196, 15);">This is run on all nodes  
-</span>Note: You can name "volumes" to anything you like.<span style="color: rgb(241, 196, 15);">  
-</span>**
+Let's create the directory that will be used for the GlusterFS volume.
+
+!!! note "Run on all nodes"
+    This is run on all nodes. You can name "volumes" to anything you like.
 
 ```bash
 sudo mkdir -p /gluster/volumes
 ```
 
-Now we can create the volume across the Gluster pool - <span style="color: rgb(241, 196, 15);">**This is run just on the host**</span>
+Now we can create the volume across the Gluster pool.
+
+!!! warning "Host machine only"
+    This is run just on the host.
 
 ```bash
 sudo gluster volume create staging-gfs replica 3 elzim:/gluster/volumes pi4lab01:/gluster/volumes pi4lab02:/gluster/volumes force
@@ -118,7 +123,8 @@ To ensure the volume automatically mounts on reboot or other circumstances, foll
       echo 'localhost:/staging-gfs /mnt glusterfs defaults,_netdev,noauto,x-systemd.automount,backupvolfile-server=localhost 0 0' >> /etc/fstab
       ```
 
-      > **Note**: The `noauto,x-systemd.automount` options are important — they instruct systemd to delay the mount until the network and GlusterFS service are fully ready. Without them, the mount may fail after a reboot if GlusterFS hasn't finished starting up. If your mount fails after a reboot, manually running `mount /mnt` will recover immediately, but adding these options prevents the issue.
+      !!! warning "Use automount options for fstab entries"
+          Use the `noauto,x-systemd.automount` options in your fstab entry. An incorrect fstab entry can prevent your system from booting. Always test with `mount -a` before rebooting.
 
     - Mount the GlusterFS volume to the `/mnt` directory with the command: `mount.glusterfs localhost:/staging-gfs /mnt`.
     - Set the ownership of the `/mnt` directory and its contents to `root:docker` using: `chown -R root:docker /mnt`.
@@ -130,7 +136,7 @@ To verify that the GlusterFS volume is successfully mounted, run the command: `d
 localhost:/staging-gfs                 15G  4.8G  9.1G  35% /mnt
 ```
 
-Files created in the **/mnt** directory will now show up in the**/gluster/volumes** directorie on every machine.
+Files created in the **/mnt** directory will now show up in the **/gluster/volumes** directories on every machine.
 
 ## Youtube Video
 

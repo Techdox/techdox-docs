@@ -5,22 +5,81 @@ description: Welcome to the Docker Containers section of Techdox Docs. Here, you
 
 # Docker Containers
 
-Welcome to the Docker Containers section of Techdox Docs. Here, you'll find comprehensive documentation on each container we use and demonstrate on the Techdox YouTube channel. 
+Welcome to the Docker Containers section of Techdox Docs. Here, you'll find comprehensive documentation on each container we use and demonstrate on the Techdox YouTube channel.
 
-## Available Containers
+Browse by category below to find Docker Compose files, configuration details, and step-by-step setup guides.
 
-In this section, we cover a variety of Docker containers, each tailored to different self-hosting and technology needs. Below is a list of containers with dedicated documentation:
+<div class="grid cards" markdown>
 
-Explore these pages to find detailed information, Docker Compose files, and setup guides for each container.
+-   :material-shield-lock:{ .lg .middle } __Security & Authentication__
 
-## Why Docker?
+    ---
 
-Docker provides a convenient and efficient way to package, distribute, and manage applications. Our focus on Docker containers aims to simplify your tech journey, offering easy-to-follow guides and practical tips for deployment and maintenance.
+    2FAuth, AdGuard, Authentik, Headscale, Pangolin, Pocket ID, Safeline, WG-Easy, WireGuard
 
-Stay tuned for more containers and comprehensive guides!
+    [:octicons-arrow-right-24: Browse guides](authentik.md)
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+-   :material-folder-multiple:{ .lg .middle } __File Management__
 
+    ---
+
+    Chibisafe, Filebrowser, Matrix, Nextcloud, Syncthing
+
+    [:octicons-arrow-right-24: Browse guides](nextcloud.md)
+
+-   :material-backup-restore:{ .lg .middle } __Backup & Sync__
+
+    ---
+
+    Duplicati, Pairdrop
+
+    [:octicons-arrow-right-24: Browse guides](duplicati.md)
+
+-   :material-briefcase:{ .lg .middle } __Productivity__
+
+    ---
+
+    Docmost, Excalidraw, Firefly III, Focalboard, Karakeep, Joplin, Mealie, Memos, Peppermint
+
+    [:octicons-arrow-right-24: Browse guides](docmost.md)
+
+-   :material-play-circle:{ .lg .middle } __Media__
+
+    ---
+
+    Jellyfin, Logitech Media Server, PhotoPrism
+
+    [:octicons-arrow-right-24: Browse guides](jellyfin.md)
+
+-   :material-tools:{ .lg .middle } __Tools & Utilities__
+
+    ---
+
+    Dockpeek, Glance, Homepage, IT Tools, Linkstack, Paperless, PrivateBin, Stirling PDF, Tududi, MkDocs, FreshRSS, Wallos
+
+    [:octicons-arrow-right-24: Browse guides](glance.md)
+
+-   :material-chart-line:{ .lg .middle } __Monitoring & Management__
+
+    ---
+
+    Beszel, cAdvisor, Grafana, Loki & Promtail, Nexterm, Nginx Proxy Manager, Ntfy, Prometheus, Speedtest Tracker, Traefik, Uptime Kuma, Watchtower
+
+    [:octicons-arrow-right-24: Browse guides](grafana.md)
+
+-   :material-docker:{ .lg .middle } __Docker Management__
+
+    ---
+
+    Cosmos Cloud, Dockge
+
+    [:octicons-arrow-right-24: Browse guides](dockge.md)
+
+</div>
+
+## Prerequisites
+
+These guides assume **Docker** and **Docker Compose** are already installed on your system. If you need help getting started, the official [Docker installation docs](https://docs.docker.com/get-docker/) are the best reference.
 
 ---
 

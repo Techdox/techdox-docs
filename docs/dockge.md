@@ -15,14 +15,14 @@ Instead of directly using the setup from the project page, the following steps a
 
 1. **Create Dockge Directory**:
     Navigate to the directory where you keep your Docker containers. For example, if you store them in `~/Docker`, the commands would be:
-     ```shell
+     ```bash
      cd ~/Docker
      mkdir dockge && cd dockge
      ```
 
 2. **Link Your Containers Directory**:
     Check if `/opt/stacks` exists, and if not, create and link it to your containers' location:
-     ```shell
+     ```bash
      ls /opt/stacks # Check if it exists
      sudo mkdir -p /opt/stacks
      sudo ln -s <path-to-your-containers> /opt/stacks
@@ -33,9 +33,13 @@ Instead of directly using the setup from the project page, the following steps a
 
 3. **Download and Start Dockge**:
    Download the `compose.yaml` file and start the Dockge service:
-     ```shell
+     ```bash
      curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
      ```
+   Then start the stack:
+   ```bash
+   docker compose up -d
+   ```
 
 ### Docker Compose File (`docker-compose.yml`)
 
@@ -81,12 +85,11 @@ services:
 
 After deployment, use the Dockge web interface to manage your Docker containers, images, and stacks. The interface provides tools for monitoring, starting, stopping, and removing Docker components.
 
-##Youtube Video
+## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ephiayS50jM?si=oK3z6ogKzxRRqC9D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Acknowledgments
----
 
 **Shoutout to Archigos** for their awesome tips and insights that helped shape this guide! 🌟
 

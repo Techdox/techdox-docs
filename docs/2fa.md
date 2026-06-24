@@ -10,7 +10,7 @@ description: 2FAuth is a self-hosted application that enhances your security by 
 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
 
 !!! note
-    Offical documentaion for the Docker compose deployment can be found here - [2FAuth Docker Compose Installation Guide](https://docs.2fauth.app/getting-started/installation/docker/docker compose/)
+    Official documentation for the Docker compose deployment can be found here - [2FAuth Docker Compose Installation Guide](https://docs.2fauth.app/getting-started/installation/docker/docker compose/)
 
 ## Docker Compose Configuration
 
@@ -175,6 +175,13 @@ services:
 - **Environment Variables**: Provides detailed configuration for the app's operation, including:
   - `APP_NAME`: Customizable to change the name of your 2FAuth application.
   - `APP_KEY`: Critical for encryption; use `php artisan key:generate` to create a secure key.
+
+!!! tip "Generate your APP_KEY"
+    Generate a valid APP_KEY with this command:
+    ```bash
+    docker run --rm 2fauth/2fauth php artisan key:generate --show
+    ```
+    Copy the output (starting with `base64:`) into the `APP_KEY` environment variable.
   - `SITE_OWNER`: Your email address for site ownership verification.
   - `APP_URL` and `ASSET_URL`: Set these to match your installation's external address.
   - `LOG_CHANNEL` and `LOG_LEVEL`: Configure how and where your logs are stored and their verbosity.
@@ -185,7 +192,10 @@ services:
 ## Deployment Instructions
 
 1. **Prepare Environment**:
-   - Ensure the volume directory (`./2fauth`) exists on your host to store persistent data. Make this manually, otherwise it will be owned by root and it can lead to permission issues
+   - Ensure the volume directory (`./2fauth`) exists on your host to store persistent data.
+
+!!! warning
+    Create the `./2fauth` directory manually before starting the container. If Docker creates it automatically, it will be owned by root and can lead to permission issues.
 2. **Environment Configuration**:
    - Fill in or adjust the environment variables in the `docker-compose.yml` file as necessary. Pay special attention to secure values like `APP_KEY`.
 3. **Starting the Service**:

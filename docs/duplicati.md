@@ -3,17 +3,20 @@ title: Duplicati - Docker Setup
 description: Duplicati is a free and open-source backup software that allows you to securely store backups online in various standard protocols and services.
 ---
 
-# Duplicati - Docker Setup
-
 # Setting Up Duplicati with Docker Compose
 
-**Introduction to Duplicati:** Duplicati is a free and open-source backup software that allows you to securely store backups online in various standard protocols and services. It's known for its versatility and ease of use, providing features like encryption, compression, and scheduling.
+## Introduction
 
-**Docker Compose Configuration for Duplicati:**
+Duplicati is a free and open-source backup software that allows you to securely store backups online in various standard protocols and services. It's known for its versatility and ease of use, providing features like encryption, compression, and scheduling.
+
+## Docker Compose Configuration
 
 The following Docker Compose configuration will help you set up Duplicati in a Docker environment. This ensures a consistent and isolated setup for your backup needs.
 
-**Docker Compose File (docker-compose.yml):**
+## Docker Compose File (docker-compose.yml)
+
+!!! warning "Security implications of this configuration"
+    This compose file runs Duplicati as **root** (`PUID=0`, `PGID=0`) and mounts the **entire host filesystem** (`/:/source`). This gives Duplicati full read access to your system. Consider using a non-root UID and mounting only the specific directories you want to back up.
 
 ```yaml
 version: "2.1"
@@ -36,7 +39,7 @@ services:
 
 ```
 
-**Key Components of the Configuration:**
+## Key Components of the Configuration
 
 - **Image:** Utilizes the `lscr.io/linuxserver/duplicati:latest` image, ensuring you have the latest version of Duplicati.
 - **Container Name:** Sets the container's name to `duplicati` for easy identification and management.
@@ -51,13 +54,15 @@ services:
 - **Ports:** Maps port `8200` of the host to port `8200` of the container, facilitating access to the Duplicati web interface.
 - **Restart Policy:** The `unless-stopped` policy ensures that the container restarts automatically unless explicitly stopped.
 
-**Deploying Duplicati:**
+## Deploying Duplicati
 
 1. Save the above Docker Compose configuration in a `docker-compose.yml` file.
 2. Run `docker compose up -d` in the directory containing this file to start Duplicati in detached mode.
 3. Once running, access the Duplicati web interface via `http://<host-ip>:8200`.
 
-**Configuring and Using Duplicati:** After deployment, you can configure backup jobs, schedules, and destinations through the Duplicati web interface. Ensure to properly set up encryption and choose a reliable backup destination to secure your data.
+## Configuring and Using Duplicati
+
+After deployment, you can configure backup jobs, schedules, and destinations through the Duplicati web interface. Ensure to properly set up encryption and choose a reliable backup destination to secure your data.
 
 ## Youtube Video
 

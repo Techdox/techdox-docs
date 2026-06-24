@@ -14,6 +14,11 @@ Running WireGuard directly on OPNsense means your VPN lives at the kernel level 
 - UDP port 51820 accessible from the internet (you'll add the firewall rule below)
 - WireGuard client app on your devices ([iOS](https://apps.apple.com/app/wireguard/id1441195209), [Android](https://play.google.com/store/apps/details?id=com.wireguard.android), [macOS](https://apps.apple.com/app/wireguard/id1451685025))
 
+!!! warning "CGNAT will prevent external WireGuard connections"
+    WireGuard requires an inbound-reachable WAN IP. If your ISP uses CGNAT (carrier-grade NAT), external clients will not be able to connect.
+
+    To check: compare the WAN IP shown in OPNsense with your public IP at [whatismyip.com](https://www.whatismyip.com). If they differ, you're behind CGNAT. Consider using [Cloudflare Tunnels](cloudflare-tunnels.md) as an alternative.
+
 ---
 
 ## Why WireGuard on the Router?
@@ -71,7 +76,7 @@ The **Allowed IPs** field on each peer controls what traffic goes through the VP
 
 ### Full Tunnel (phone — all traffic via VPN)
 
-```
+```text
 Allowed IPs: 0.0.0.0/0, ::/0
 ```
 
@@ -79,7 +84,7 @@ All traffic — including regular browsing — routes through your home connecti
 
 ### Split Tunnel (laptop — homelab only)
 
-```
+```text
 Allowed IPs: 192.168.1.0/24, 10.10.10.0/24
 ```
 
@@ -163,9 +168,10 @@ This masquerades VPN client traffic behind your WAN IP so it can reach the inter
 
 ### macOS
 
-1. Open the WireGuard app (Mac App Store)
-2. Click **+** → **Add Empty Tunnel**
-3. Paste your peer config directly (copy from OPNsense peer view)
+1. In OPNsense, go to **VPN → WireGuard → Peers**, click the download icon next to your peer, and save the `.conf` file. Import this file into the macOS WireGuard app.
+2. Open the WireGuard app (Mac App Store)
+3. Click **+** → **Add Empty Tunnel**
+4. Paste your peer config directly (copy from OPNsense peer view)
 
 Alternatively, export the config file and drag it into the WireGuard app.
 

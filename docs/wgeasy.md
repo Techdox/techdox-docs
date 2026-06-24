@@ -10,6 +10,15 @@ description: WG-Easy is a simple, web-based management interface for WireGuard V
 
 WG-Easy is a simple, web-based management interface for WireGuard VPN, which simplifies the configuration and management of VPN connections. It provides a user-friendly web interface to configure your VPN without the need for complex command-line tools.
 
+## Prerequisites
+
+- Docker and Docker Compose installed
+- **Linux kernel 5.6+** with WireGuard support (or `wireguard-dkms` installed on older kernels)
+- UDP port 51820 open in your firewall
+
+!!! warning "Open UDP port 51820"
+    WG-Easy requires **UDP port 51820** to be open in both your host firewall and any upstream cloud security group or router port forwarding rules. Without this, WireGuard connections will fail silently.
+
 ## Docker Compose Configuration
 
 Here's how to deploy WG-Easy using Docker Compose, detailing each component of the configuration to ensure clarity and proper setup.
@@ -17,7 +26,6 @@ Here's how to deploy WG-Easy using Docker Compose, detailing each component of t
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
 services:
   wg-easy:
     image: ghcr.io/wg-easy/wg-easy  # The Docker image to use.

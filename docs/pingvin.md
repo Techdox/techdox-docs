@@ -5,6 +5,9 @@ description: Set up Pingvin Share, a lightweight self-hosted file sharing servic
 
 # Deploying Pingvin Share with Docker Compose
 
+!!! note "First-login setup wizard"
+    The first time you access Pingvin Share, you will be prompted to create an admin account and configure your instance through a setup wizard. Complete this before sharing the URL with others.
+
 ## Introduction to Pingvin Share
 
 Pingvin Share is a lightweight file sharing service, making it easy to host and share files through a simple and intuitive web interface. This guide will walk you through setting up Pingvin Share on your server using Docker Compose.
@@ -16,7 +19,6 @@ Pingvin Share is a lightweight file sharing service, making it easy to host and 
 Here's the Docker Compose configuration for deploying Pingvin Share:
 
 ```yaml
-version: '3.8'
 services:
   pingvin-share:
     image: stonith404/pingvin-share

@@ -65,7 +65,7 @@ sudo nano /etc/systemd/system/node_exporter.service
 ```
 
 Then, paste the following configuration:
-```bash
+```ini
 [Unit]
 Description=Node Exporter
 Wants=network-online.target

@@ -40,6 +40,9 @@ volumes:
   linkstack:
 ```
 
+!!! tip "Update the server admin email"
+    Replace `[email protected]` with your own email address for server administration notifications.
+
 ## Key Components of the Configuration
 ### Service: Linkstack
 - **Image**: `linkstackorg/linkstack` is the Docker image used for Linkstack.
@@ -64,7 +67,13 @@ volumes:
 
 ## Configuring and Using Linkstack
 
-After deployment, configure Linkstack through its web interface to start organizing and managing your web links.
+Linkstack lets you create a shareable link-in-bio page. After first login:
+
+1. Go to **Admin Panel → Profile** to set your username and public URL
+2. Use the **+ Add Link** button to add links to your page
+3. Share your page at `https://your-domain.com/@username`
+
+For custom domains, uncomment and set the `HTTP_SERVER_NAME` and `HTTPS_SERVER_NAME` environment variables in your compose file to your actual domain.
 
 ## Youtube Video
 

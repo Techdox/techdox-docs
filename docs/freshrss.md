@@ -7,7 +7,7 @@ description: FreshRSS is a self-hosted RSS feed aggregator. It is lightweight, e
 
 ## Introduction to FreshRSS
 
-FreshRSS is a self-hosted RSS feed aggregator. It is lightweight, easy to work with, and allows you to keep all your favorite news feeds and blogs organized in one place.
+FreshRSS is a self-hosted RSS feed aggregator — a privacy-respecting alternative to Google Reader or Feedly. It supports multiple users, extensions, and a clean reading interface accessible from any browser or RSS client.
 
 ## Docker Compose Configuration for FreshRSS
 
@@ -36,6 +36,9 @@ services:
 
 ### Environment Variables
 - **PUID=1000 and PGID=1000**: Set user and group IDs for file permissions.
+
+!!! tip "What are PUID and PGID?"
+    `PUID` and `PGID` map container file permissions to your host user. They should match the user who owns the data directory. Find your values with: `id $(whoami)`
 - **TZ=Etc/UTC**: Sets the container's timezone.
 
 ### Volumes
@@ -43,6 +46,9 @@ services:
 
 ### Ports
 - **80:80**: Maps port 80 of the host to port 80 of the container, allowing web access to FreshRSS.
+
+!!! warning "Port 80 conflict"
+    Port 80 is commonly used by other web services on a homelab (Nginx Proxy Manager, Traefik, etc.). If you have a conflict, change the host-side port, e.g. `8080:80`, or place FreshRSS behind a reverse proxy.
 
 ### Restart Policy
 - **unless-stopped**: Ensures the container restarts automatically unless explicitly stopped.
@@ -56,7 +62,11 @@ services:
 
 ## Configuring and Using FreshRSS
 
-After deployment, access the FreshRSS web interface to configure your feeds, categories, and reading preferences. Ensure you manage user accounts and settings as required.
+After navigating to `http://<your-server-ip>:<port>`:
+
+1. Complete the **installation wizard** — create your admin account and choose a database (SQLite is fine for personal use)
+2. Go to **Subscription → Add a feed** to add your first RSS source
+3. Use **Settings → Authentication** to create additional user accounts if needed
 
 ## Youtube Video
 

@@ -553,7 +553,7 @@ docker compose ps
 
 Expected output:
 
-```
+```text
 NAME             STATUS
 postgres         running (healthy)
 synapse          running (healthy)
@@ -599,7 +599,7 @@ NPM passes the `Host` header through by default — Caddy uses it to route each 
 
 Add local DNS records pointing all five domains at your NPM host IP (not your server IP — your NPM host IP):
 
-```
+```text
 matrix.example.com      → NPM host IP
 element.example.com     → NPM host IP
 call.example.com        → NPM host IP
@@ -683,11 +683,16 @@ curl -I https://call.example.com/
 
 ## Keeping Up to Date
 
+!!! warning "Back up before upgrading"
+    Synapse upgrades can include database migrations that are irreversible. **Back up your Postgres volume** and review the [Synapse changelog](https://github.com/element-hq/synapse/releases) before running `docker compose pull && docker compose up -d`.
+
 ```bash
 cd /opt/matrix
 docker compose pull
 docker compose up -d
 ```
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

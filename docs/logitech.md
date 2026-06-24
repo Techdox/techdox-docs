@@ -9,11 +9,17 @@ description: Logitech Media Server (LMS) is a software that powers audio streami
 
 Logitech Media Server (LMS) is a software that powers audio streaming to Logitech Squeezebox players. It allows you to listen to your music collection anywhere in your home, controlling it with a mobile device or computer.
 
+!!! note "Squeezebox hardware is discontinued"
+    Logitech discontinued Squeezebox hardware in 2012. LMS is now community-maintained and also works with software players such as [Squeezelite](https://github.com/ralph-irving/squeezelite).
+
 ## Docker Compose Configuration for LMS
 
 This Docker Compose setup deploys Logitech Media Server in a Docker container, ensuring a reliable and dedicated environment for your music streaming needs.
 
 ### Docker Compose File (`docker-compose.yml`)
+
+!!! warning "Replace all path placeholders before running"
+    Replace every `/<somewhere>` in the compose file with an **absolute path** on your host. For example: `/opt/logitech-media-server/data`.
 
 ```yaml
 version: '3'

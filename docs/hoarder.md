@@ -74,6 +74,10 @@ MEILI_MASTER_KEY=YourMeiliMasterKey
 NEXTAUTH_URL=http://yourdomain.com:3000
 ```
 
+!!! warning "Replace all secret values before deploying"
+    Both `NEXTAUTH_SECRET` and `MEILI_MASTER_KEY` must be replaced with securely generated random values. Deploying with placeholder values makes authentication insecure.
+    Generate values with: `openssl rand -hex 32`
+
 - Replace `YourRandomSecureKey` with a securely generated secret (e.g., using `openssl rand -base64 36`).
 - Replace `YourMeiliMasterKey` with a securely generated key for MeiliSearch.
 - Update `NEXTAUTH_URL` with your domain or IP address and port.

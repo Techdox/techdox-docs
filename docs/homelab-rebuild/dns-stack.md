@@ -13,11 +13,14 @@ Most home networks send DNS queries to Cloudflare (1.1.1.1) or Google (8.8.8.8).
 - OPNsense router (see [OPNsense on Zimaboard 2](opnsense-zimaboard.md)) — or any router that lets you configure DHCP option 6 and run Unbound
 - Basic familiarity with Pi-hole's admin interface
 
+!!! warning "Pi-hole requires a static IP"
+    Pi-hole must have a **static IP address or DHCP reservation** before you configure it as your network's DNS server. A changing DHCP lease will break DNS resolution for all devices on your network.
+
 ---
 
 ## Architecture
 
-```
+```text
 Client device
     ↓ (DNS via DHCP option 6)
 Pi-hole (192.168.1.x)
@@ -64,7 +67,7 @@ In Pi-hole's admin interface: **Settings → DNS → Upstream DNS Servers**
 - Uncheck all public resolvers (Cloudflare, Google, Quad9, OpenDNS)
 - Under **Custom**, enter your OPNsense LAN IP with port 53:
 
-```
+```text
 192.168.1.1#53
 ```
 

@@ -5,6 +5,9 @@ description: Memos is a self-hosted note-taking application that offers a conven
 
 # Setting Up Memos with Docker Compose
 
+!!! warning "Disable open registration for public instances"
+    Memos allows open registration by default. If your instance is accessible from the internet, go to **Settings → System** and disable **Allow user registration** after creating your account.
+
 ## Introduction to Memos
 
 Memos is a self-hosted note-taking application that offers a convenient way to organize and store personal notes, memos, and other pieces of information.
@@ -16,7 +19,6 @@ This Docker Compose setup deploys Memos in a Docker container, providing an easy
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: "3.0"
 services:
   memos:
     image: neosmemo/memos:latest
@@ -25,6 +27,7 @@ services:
       - ~/.memos/:/var/opt/memos
     ports:
       - 5230:5230
+    restart: unless-stopped
 ```
 
 ## Key Components of the Configuration
@@ -33,6 +36,10 @@ services:
 - **Image**: `neosmemo/memos:latest` is the Docker image used for Memos.
 - **Volumes**: 
   - `~/.memos/:/var/opt/memos` maps a local directory (`~/.memos/`) to the container's data storage directory (`/var/opt/memos`). This is where Memos stores its data.
+
+!!! tip "Use an absolute path for the data volume"
+    The `~/.memos/` path may behave unexpectedly with rootless Docker or systemd-managed services. Replace it with an absolute path, e.g. `/opt/memos/data:/var/opt/memos`.
+
 - **Ports**: 
   - `5230:5230` maps port 5230 on the host to port 5230 in the container, where Memos's web interface is accessible.
 

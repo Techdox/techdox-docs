@@ -5,7 +5,10 @@ description: Current RackNerd VPS, shared, and reseller hosting deals with affil
 
 # RackNerd Hosting Deals
 
-[RackNerd](https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz) offer some of the best value hosting deals around, perfect for spinning up a VPS for self-hosted services, a cheap homelab node, or a test environment. The deals below are the current live offers.
+[RackNerd](https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz) offer some of the best value hosting deals around, perfect for spinning up a VPS for self-hosted services, a cheap homelab node, or a test environment. RackNerd is a budget hosting provider known for frequent flash sales and consistently low annual pricing on KVM VPS plans. For homelab users who want a remote node, offsite backup target, or a place to run lightweight self-hosted services without the overhead of cloud giants, their plans offer excellent bang for your buck. The deals below are the current live offers.
+
+!!! note
+    Prices and specs are subject to change. Verify current details on RackNerd's site before purchasing. These are affiliate links — using them supports Techdox at no extra cost to you.
 
 ---
 
@@ -135,9 +138,6 @@ description: Current RackNerd VPS, shared, and reseller hosting deals with affil
 [Get this deal](https://my.racknerd.com/aff.php?aff=5792&pid=938){ .md-button }
 
 ---
-
-!!! note
-    Prices and specs are subject to change. Verify current details on RackNerd's site before purchasing. These are affiliate links — using them supports Techdox at no extra cost to you.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

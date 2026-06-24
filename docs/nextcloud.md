@@ -15,16 +15,17 @@ This setup includes Nextcloud and a MariaDB database, ensuring an isolated and m
 
 ### Docker Compose File (`docker-compose.yml`)
 
-```yaml
-version: '2'
+!!! note "MariaDB version"
+    This guide uses `mariadb:lts` (Long Term Support). The previously referenced `10.6` tag reached end-of-life in July 2024.
 
+```yaml
 volumes:
   nextcloud:
   db:
 
 services:
   db:
-    image: mariadb:10.6
+    image: mariadb:lts
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
@@ -59,7 +60,7 @@ services:
 
 ### Services
 #### `db`
-- **Image**: `mariadb:10.6`
+- **Image**: `mariadb:lts`
 - **Restart**: Always ensures the container restarts after a crash or reboot.
 - **Command**: Configures MariaDB for optimal use with Nextcloud.
 - **Volumes**: Maps `db` volume to MariaDB data directory.
@@ -79,6 +80,11 @@ services:
 2. Replace `<ENTER PASSWORD HERE>` with your chosen passwords.
 3. Run `docker compose up -d` to start Nextcloud in detached mode.
 4. Access Nextcloud via `http://<host-ip>:8080`.
+
+!!! warning "Trusted domains configuration"
+    Accessing Nextcloud from any address other than `localhost` will return a **400 Bad Request** error until you add your domain or IP to the trusted domains list.
+
+    Set the `NEXTCLOUD_TRUSTED_DOMAINS` environment variable in your compose file, or edit `config/config.php` inside the data volume to add your hostname to the `trusted_domains` array.
 
 ## Configuring and Using Nextcloud
 

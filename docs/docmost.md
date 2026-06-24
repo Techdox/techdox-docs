@@ -82,6 +82,12 @@ volumes:
 
 ## Preparing for Deployment
 
+!!! warning "Set APP_SECRET before first start"
+    The `APP_SECRET` placeholder must be replaced with a secure random value before starting Docmost. The service will not function with a blank or placeholder secret. Generate one with: `openssl rand -hex 32`
+
+!!! tip "Passwords must match"
+    `STRONG_DB_PASSWORD` appears in both the `docmost` and `db` service blocks. **Both must be set to the same value** before deployment.
+
 1. **Generate a Secure App Secret**: Run `openssl rand -hex 32` to generate a secure value for `APP_SECRET`. Ensure this value is set; leaving it empty will cause deployment to fail.
    
 2. **Set the App URL**: Replace `APP_URL` with your chosen domain (e.g., `https://docmost.example.com`) or local IP and port. Using a reverse proxy, even for local setups, is recommended for security and accessibility.

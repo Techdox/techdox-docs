@@ -33,7 +33,7 @@ The last point is important for mobile broadband or ISPs using Carrier-Grade NAT
 
 ## How It Works
 
-```
+```text
 Your service (e.g., port 8080 on your server)
     ↑
 cloudflared daemon (running on your server or network)
@@ -49,7 +49,7 @@ The `cloudflared` process maintains a persistent outbound connection to Cloudfla
 
 ## Setup Overview
 
-For detailed first-time setup, follow [Cloudflare's official tunnel documentation](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/). The steps below assume you're familiar with the basics.
+The steps below cover the CLI-based setup. For the dashboard workflow, refer to [Cloudflare's documentation](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/).
 
 ### 1. Install cloudflared
 
@@ -64,6 +64,9 @@ services:
     environment:
       - TUNNEL_TOKEN=your_tunnel_token_here
 ```
+
+!!! warning "Protect your tunnel token"
+    Your tunnel token grants full control of the Cloudflare Tunnel. **Never commit it to version control.** Store it in a `.env` file and add `.env` to your `.gitignore`.
 
 **Or as a binary on the host**:
 

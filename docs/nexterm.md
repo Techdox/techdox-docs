@@ -54,15 +54,20 @@ This command will start the Nexterm service in detached mode, running it in the 
 
 After deployment, you can access the Nexterm interface by navigating to:
 
-```
+```text
 http://<your-server-ip>:6989
 ```
 
 From here, you can manage your SSH, VNC, and RDP connections using Nexterm's unified interface.
 
+!!! tip "Check for newer releases"
+    The image tag above may not be the latest version. Check the [Nexterm releases page](https://github.com/gnmyt/Nexterm/releases) and update the tag to the current release.
+
 ## Conclusion
 
 Nexterm is an excellent solution for managing multiple remote connection protocols (SSH, VNC, RDP) in one place. By following this guide, you can deploy Nexterm using Docker Compose and ensure that your configuration and data are stored persistently using Docker volumes.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

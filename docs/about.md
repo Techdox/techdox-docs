@@ -23,6 +23,10 @@ At Techdox Docs, you'll find:
 
 Follow the Techdox YouTube channel to stay updated with the latest tech tutorials and guides. Your support and feedback drive our content and help us in delivering quality tech education.
 
+- :fontawesome-brands-youtube:{ style="color: #ff0000" } **[YouTube](https://www.youtube.com/@techdox)** — Watch the latest tutorials and homelab walkthroughs
+- :fontawesome-brands-discord:{ style="color: #5865f2" } **[Discord](http://discord.com/invite/8mX2KRxDw8)** — Join the community, ask questions, share your builds
+- :fontawesome-brands-github: **[GitHub](https://github.com/Techdox/techdox-docs)** — Contribute, report issues, or suggest a guide
+
 ---
 
 Techdox Docs - Bridging the gap between theory and practice in the world of containerization and self-hosting.

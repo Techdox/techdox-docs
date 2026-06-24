@@ -113,10 +113,8 @@ pages:
                 name: AMD
 ```
 
-**Note**:
-- Customize the `glance.yml` file based on your preferences.
-- Widgets are organized under pages and columns with options for size and type.  
-[See the Glance documentation for more info on widgets](https://github.com/glanceapp/glance/blob/main/docs/configuration.md).
+!!! tip "The example config is personalised — customise it for your setup"
+    The `glance.yml` above uses the author's personal defaults (location, Twitch streamers, etc.). Replace all values with your own. See the [Glance widget documentation](https://github.com/glanceapp/glance) for all available widget types and options.
 
 ## Deployment Steps
 
@@ -130,7 +128,7 @@ To deploy Glance, follow these steps:
    This command will start the Glance container in detached mode.
 
 3. **Verify Deployment**: Check that the Glance service is running by accessing:
-   ```bash
+   ```text
    http://<your-server-ip>:8280
    ```
 

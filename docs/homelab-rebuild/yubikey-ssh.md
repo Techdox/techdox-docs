@@ -128,7 +128,7 @@ Navigate to **System → Access → Users**, edit your user, and paste the publi
 
 Create or update `~/.ssh/config` to make connections convenient:
 
-```
+```text
 Host *
     IdentityFile ~/.ssh/id_ed25519_yubikey
     IdentitiesOnly yes
@@ -184,10 +184,13 @@ sudo nano /etc/ssh/sshd_config
 
 Set:
 
-```
+```text
 PasswordAuthentication no
 PubkeyAuthentication yes
 ```
+
+!!! warning "Verify YubiKey auth before closing your session"
+    **Do not close your current SSH session** until you have successfully authenticated using your YubiKey from a **separate terminal window**. If key auth fails and you close this session, you will be locked out.
 
 Restart SSH:
 

@@ -82,6 +82,9 @@ LuLu prompts you every time a new application attempts an outbound network conne
 
 On first install, you'll get a flurry of prompts as LuLu learns your existing apps. After the initial approval phase, it's quiet.
 
+!!! tip "What to approve during LuLu's learning phase"
+    During the initial learning phase, **allow everything you recognise**. It is much easier to tighten rules later than to diagnose a broken app you accidentally blocked. Focus on blocking items you don't recognise.
+
 ### BlockBlock — Persistence Monitor
 
 [Download BlockBlock](https://objective-see.org/products/blockblock.html)
@@ -93,6 +96,9 @@ Malware often survives reboots by installing persistence mechanisms (launch agen
 [Download KnockKnock](https://objective-see.org/products/knockknock.html)
 
 Run this quarterly as an audit tool (it's not a background daemon). It scans all persistence locations and shows everything that runs at startup, with VirusTotal ratings for unknown items.
+
+!!! tip "Most KnockKnock findings are legitimate"
+    Most items KnockKnock lists are **legitimate macOS system components or app launch agents**. Focus on entries you don't recognise or those with no code signature. Don't delete anything unless you're certain it's malicious.
 
 ### OverSight — Mic and Camera Monitor
 
@@ -129,6 +135,8 @@ macOS lets you have multiple user accounts. The recommended setup:
 2. **Standard account** — your daily driver. Apps run with limited permissions.
 
 This limits the blast radius of any compromised app or browser exploit — it runs as a standard user, not an admin.
+
+To create a Standard account: go to **System Settings → Users & Groups → Add Account**, set the account type to **Standard**, and use that account for daily work. Keep your admin account for system changes only.
 
 ---
 
