@@ -1,3 +1,7 @@
+---
+title: Setting Up Headscale with Docker Compose
+description: Step-by-step guide to deploying Headscale, an open-source self-hosted Tailscale control server, using Docker Compose.
+---
 
 # Setting Up Headscale with Docker Compose
 
