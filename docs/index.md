@@ -1,48 +1,74 @@
 ---
 title: Techdox Docs | Self-Hosting and Docker Tutorials
-description: Explore practical guides, Docker Compose tutorials, and self-hosting resources to complement the Techdox YouTube channel. Your ultimate hub for tech enthusiasts.
+description: Practical self-hosting guides, Docker Compose tutorials, and homelab resources for the Techdox community.
 ---
 
-# Techdox Docs: Self-Hosting and Docker Tutorials
+# Techdox Docs
 
-Welcome to **Techdox Docs**, the go-to resource for mastering **self-hosting**, **Docker**, and all things tech. Whether you're just starting out or looking to fine-tune your setup, our practical guides and resources will help you succeed.
+<p class="tx-tagline">Your hub for self-hosting, Docker, and homelab builds — written to go deeper than the video.<br><em>Break things, start small, document everything.</em></p>
 
-## Explore Techdox Docs
+<div class="grid cards" markdown>
 
-Dive into a variety of resources tailored for tech enthusiasts and self-hosters:
+-   :material-docker:{ .lg .middle } __Docker Containers__
 
-- **Step-by-Step Self-Hosting Tutorials**  
-  Learn how to set up, manage, and optimize your services with in-depth guides that expand on our [YouTube tutorials](https://www.youtube.com/@techdox).
+    ---
 
-- **Comprehensive Docker Compose Files**  
-  Save time with our library of ready-to-use Docker Compose configurations.
+    Step-by-step setup guides for 40+ self-hosted services — authentication, media, monitoring, productivity, and more.
 
-- **Expert Tips and Best Practices**  
-  Discover tips for managing your services efficiently and securely.
+    [:octicons-arrow-right-24: Browse guides](docker-containers.md)
 
-- **Tech Skills Development**  
-  Sharpen your skills with practical advice and hands-on projects.
+-   :material-home-analytics:{ .lg .middle } __Homelab Rebuild__
 
-## Support Our Work
+    ---
 
-Love our content? Help us keep creating high-quality guides!  
-Your support allows us to bring you more tutorials and resources. 
+    A full homelab rebuild from scratch — OPNsense, Pi-hole, WireGuard, YubiKey SSH, Cloudflare Tunnels, and macOS hardening.
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+    [:octicons-arrow-right-24: Read the series](homelab-rebuild/index.md)
+
+-   :material-lan:{ .lg .middle } __Networking__
+
+    ---
+
+    Networking guides for homelab infrastructure, including GlusterFS distributed storage.
+
+    [:octicons-arrow-right-24: Networking guides](networking-overview.md)
+
+-   :material-chart-line:{ .lg .middle } __Logging & Metrics__
+
+    ---
+
+    Centralised logging and metrics with Node Exporter, Prometheus, Loki, and Grafana.
+
+    [:octicons-arrow-right-24: Logging guides](logging-overview.md)
+
+-   :material-book-open-variant:{ .lg .middle } __General Guides__
+
+    ---
+
+    Standalone how-tos that don't fit a single category — Pi-hole, Nginx Proxy Manager, and more.
+
+    [:octicons-arrow-right-24: General guides](general-guides.md)
+
+-   :material-heart:{ .lg .middle } __Support & Resources__
+
+    ---
+
+    RackNerd VPS deals, merch, and ways to support the channel to keep the guides coming.
+
+    [:octicons-arrow-right-24: Get involved](support.md)
+
+</div>
+
+---
 
 ## Connect with Techdox
 
-Stay in the loop and connect with our community:
-
-- **[Join Our Discord Community](http://discord.com/invite/8mX2KRxDw8):** Exchange ideas and insights with fellow self-hosters.
-- **[Subscribe to Techdox on YouTube](https://www.youtube.com/@techdox):** Watch our latest tutorials and walkthroughs.
-- **[Share Feedback or Contribute](mailto:admin@techdox.nz):** Have suggestions? Want to contribute? We'd love to hear from you.
+- :fontawesome-brands-youtube:{ style="color: #ff0000" } **[YouTube](https://www.youtube.com/@techdox)** — Watch the latest tutorials and homelab walkthroughs
+- :fontawesome-brands-discord:{ style="color: #5865f2" } **[Discord](http://discord.com/invite/8mX2KRxDw8)** — Join the community, ask questions, share your builds
+- :fontawesome-brands-github: **[GitHub](https://github.com/Techdox/techdox-docs)** — Contribute, report issues, or suggest a guide
 
 ---
 
-Thank you for visiting **Techdox Docs**! Your journey into self-hosting and tech mastery starts here. Ready to explore?
+Found something helpful? Support the work and keep the guides coming.
 
----
-
-### Feedback or Suggestions?
-Help us improve by raising an issue on [GitHub](https://github.com/Techdox/techdox-docs) or sending us an email. Your contributions make Techdox Docs better for everyone!
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

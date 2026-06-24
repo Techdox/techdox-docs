@@ -1,3 +1,9 @@
+---
+title: Access Pi-hole via Nginx Proxy Manager
+description: How to configure Nginx Proxy Manager to proxy Pi-hole, including domain setup, SSL, and custom location configuration.
+---
+
+# Access Pi-hole via Nginx Proxy Manager
 
 To add Pi-hole to Nginx Proxy Manager, you can follow these steps:
 

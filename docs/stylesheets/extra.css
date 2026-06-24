@@ -1,0 +1,213 @@
+/* ─────────────────────────────────────────────────────────────
+   Techdox Docs — Custom Theme
+   Brand: sky blue #0099ff on dark backgrounds
+   ───────────────────────────────────────────────────────────── */
+
+/* ─── Brand colour overrides ─────────────────────────────── */
+[data-md-color-primary="light-blue"] {
+  --md-primary-fg-color:              #0099ff;
+  --md-primary-fg-color--light:       rgba(0, 153, 255, 0.12);
+  --md-primary-fg-color--dark:        #0077cc;
+  --md-primary-bg-color:              #ffffff;
+  --md-primary-bg-color--light:       rgba(255, 255, 255, 0.7);
+}
+
+[data-md-color-accent="cyan"] {
+  --md-accent-fg-color:               #00c8ff;
+  --md-accent-fg-color--transparent:  rgba(0, 200, 255, 0.1);
+}
+
+/* ─── Dark mode: GitHub-dark depth ───────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:              #0d1117;
+  --md-default-bg-color--light:       #161b22;
+  --md-default-bg-color--lighter:     #1c2128;
+  --md-default-bg-color--lightest:    #21262d;
+  --md-code-bg-color:                 #161b22;
+  --md-code-fg-color:                 #e6edf3;
+  --md-typeset-color:                 #c9d1d9;
+  --md-typeset-a-color:               #0099ff;
+}
+
+/* ─── Header: deep dark + blue underline ─────────────────── */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #010409;
+  box-shadow: 0 1px 0 rgba(0, 153, 255, 0.25);
+}
+
+[data-md-color-scheme="slate"] .md-header__title {
+  color: #e6edf3;
+}
+
+/* ─── Navigation tabs ─────────────────────────────────────── */
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #0d1117;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.md-tabs__link {
+  opacity: 0.75;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link--active {
+  color: #0099ff !important;
+  border-bottom: 2px solid #0099ff;
+  opacity: 1;
+}
+
+/* ─── Sidebar ─────────────────────────────────────────────── */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background-color: #0d1117;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar__scrollwrap {
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #0099ff;
+}
+
+/* ─── Search box ──────────────────────────────────────────── */
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 153, 255, 0.2);
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+[data-md-color-scheme="slate"] .md-search__form:focus-within {
+  border-color: rgba(0, 153, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+/* ─── Inline code ─────────────────────────────────────────── */
+[data-md-color-scheme="slate"] .md-typeset code:not(.highlight code) {
+  background-color: rgba(0, 153, 255, 0.08);
+  color: #79c0ff;
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+}
+
+/* ─── Code blocks ─────────────────────────────────────────── */
+[data-md-color-scheme="slate"] .highlight,
+[data-md-color-scheme="slate"] .highlight pre {
+  background-color: #161b22;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre > code {
+  border-radius: 6px;
+}
+
+/* ─── Grid cards: brand hover glow ───────────────────────── */
+.md-typeset .grid.cards > :is(ul, ol) > li {
+  border: 1px solid rgba(0, 153, 255, 0.18);
+  border-radius: 8px;
+  transition: border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              transform 0.15s ease;
+}
+
+.md-typeset .grid.cards > :is(ul, ol) > li:hover {
+  border-color: rgba(0, 153, 255, 0.5);
+  box-shadow: 0 4px 24px rgba(0, 153, 255, 0.13),
+              0 1px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Admonitions: note uses brand blue ──────────────────── */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: #0099ff;
+}
+
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: rgba(0, 153, 255, 0.1);
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+  background-color: #0099ff;
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #010409;
+  border-top: 1px solid rgba(0, 153, 255, 0.15);
+}
+
+[data-md-color-scheme="slate"] .md-footer-meta {
+  background-color: #010409;
+}
+
+/* ─── TOC: active heading highlight ──────────────────────── */
+[data-md-color-scheme="slate"] .md-nav__link--active.md-nav__link {
+  color: #0099ff;
+  font-weight: 600;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+.md-typeset .md-button {
+  border-radius: 6px;
+  font-weight: 600;
+  transition: box-shadow 0.2s;
+}
+
+.md-typeset .md-button--primary {
+  background-color: #0099ff;
+  border-color: #0099ff;
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: #0077cc;
+  border-color: #0077cc;
+  box-shadow: 0 4px 16px rgba(0, 153, 255, 0.35);
+}
+
+/* ─── Scrollbar: subtle brand tint in dark mode ──────────── */
+[data-md-color-scheme="slate"] {
+  scrollbar-color: rgba(0, 153, 255, 0.25) transparent;
+  scrollbar-width: thin;
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 153, 255, 0.25);
+  border-radius: 3px;
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ─── Homepage: hero tagline ──────────────────────────────── */
+.tx-tagline {
+  font-size: 1.05rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 153, 255, 0.15);
+}
+
+[data-md-color-scheme="slate"] .tx-tagline {
+  color: #8b949e;
+}
+
+.tx-tagline em {
+  color: #0099ff;
+  font-style: normal;
+  font-weight: 600;
+}

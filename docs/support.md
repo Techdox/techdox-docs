@@ -1,3 +1,7 @@
+---
+title: Support Techdox Docs
+description: Support Techdox Docs through donations or buying a coffee to help maintain and expand our self-hosting and Docker guides.
+---
 
 # Support Techdox Docs
 

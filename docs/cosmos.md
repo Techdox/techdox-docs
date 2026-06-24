@@ -1,3 +1,7 @@
+---
+title: Deploying Cosmos Cloud Server with Docker
+description: Learn how to deploy Cosmos Cloud Server with Docker — an intuitive platform for managing containers, services, and self-hosted apps.
+---
 
 # Deploying Cosmos Cloud Server with Docker
 

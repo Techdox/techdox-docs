@@ -1,3 +1,7 @@
+---
+title: Deploying Pingvin Share with Docker Compose
+description: Set up Pingvin Share, a lightweight self-hosted file sharing service, using Docker Compose.
+---
 
 # Deploying Pingvin Share with Docker Compose
 

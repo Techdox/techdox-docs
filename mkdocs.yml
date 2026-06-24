@@ -1,5 +1,10 @@
 site_name: Techdox Docs
 site_url: https://docs.techdox.nz
+site_description: Practical self-hosting guides, Docker Compose tutorials, and homelab resources for the Techdox community.
+site_author: Techdox
+repo_url: https://github.com/Techdox/techdox-docs
+repo_name: Techdox/techdox-docs
+edit_uri: edit/main/docs/
 nav:
   - Home: index.md
   - Docker Containers:
@@ -100,29 +105,48 @@ theme:
   favicon: favicon.png
   features:
     - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - content.code.copy
+    - content.action.edit
+    - content.tooltips
     - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
 
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: blue
+      scheme: default
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
 
 plugins:
-    - social
+    - social:
+        cards_layout_options:
+          background_color: "#1e2030"
+          color: "#ffffff"
     - search
     - git-revision-date-localized:
         enable_creation_date: true
         type: timeago
+    - minify:
+        minify_html: true
 markdown_extensions:
 
   # Python Markdown
@@ -168,4 +192,7 @@ extra:
       link: https://discord.com/invite/8mX2KRxDw8
     - icon: fontawesome/brands/github
       link: https://github.com/Techdox/techdox-docs
-copyright: Copyright &copy; 2024 Techdox
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2025 Techdox
