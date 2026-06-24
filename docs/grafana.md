@@ -45,9 +45,17 @@ volumes:
 2. Run `docker compose up -d` to start Grafana in detached mode.
 3. Access Grafana by navigating to `http://<host-ip>:3000`.
 
+!!! note "Default credentials"
+    Grafana's default login is `admin` / `admin`. You will be prompted to change the password on first login.
+
 ## Configuring and Using Grafana
 
-After deployment, configure Grafana through its web interface to connect to your data sources, create dashboards, and set up alerts.
+After logging in:
+
+1. Go to **Connections → Data Sources → Add data source**
+2. Select **Prometheus** and set the URL to `http://<prometheus-host-ip>:9090`
+3. Click **Save & Test** to verify the connection
+4. Go to **Dashboards → Import** and enter a community dashboard ID (e.g. `1860` for the Node Exporter Full dashboard)
 
 ## Youtube Video
 

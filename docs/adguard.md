@@ -15,6 +15,9 @@ To install and run AdGuard using Docker, you can use the following command. This
 
 ### Docker Run Command
 
+!!! warning "Replace the IP address"
+    The IP address `192.168.68.110` in this command is the author's private server IP. Replace it with your own server's IP address before running.
+
 ```bash
 docker run --name adguardhome \
     --restart unless-stopped \
@@ -27,6 +30,9 @@ docker run --name adguardhome \
     -p 5443:5443/tcp -p 5443:5443/udp \
     -d adguard/adguardhome
 ```
+
+!!! note "Customise volume paths"
+    The volume paths above use the author's directory structure. Replace them with paths that suit your own setup, e.g. `/home/<your-user>/docker/adguard/conf`.
 
 #### Breakdown of Docker Command
 - `docker run`: This command is used to run a new container.
@@ -46,6 +52,12 @@ docker run --name adguardhome \
 
 ## Docker Hub Link
 - [AdGuard Home on Docker Hub](https://hub.docker.com/r/adguard/adguardhome)
+
+## Post-Installation
+
+Once AdGuard Home is running, open your browser and navigate to `http://<your-server-ip>:3000` to complete the initial setup wizard. You will be prompted to create an admin account and configure your DNS settings.
+
+After setup, point your router or individual devices to use `<your-server-ip>` as their DNS server to start filtering ads and trackers.
 
 ## Youtube Video
 

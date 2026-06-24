@@ -32,6 +32,9 @@ volumes:
   uptime-kuma:
 ```
 
+!!! warning "Docker socket mount is optional"
+    Mounting `/var/run/docker.sock` grants Uptime Kuma significant host access. This is only required if you want to monitor Docker containers directly. **Remove this volume line** if you only need to monitor URLs, ports, or services — it is not needed for basic monitoring.
+
 ## Key Components of the Configuration
 
 ### Service: Uptime Kuma

@@ -11,6 +11,8 @@ This page shows the complete picture of how all the layers in the [Homelab Rebui
 
 ## Network & DNS Layer
 
+The arrows show the direction of network traffic and DNS query flow between components, from the internet edge down to recursive resolution.
+
 ```mermaid
 flowchart TD
     Internet([Internet]) --> ISP[ISP Modem / ONT]
@@ -30,6 +32,8 @@ flowchart TD
 
 ## Remote Access Layer
 
+The arrows show the direction of network traffic between remote clients and the internal network via WireGuard tunnels.
+
 ```mermaid
 flowchart LR
     Phone([iPhone\nFull tunnel]) -->|WireGuard UDP 51820| WG
@@ -48,6 +52,8 @@ flowchart LR
 
 ## Public Services Layer
 
+The arrows show the direction of network traffic from external users through Cloudflare's edge and the internal tunnel daemon to the self-hosted service, as well as the parallel path taken by LAN clients via Nginx Proxy Manager.
+
 ```mermaid
 flowchart LR
     User([External user]) -->|HTTPS| CF[Cloudflare Edge\nDDoS protection · TLS]
@@ -63,6 +69,8 @@ flowchart LR
 ---
 
 ## Identity & Authentication Layer
+
+The arrows show which components depend on or are authenticated by the hardware keys — SSH sessions and online accounts both route through a physical YubiKey for second-factor verification.
 
 ```mermaid
 flowchart TD
@@ -84,6 +92,8 @@ flowchart TD
 ---
 
 ## Device Security Layer
+
+The diagram shows the security controls that operate in parallel on the macOS host, each covering a distinct protection layer — from disk encryption and network access control through to persistence and peripheral monitoring.
 
 ```mermaid
 flowchart TD
@@ -113,6 +123,8 @@ flowchart TD
 | Email | Proton Mail with custom domain | [Proton Mail](proton-mail-custom-domain.md) |
 | Authentication | YubiKey FIDO2 SSH | [YubiKey SSH](yubikey-ssh.md) |
 | Device | macOS + Objective-See tools | [macOS Hardening](macos-hardening.md) |
+
+---
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

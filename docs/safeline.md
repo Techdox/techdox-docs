@@ -39,6 +39,9 @@ This file does not need editing, but you must create a `.env` file for the deplo
 
 Create a `.env` file in the same directory as the Compose file. Below is an example `.env` file:
 
+!!! warning "Change the database password"
+    The `POSTGRES_PASSWORD=testing` value is a placeholder. **Change this to a strong, unique password before deploying.** Using the default exposes your WAF's database to trivial compromise.
+
 ```ini
 SAFELINE_DIR=/home/<user>/docker/safeline
 IMAGE_TAG=latest

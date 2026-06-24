@@ -41,6 +41,9 @@ services:
     restart: unless-stopped                            # Ensures ntfy restarts unless manually stopped.
 ```
 
+!!! warning "Replace UID:GID with numeric values"
+    The `user: UID:GID` placeholder must be replaced with actual numeric IDs before running. Find your values with `id -u` (UID) and `id -g` (GID), then update the compose file accordingly, e.g. `user: 1000:1000`.
+
 ### Explanation of Key Components
 
 - **Image**: Uses the `binwiederhier/ntfy` Docker image, which is the official ntfy image.

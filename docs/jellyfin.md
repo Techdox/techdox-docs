@@ -37,6 +37,9 @@ services:
     restart: unless-stopped
 ```
 
+!!! tip "Set your timezone"
+    Replace `Pacific/Auckland` with your own timezone. Find valid TZ identifiers at [Wikipedia's TZ database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
 ## Key Components of the Configuration
 
 ### Environment Variables
@@ -65,7 +68,12 @@ services:
 
 ## Configuring and Using Jellyfin
 
-Once deployed, you can configure Jellyfin through its web interface, including setting up media libraries, user accounts, and streaming settings.
+After navigating to `http://<your-server-ip>:8096`:
+
+1. Complete the **setup wizard** — create an admin account and set your preferred language/metadata
+2. Add your media libraries by pointing Jellyfin to the directories mounted in the compose file
+3. Create additional user accounts under **Dashboard → Users** if needed
+4. For hardware-accelerated transcoding, see **Dashboard → Playback** and enable your GPU's acceleration method (Intel QSV, NVIDIA NVENC, etc.)
 
 ## Youtube Video
 

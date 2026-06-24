@@ -55,7 +55,7 @@ To deploy MkDocs with Docker Compose, follow these steps:
 
    Your directory structure should look like this:
 
-   ```
+   ```text
    mkdocs/
    ├── docker-compose.yml
    └── mkdocs-data/
@@ -121,7 +121,7 @@ markdown_extensions:
   - pymdownx.superfences
   # More pymdownx extensions...
 ```
-## Youtube Video
+## YouTube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K2RDsWgwDTU?si=sQkLDP4fI0JdhBzX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 

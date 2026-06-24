@@ -19,7 +19,7 @@ This Docker Compose setup deploys the Homepage application in a Docker container
 version: "3.3"
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     ports:
       - 3000:3000
@@ -28,14 +28,17 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
 ```
 
-##Key Components of the Configuration
+## Key Components of the Configuration
 ### Service: Homepage
-- **Image**: `ghcr.io/benphelps/homepage:latest` is the Docker image used for Homepage.
+- **Image**: `ghcr.io/gethomepage/homepage:latest` is the Docker image used for Homepage.
 - **Ports**: 
   - `3000:3000` maps port 3000 on the host to port 3000 in the container, where the Homepage web interface is accessible.
 - **Volumes**: 
   - `./config:/app/config`: Maps a local configuration directory to the container's configuration directory.
   - `/var/run/docker.sock:/var/run/docker.sock:ro`: (Optional) Allows Homepage to integrate with Docker, provided read-only.
+
+!!! warning "Docker socket mount is optional"
+    Mounting the Docker socket (`/var/run/docker.sock`) grants Homepage read access to Docker daemon metadata. This is only needed for the Docker integration widget. Remove this volume line if you don't need it.
 
 ## Deploying Homepage
 
@@ -46,7 +49,13 @@ services:
 
 ## Configuring and Using Homepage
 
-After deployment, you can customize Homepage through the configuration files in your local `./config` directory. This allows you to personalize the start page with your preferred links and services.
+The Homepage configuration lives in the `./config` directory. Key files:
+
+- `services.yaml` — define your service tiles and widget integrations
+- `bookmarks.yaml` — add bookmark groups and links
+- `settings.yaml` — global layout, title, and appearance settings
+
+Full documentation is available at [gethomepage.dev](https://gethomepage.dev/latest/).
 
 ## Youtube Video
 

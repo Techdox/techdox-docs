@@ -1,5 +1,5 @@
 ---
-title: Setting Up Traefik with Docker Compose
+title: Secure Web Services with Traefik and Docker Compose
 description: Traefik is a reverse proxy which allows for seamless service communication
 ---
 
@@ -55,6 +55,9 @@ networks:
   - `acme.json` for storing SSL certificates.
 - **Networks**: Connects Traefik to a dedicated network named `traefik`.
 
+!!! warning "Secure the Traefik dashboard"
+    The Traefik dashboard on port 8080 has no authentication by default. In production, either add a basicAuth middleware, restrict access to localhost only (`127.0.0.1:8080:8080`), or disable the dashboard entirely by removing the `--api.insecure=true` flag.
+
 ### Creating the Traefik Network
 
 Before deploying, create the network with the Docker CLI:
@@ -98,6 +101,9 @@ providers:
 ## Preparing `acme.json`
 
 Create an empty `acme.json` file with restricted permissions to securely store your SSL certificates:
+
+!!! warning "Set correct acme.json permissions"
+    Traefik requires `acme.json` to have exactly `600` permissions. If the permissions are wrong, Traefik will silently fail to write or read certificates.
 
 ```bash
 touch acme.json
@@ -174,7 +180,7 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wordpress.rule=Host(`wordpress.elitron.xyz`)"
+      - "traefik.http.routers.wordpress.rule=Host(`wordpress.yourdomain.com`)"
       - "traefik.http.routers.wordpress.entrypoints=websecure"
       - "traefik.http.routers.wordpress.tls=true"
       - "traefik.http.routers.wordpress.tls.certresolver=myresolver"

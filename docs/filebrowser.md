@@ -34,7 +34,7 @@ services:
 
 ## Key Components of the Configuration
 ### Service: Filebrowser
-- **Image**: `filebrowser/filebrowser:s6` is the Docker image used for Filebrowser.
+- **Image**: `filebrowser/filebrowser:latest` is the Docker image used for Filebrowser.
 - **Volumes**: 
   - `/home:/srv`: Maps a local directory to the server directory in the container.
   - `/home/techdox/docker/filebrowser/filebrowser.db:/database/filebrowser.db`: Persistent storage for Filebrowser's database.
@@ -46,12 +46,24 @@ services:
 
 ## Deploying Filebrowser
 
+!!! warning "Create required files before starting"
+    Before running `docker compose up -d`, you must create the required files manually:
+    ```bash
+    touch filebrowser.db settings.json
+    ```
+    Skipping this step causes permission errors when the container starts.
+
+!!! note "Replace PUID and PGID with numeric values"
+    Shell variable substitution does not work in `docker-compose.yml`. Replace `$(id -u)` and `$(id -g)` with the actual numeric values from your system (commonly `1000` for the first user). Run `id $(whoami)` to find your values.
+
 1. Save the Docker Compose configuration in a `docker-compose.yml` file.
 2. Replace the volume paths with your actual directory paths.
-3. Manually create the filebrowser.db and settings.json by running `touch filebrowser.db` `touch settings.json` in the compose directory, if you do not do this you will get permission errors.
 3. Run `docker compose up -d` to start Filebrowser in detached mode.
 4. Access Filebrowser by navigating to `http://<host-ip>:8095`.
 5. Default login is `admin` `admin`
+
+!!! warning "Change default credentials immediately"
+    File Browser's default credentials are `admin` / `admin`. **Change the password immediately** after first login via the Settings panel.
 ## Configuring and Using Filebrowser
 
 After deployment, use the Filebrowser web interface to manage your files. You can upload, download, and organize files, as well as customize settings according to your needs.

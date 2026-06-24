@@ -21,6 +21,9 @@ To add Pi-hole to Nginx Proxy Manager, you can follow these steps:
    
 4. **Advanced Configuration**:
    - In the "Advanced" section, add the following configuration:
+
+   Replace `192.168.68.107` with your Pi-hole's IP address in **both** `proxy_pass` directives below.
+
      ```nginx
      location / {
        proxy_pass http://192.168.68.107:80/admin/;
@@ -43,7 +46,12 @@ To add Pi-hole to Nginx Proxy Manager, you can follow these steps:
      ```
      Replace `192.168.68.107` with the actual IP address of your Pi-hole server.
 
-5. **Save Changes**: Click the "Save" button to apply the configuration.
+5. **SSL**:
+
+!!! tip "Requesting an SSL certificate via NPM"
+    In the SSL tab, select **Request a new SSL certificate** and choose **Let's Encrypt**. Ensure your domain points to your NPM instance before requesting. For local-only domains, use DNS challenge instead.
+
+6. **Save Changes**: Click the "Save" button to apply the configuration.
 
 Now, Nginx Proxy Manager should be set up to forward requests to Pi-hole at `pihole.domainname.com`. Make sure to adjust the domain name and IP address to match your setup.
 

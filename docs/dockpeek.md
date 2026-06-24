@@ -57,6 +57,9 @@ services:
     restart: unless-stopped
 ```
 
+!!! warning "Restrict port 2375 to localhost"
+    Port 2375 exposes the unencrypted Docker daemon. **Never expose this port to the internet or untrusted networks.** Restrict it at the firewall level to localhost or your internal network only.
+
 ### Additional Hosts (Socket Proxy Only)
 
 Run this configuration on each additional host:
@@ -82,6 +85,9 @@ services:
     restart: unless-stopped
 ```
 
+!!! warning "Set a strong SECRET_KEY"
+    Replace `my_secret_key` with a long random string before deploying. Generate one with: `openssl rand -hex 32`
+
 ## Environment Variable Notes
 
 * **SECRET\_KEY**: Required. Set a strong, random string.
@@ -106,7 +112,7 @@ docker compose up -d
 3. **Access Dockpeek Web UI**
    Visit the following URL in your browser:
 
-```
+```text
 http://<your-server-ip>:3420
 ```
 
@@ -116,6 +122,8 @@ http://<your-server-ip>:3420
 ## Conclusion
 
 Dockpeek simplifies Docker management, providing clear visibility across multiple Docker hosts through a clean and intuitive interface.
+
+<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

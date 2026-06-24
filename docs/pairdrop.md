@@ -34,20 +34,6 @@ services:
     restart: unless-stopped
 ```
 
-### Environment Variables
-- `PUID=1000` and `PGID=1000`: Sets user and group IDs for file permissions.
-- `TZ=Etc/UTC`: Configures the container's timezone.
-- `RATE_LIMIT=false`: (Optional) Disables rate limiting.
-- `WS_FALLBACK=false`: (Optional) Disables WebSocket fallback.
-- `RTC_CONFIG`: (Optional) WebRTC configuration.
-- `DEBUG_MODE=false`: (Optional) Disables debug mode.
-
-### Ports
-- `3000:3000`: Maps port 3000 of the host to port 3000 of the container, enabling web access to Pairdrop.
-
-### Restart Policy
-- `unless-stopped`: Ensures the container restarts automatically unless explicitly stopped.
-
 ## Key Components of the Configuration
 ### Environment Variables
 - `PUID=1000` and `PGID=1000`: Sets user and group IDs for file permissions.
@@ -63,6 +49,16 @@ services:
 ### Restart Policy
 - `unless-stopped`: Ensures the container restarts automatically unless explicitly stopped.
 
+## Deploying Pairdrop
+
+```bash
+docker compose up -d
+```
+
+Once running, open `http://<your-server-ip>:3000` in a browser on each device you want to transfer files between. Both devices must be on the **same subnet** for automatic peer discovery to work.
+
+!!! note "Cross-network transfers"
+    If devices are on different VLANs or networks, set the `RTC_CONFIG` environment variable to point to a TURN server for relayed connections.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

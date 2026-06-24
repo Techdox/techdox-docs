@@ -57,6 +57,7 @@ volumes:
 - **POSTGRES_DB**: Database name used by Peppermint.
 - **DB_USERNAME/DB_PASSWORD/DB_HOST**: Connection details for Peppermint to communicate with PostgreSQL.
 - **SECRET**: Secure key used by Peppermint for encryption and security purposes. Generate a strong random key.
+  Generate a secure value with: `openssl rand -hex 32`
 
 ## Deployment Steps
 
@@ -79,6 +80,9 @@ docker compose up -d
 
 ## Accessing Peppermint
 
+!!! warning "Default login credentials"
+    Peppermint's default credentials are `admin@peppermint.sh` / `1234`. **Change these immediately after first login.**
+
 - Once running, Peppermint will be accessible via:
 
 ```
@@ -98,4 +102,8 @@ Replace `yourdomain.com` with your actual domain name or IP address.
 - **Containers Not Starting**: Verify volume permissions and environment variable configurations are correct.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+---
+
+If there is an issue with this guide or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).
 

@@ -22,35 +22,7 @@ If you're running a similar setup or planning to level up from a consumer router
 
 ## Architecture Overview
 
-```mermaid
-flowchart TD
-    Internet([Internet]) --> ISP[ISP Modem/ONT]
-    ISP --> OPN[OPNsense Firewall\nZimaboard 2]
-
-    OPN --> IDS[Suricata IDS\nInline detection]
-    OPN --> DNS[Pi-hole\nNetwork DNS]
-    DNS --> UNB[Unbound\nRecursive resolver]
-    UNB --> Root([Root DNS servers])
-
-    OPN --> WG[WireGuard VPN\nKernel-level]
-    WG --> Clients([Remote devices\niPhone / MacBook])
-
-    OPN --> Mesh[TP-Link Deco\nAccess Point mode]
-    Mesh --> Devices([LAN devices])
-
-    OPN --> NPM[Nginx Proxy Manager\nInternal TLS]
-    NPM --> Services([Self-hosted services])
-
-    CF[Cloudflare Tunnels\nZero exposed ports] --> Services
-    Internet --> CF
-
-    subgraph Identity
-        PM[Proton Mail]
-        PW[Proton Pass]
-        YK[YubiKey FIDO2]
-        PA[Proton Authenticator]
-    end
-```
+For a full visual breakdown of how these components connect, see the [Architecture Overview](architecture.md).
 
 ---
 
@@ -111,7 +83,7 @@ flowchart TD
 | [Internal Hostnames](internal-hostnames.md) | NPM + Pi-hole local DNS, internal TLS |
 | [Proton Mail Migration](proton-mail-custom-domain.md) | Custom domain email migration, MX/SPF/DKIM/DMARC |
 | [macOS Hardening](macos-hardening.md) | Native protections + Objective-See toolkit |
-| [Architecture Diagram](architecture.md) | Full stack diagram with all layers |
+| [Architecture Diagram](architecture.md) | Full stack diagram with all layers (reference diagram — no steps) |
 
 ---
 

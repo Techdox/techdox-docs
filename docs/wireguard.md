@@ -19,9 +19,10 @@ This Docker Compose setup deploys both Wireguard and Wireguard UI in Docker cont
 
     There is an issue with the latest image it seems, please make sure you use the image in the example compose below. If you use latest, the steps in this guide will not work.
 
-```yaml
-version: "3"
+!!! warning "Change default credentials"
+    The default `WGUI_PASSWORD=password` protects your entire VPN management UI. **Set both `WGUI_USERNAME` and `WGUI_PASSWORD` to strong, unique values before deploying.**
 
+```yaml
 services:
 
   wireguard:
@@ -100,6 +101,9 @@ iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j 
 ```bash
 iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 ```
+
+!!! note "Check your network interface name"
+    The `eth0` interface name used in these commands may not match your system. Run `ip link show` or `ip route` to find your actual interface name (commonly `ens3`, `enp0s3`, or similar) and replace `eth0` accordingly.
 
 The "Post Up" command and the "Post Down" command are used in the configuration of WireGuard to set up and tear down network routing rules for the WireGuard interface.
 

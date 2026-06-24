@@ -1,6 +1,6 @@
 ---
 title: Setting Up Joplin with Docker Compose
-description: Joplin Server acts as a self-hosted synchronization server for Joplin notes. It allows you to synchronize your notes across multiple>
+description: Joplin Server is a self-hosted sync server for Joplin notes, allowing you to sync across multiple devices securely and privately.
 ---
 
 # Setting Up Joplin Server with Docker Compose
@@ -45,6 +45,15 @@ services:
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=db
 ```
+
+!!! warning "Update APP_BASE_URL"
+    The `APP_BASE_URL` is set to the author's private server IP. **Replace `192.168.68.105:22300` with your own server's IP or hostname**, e.g. `http://YOUR_SERVER_IP:22300`. Using the wrong URL causes "invalid origin" errors on all clients.
+
+!!! warning "Change the database password"
+    The password `testing123` appears in two places in this compose file (both the `joplin` and `db` service blocks). **Replace it with a strong, unique password in both locations before deploying.**
+
+!!! warning "Database port exposed to host"
+    Port 5432 is mapped to the host, making the PostgreSQL database directly accessible on your network. Remove the `ports:` block from the `db` service if you don't need direct database access from outside Docker.
 
 ## Key Components of the Configuration
 

@@ -18,7 +18,7 @@ Running self-hosted services at bare IPs and ports (`http://192.168.1.x:8080`) i
 
 ## Architecture
 
-```
+```text
 Internal client
     ↓ (DNS query: service.yourdomain.com)
 Pi-hole
@@ -68,6 +68,9 @@ In the **SSL** tab of the proxy host:
 4. Choose **Cloudflare** as the DNS provider
 5. Enter your Cloudflare API token (needs `Zone → DNS → Edit` permissions)
 6. Request the certificate
+
+!!! warning "Use a scoped API token"
+    Use a **scoped API token** with only `Zone → DNS → Edit` permission. Do not use your global Cloudflare API key — a compromised scoped token limits the blast radius.
 
 DNS-01 challenges prove domain ownership by creating a TXT record in DNS, which Cloudflare handles automatically. Your service never needs to be publicly reachable for the certificate to issue.
 

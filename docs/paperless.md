@@ -5,9 +5,15 @@ description: Paperless-ngx is an open-source document management tool designed t
 
 # Setting Up Paperless-ngx with Docker Compose
 
+## Prerequisites
+
+- Docker and Docker Compose installed
+- Minimum **2 GB free RAM** (Tika and Gotenberg are memory-intensive)
+- A directory ready for document storage
+
 ## Introduction to Paperless-ngx
 
-Paperless-ngx is an open-source document management tool designed to digitize your physical documents into a searchable archive. It supports a wide range of hardware architectures including amd64, arm, and arm64.
+Paperless-ngx is a document management system that scans, indexes, and archives your physical documents. This guide uses the full stack configuration including Tika (for Office document parsing) and Gotenberg (for PDF generation), making it suitable as a complete document management solution.
 
 ## Docker Compose Configuration for Paperless-ngx
 
@@ -97,7 +103,10 @@ volumes:
 
 ### Docker Compose Env File (`docker-compose.env`)
 
-```yaml
+!!! warning "Change the database password"
+    `POSTGRES_PASSWORD` is set to `paperless` by default. **Change this before deploying**, especially if the instance will be internet-accessible.
+
+```env
 # The UID and GID of the user used to run paperless in the container. Set this
 # to your UID and GID on the host so that you have write access to the
 # consumption directory.
@@ -147,7 +156,11 @@ USERMAP_GID=1000
 
 1. **Preparation**: Prior to launching the containers, ensure the folders for the `export`, and `consume` volumes exist to prevent permission issues.
    
-2. **Environment Variables**: Define necessary environment variables in a `.env` file, including `PG_PASS`, `PG_USER`, `PG_DB`, and `AUTHENTIK_SECRET_KEY`.
+2. **Environment Variables**: In `docker-compose.env`, configure the following variables:
+   - `USERMAP_UID` / `USERMAP_GID` — your host user's UID/GID (run `id $(whoami)` to find them)
+   - `PAPERLESS_SECRET_KEY` — generate with `openssl rand -hex 32`
+   - `PAPERLESS_URL` — your Paperless URL (e.g. `https://paperless.yourdomain.com`)
+   - `PAPERLESS_TIME_ZONE` — your timezone (e.g. `Europe/London`)
 
 3. **Launching Paperless-ngx**:
    - Pull the latest images with `docker compose pull`.

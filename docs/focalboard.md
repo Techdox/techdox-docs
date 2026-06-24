@@ -5,6 +5,11 @@ description: Focalboard is an open-source, self-hosted project management tool t
 
 # Setting Up Focalboard with Docker Compose
 
+!!! warning "Focalboard is deprecated"
+    Focalboard was **deprecated by Mattermost in late 2023** and is no longer actively developed. Consider migrating to an actively maintained alternative such as [Plane](https://plane.so/) or [Vikunja](https://vikunja.io/).
+
+    See the [official deprecation notice](https://www.focalboard.com/post/sunsetting-focalboard/) for details.
+
 ## Introduction to Focalboard
 
 Focalboard is an open-source, self-hosted project management tool that's an alternative to Trello, Notion, and Asana. It's designed to help teams stay organized and aligned.
@@ -16,7 +21,6 @@ This Docker Compose setup deploys Focalboard in a Docker container, providing a 
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: "3.3"
 services:
   focalboard:
     ports:

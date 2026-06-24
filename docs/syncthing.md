@@ -56,6 +56,23 @@ services:
 ### Restart Policy
 - `unless-stopped`: Ensures the container restarts automatically unless explicitly stopped.
 
+!!! tip "Replace placeholder paths"
+    Replace `/path/to/appdata/config`, `/path/to/data1`, and `/path/to/data2` with absolute paths on your host — the directories you actually want to sync.
+
+## Deploying Syncthing
+
+```bash
+docker compose up -d
+```
+
+Once running, access the Syncthing web UI at `http://<your-server-ip>:8384`.
+
+!!! warning "Set a GUI password immediately"
+    Syncthing's web UI has **no authentication by default**. Anyone on your network can access and control it. Go to **Settings → GUI** and set a username and password before adding any devices.
+
+## Connecting Devices
+
+To sync between devices, open the Syncthing UI on both, copy the Device ID from one, and add it as a remote device on the other. Both devices must accept the connection before syncing begins.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

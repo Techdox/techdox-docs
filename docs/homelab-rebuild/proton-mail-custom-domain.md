@@ -36,7 +36,7 @@ Before touching DNS, inventory what's already there. Log into your Cloudflare DN
 2. Enter your domain
 3. Proton will provide a verification TXT record:
 
-```
+```text
 Type: TXT
 Name: @
 Value: protonmail-verification=<your-unique-string>
@@ -66,13 +66,13 @@ This is the step that switches inbound mail delivery from your old provider to P
 
 **Add** Proton's MX records:
 
-```
+```text
 Type: MX  Name: @  Priority: 10  Value: mail.protonmail.ch
 Type: MX  Name: @  Priority: 20  Value: mailsec.protonmail.ch
 ```
 
 !!! warning "Brief delivery gap"
-    There may be a short window (minutes, not hours with Cloudflare) where some mail goes to the old provider and some to Proton. If zero-gap migration matters, do the cutover late at night and import any straggler mail from the old provider afterward.
+    There may be a short window (minutes, not hours with Cloudflare) where some mail goes to the old provider and some to Proton. If zero-gap migration matters, do the cutover late at night and import any straggler mail from the old provider afterward. Keep your old email provider account active and **check it for at least 48 hours** after cutover — some senders cache MX records beyond the TTL and deliveries may still arrive at your old address during this window.
 
 ---
 
@@ -84,7 +84,7 @@ SPF tells receiving servers which hosts are authorised to send mail for your dom
 
 **Add** Proton's:
 
-```
+```text
 Type: TXT  Name: @  Value: v=spf1 include:_spf.protonmail.ch ~all
 ```
 
@@ -97,7 +97,7 @@ Type: TXT  Name: @  Value: v=spf1 include:_spf.protonmail.ch ~all
 
 DKIM lets receiving servers verify that outbound mail actually came from Proton and wasn't tampered with. Proton uses three CNAME records for key rotation:
 
-```
+```text
 Type: CNAME  Name: protonmail._domainkey
 Value: protonmail.domainkey.<your-id>.domains.proton.ch
 
@@ -119,7 +119,7 @@ The exact values are shown in your Proton domain settings — copy them directly
 
 DMARC tells receiving servers what to do with mail that fails SPF or DKIM checks, and optionally sends you reports.
 
-```
+```text
 Type: TXT  Name: _dmarc
 Value: v=DMARC1; p=quarantine; rua=mailto:dmarc@yourdomain.com
 ```

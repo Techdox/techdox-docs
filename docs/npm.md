@@ -14,6 +14,9 @@ This Docker Compose setup deploys Nginx Proxy Manager alongside a MariaDB databa
 
 ### Docker Compose File (`docker-compose.yml`)
 
+!!! warning "Change all database passwords"
+    The compose file uses `npm` as the password for `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `DB_MYSQL_PASSWORD`. **Replace all three with strong, unique passwords before deploying.**
+
 ```yaml
 version: '3.8'
 services:
@@ -76,6 +79,9 @@ services:
    - Run `docker compose up -d` to start the Nginx Proxy Manager and the database.
 3. **Access Admin Dashboard**:
    - Access the NPM admin dashboard through `http://<host-ip>:81` and proceed with the initial setup, including setting up your first admin user account.
+
+!!! warning "Change default admin credentials immediately"
+    The default admin email and password must be changed on first login. Do not leave the default credentials in place, especially on internet-accessible instances.
 
 ```text
 Email:    admin@example.com

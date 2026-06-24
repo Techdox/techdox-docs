@@ -5,15 +5,13 @@ description: Support Techdox Docs through donations or buying a coffee to help m
 
 # Support Techdox Docs
 
-Thank you for considering supporting Techdox Docs! Your support helps continue providing and expanding valuable resources dedicated to the selfhosting community. Every contribution, big or small, goes directly into maintaining and enhancing the documentation and support services.
+Thank you for considering supporting Techdox Docs! Your support helps continue providing and expanding valuable resources dedicated to the self-hosting community. Every contribution, big or small, goes directly into maintaining and enhancing the documentation and support services.
 
 ## Ways to Support
 
 ### Buy Me A Coffee ☕
 
 Support Techdox and get personalized one-on-one support by buying me a coffee. This is a great way to give back if you've found the resources helpful!
-
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](http://buymeacoffee.com/techdox)
 
 ### Donate with Crypto
 
@@ -38,7 +36,7 @@ When you support Techdox Docs, you're not just donating; you're actively partici
 - **Creating and Updating Guides**: Continuous improvement of existing guides and addition of new content.
 - **Community Support**: More time spent on community forums and one-on-one support sessions.
 
-I appreciate your support, and I pledge to keep all resources open and free to the selfhosting community. Thank you for being a part of Techdox Docs!
+I appreciate your support, and I pledge to keep all resources open and free to the self-hosting community. Thank you for being a part of Techdox Docs!
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
