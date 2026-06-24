@@ -168,11 +168,4 @@ extra:
       link: https://discord.com/invite/8mX2KRxDw8
     - icon: fontawesome/brands/github
       link: https://github.com/Techdox/techdox-docs
-  analytics:
-    provider: google
-    property: G-1CXE00KE0K
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to enhance your experience on our site, recognize your repeat visits and preferences, as well as to track the effectiveness of our documentation and the relevance of the content we provide. Your consent will help us improve our resources and ensure they meet your needs. You have the option to customize your cookie settings to best suit your privacy preferences. Your support in this helps us continually refine our content and tools to better serve you and the community."
 copyright: Copyright &copy; 2024 Techdox
