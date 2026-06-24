@@ -121,12 +121,16 @@ theme:
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
 
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -188,4 +192,7 @@ extra:
       link: https://discord.com/invite/8mX2KRxDw8
     - icon: fontawesome/brands/github
       link: https://github.com/Techdox/techdox-docs
-copyright: Copyright &copy; 2024 Techdox
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2025 Techdox
