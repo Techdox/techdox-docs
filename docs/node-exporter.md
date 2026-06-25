@@ -10,7 +10,7 @@ description: The Node Exporter is a project that is maintained through the Prome
 Begin by downloading Node Exporter using the wget command:
 
 ```bash
-wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.9.1/node_exporter-1.9.1.linux-amd64.tar.gz
 ```
 
 Note: Ensure you are using the latest version of Node Exporter and the correct architecture build for your server. The provided link is for amd64. For the latest releases, check here - [Prometheus Node Exporter Releases](https://github.com/prometheus/node_exporter/releases)
@@ -21,7 +21,7 @@ Note: Ensure you are using the latest version of Node Exporter and the correct a
 After downloading, extract the contents with the following command:
 
 ```bash
-tar xvf node_exporter-1.7.0.linux-amd64.tar.gz
+tar xvf node_exporter-1.9.1.linux-amd64.tar.gz
 ```
 
 ## Move the Node Exporter Binary
@@ -29,7 +29,7 @@ tar xvf node_exporter-1.7.0.linux-amd64.tar.gz
 Change to the directory and move the node_exporter binary to /usr/local/bin:
 
 ```bash
-cd node_exporter-1.7.0.linux-amd64
+cd node_exporter-1.9.1.linux-amd64
 ``` 
 
 ```bash
@@ -39,7 +39,7 @@ sudo cp node_exporter /usr/local/bin
 Then, clean up by removing the downloaded tar file and its directory:
 
 ```bash
-rm -rf ./node_exporter-1.7.0.linux-amd64
+rm -rf ./node_exporter-1.9.1.linux-amd64
 ```
 
 ## Create a Node Exporter User
