@@ -1,6 +1,9 @@
 ---
 title: Setting Up Uptime Kuma with Docker Compose
 description: Uptime Kuma is a self-hosted monitoring tool similar to "Uptime Robot." It monitors your websites, services, and applications and provides uptime notifications.
+tags:
+  - docker
+  - monitoring
 ---
 
 # Setting Up Uptime Kuma with Docker Compose
@@ -55,6 +58,16 @@ volumes:
 ## Configuring and Using Uptime Kuma
 
 After deployment, you can configure Uptime Kuma through its web interface to monitor your websites and services, set up notifications, and track uptime and response times.
+
+## Updating Uptime Kuma
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `uptime-kuma` named volume. Back this up before major version updates.
 
 ## Youtube Video
 

@@ -1,6 +1,9 @@
 ---
 title: Deploying Nexterm with Docker Compose
 description: Nexterm is an open-source server management software that allows you to manage SSH, VNC, and RDP connections. This guide provides steps for deploying Nexterm using Docker Compose.
+tags:
+  - docker
+  - utilities
 ---
 
 # Deploying Nexterm with Docker Compose
@@ -62,6 +65,17 @@ From here, you can manage your SSH, VNC, and RDP connections using Nexterm's uni
 
 !!! tip "Check for newer releases"
     The image tag above may not be the latest version. Check the [Nexterm releases page](https://github.com/gnmyt/Nexterm/releases) and update the tag to the current release.
+
+## Updating Nexterm
+
+This guide pins a specific image tag, so `docker compose pull` alone will not fetch a newer version. To update, change the image tag in your `docker-compose.yml` to the latest release from the [Nexterm releases page](https://github.com/gnmyt/Nexterm/releases), then run:
+
+```bash
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `nexterm` named volume. Back this up before major version updates.
 
 ## Conclusion
 

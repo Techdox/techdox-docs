@@ -1,6 +1,9 @@
 ---
 title: Setting Up Logitech Media Server with Docker Compose
 description: Logitech Media Server (LMS) is a software that powers audio streaming to Logitech Squeezebox players.
+tags:
+  - docker
+  - media
 ---
 
 # Setting Up Logitech Media Server with Docker Compose
@@ -68,6 +71,16 @@ services:
 ## Configuring and Using LMS
 
 After deployment, configure your music libraries, playlists, and settings via the LMS web interface. Connect your Squeezebox devices or compatible software players to start streaming your music.
+
+## Updating Logitech Media Server
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the host directories you mapped to `/config`, `/music`, and `/playlist` (the `/<somewhere>` paths in the compose file). Back these up before major version updates.
 
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

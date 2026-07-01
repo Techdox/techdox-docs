@@ -1,6 +1,10 @@
 ---
 title: Deploying Speedtest Tracker with Docker Compose
 description: Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+tags:
+  - docker
+  - monitoring
+  - networking
 ---
 
 # Deploying Speedtest Tracker with Docker Compose
@@ -73,6 +77,16 @@ Password: password
 
 - Make sure the ports in the `docker-compose.yml` do not conflict with other services on your host.
 - Adjust the `SPEEDTEST_SCHEDULE` environment variable to change the frequency of speed tests as needed.
+
+## Updating Speedtest Tracker
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data` directory (application data and SQLite database) and the `./ssl-keys` directory. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

@@ -1,6 +1,10 @@
 ---
 title: Setting Up Paperless-ngx with Docker Compose
 description: Paperless-ngx is an open-source document management tool designed to digitize your physical documents into a searchable archive. It supports a wide range of hardware architectures including amd64, arm, and arm64.
+tags:
+  - docker
+  - documents
+  - productivity
 ---
 
 # Setting Up Paperless-ngx with Docker Compose
@@ -167,6 +171,16 @@ USERMAP_GID=1000
    - Start the services using `docker compose up -d`.
 
 Paperless-ngx offers a digital solution for managing your documents securely and efficiently. With this Docker Compose setup, you can easily deploy Paperless-ngx along with its dependencies for a comprehensive document management system.
+
+## Updating Paperless-ngx
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the Docker-managed volumes `data`, `media`, `pgdata`, and `redisdata`, plus the `./export` and `./consume` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

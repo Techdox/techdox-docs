@@ -1,6 +1,9 @@
 ---
 title: Setting Up Chibisafe with Docker Compose
 description: Chibisafe is a file uploader and manager that's easy to use, allowing for the quick and secure sharing of files. It's a self-hosted solution for those who need control over their file-sharing environment.
+tags:
+  - docker
+  - file-management
 ---
 
 # Setting Up Chibisafe with Docker Compose
@@ -65,6 +68,15 @@ services:
 
 Post-deployment, dive into Chibisafe's settings to customize your file-sharing environment. Remember, the initial setup like directory creation and app URL definition plays a significant role in the smooth operation of Chibisafe.
 
+## Updating Chibisafe
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./database`, `./uploads`, and `./logs` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

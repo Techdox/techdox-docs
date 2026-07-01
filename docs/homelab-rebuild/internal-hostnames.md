@@ -1,6 +1,10 @@
 ---
 title: Internal Hostnames with NPM and Pi-hole
 description: Serve internal self-hosted services at real domain names with HTTPS using Nginx Proxy Manager and Pi-hole local DNS records. No public exposure required.
+tags:
+  - homelab
+  - dns
+  - reverse-proxy
 ---
 
 # Internal Hostnames with NPM and Pi-hole

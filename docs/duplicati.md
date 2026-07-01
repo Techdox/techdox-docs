@@ -1,6 +1,9 @@
 ---
 title: Duplicati - Docker Setup
 description: Duplicati is a free and open-source backup software that allows you to securely store backups online in various standard protocols and services.
+tags:
+  - docker
+  - backup
 ---
 
 # Setting Up Duplicati with Docker Compose
@@ -63,6 +66,16 @@ services:
 ## Configuring and Using Duplicati
 
 After deployment, you can configure backup jobs, schedules, and destinations through the Duplicati web interface. Ensure to properly set up encryption and choose a reliable backup destination to secure your data.
+
+## Updating Duplicati
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./config` and `./backups` host directories. Back these up before major version updates.
 
 ## Youtube Video
 

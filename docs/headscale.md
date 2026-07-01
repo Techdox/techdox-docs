@@ -1,6 +1,10 @@
 ---
 title: Setting Up Headscale with Docker Compose
 description: Step-by-step guide to deploying Headscale, an open-source self-hosted Tailscale control server, using Docker Compose.
+tags:
+  - docker
+  - vpn
+  - networking
 ---
 
 # Setting Up Headscale with Docker Compose
@@ -385,6 +389,16 @@ To make Headscale publicly accessible (for example, using Cloudflare Zero Trust 
 ## Conclusion
 
 This setup guide provides a straightforward approach to deploying and configuring Headscale on your network, offering a robust, self-hosted alternative to manage your Tailscale-compatible devices.
+
+## Updating Headscale
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./config` and `./data` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

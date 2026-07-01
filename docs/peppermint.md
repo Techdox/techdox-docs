@@ -1,6 +1,9 @@
 ---
 title: Setting Up Peppermint with Docker Compose
 description: Peppermint is a self-hosted ticketing and knowledge base solution. This guide explains how to deploy Peppermint using Docker Compose.
+tags:
+  - docker
+  - productivity
 ---
 
 # Setting Up Peppermint with Docker Compose
@@ -100,6 +103,16 @@ Replace `yourdomain.com` with your actual domain name or IP address.
 
 - **Database Connection Issues**: Confirm database credentials (`DB_USERNAME`, `DB_PASSWORD`, and `DB_HOST`) match in both the PostgreSQL and Peppermint configurations.
 - **Containers Not Starting**: Verify volume permissions and environment variable configurations are correct.
+
+## Updating Peppermint
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `pgdata` Docker volume. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

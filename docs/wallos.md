@@ -1,6 +1,9 @@
 ---
 title: Deploying Wallos with Docker Compose
 description: Wallos is a powerful open-source subscription tracker and financial management tool. This guide provides steps for deploying Wallos using Docker Compose, with important notes on setting up volumes to avoid permissions errors.
+tags:
+  - docker
+  - finance
 ---
 
 # Deploying Wallos with Docker Compose
@@ -80,6 +83,16 @@ From here, you can start managing your subscriptions and expenses with ease.
 
 - Place Wallos behind a reverse proxy with HTTPS using [Nginx Proxy Manager](npm.md) or [Traefik](traefik.md)
 - Back up the `./db` directory regularly — this contains all your subscription data
+
+## Updating Wallos
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./db` and `./logos` host directories. As noted in Next Steps above, back up `./db` before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

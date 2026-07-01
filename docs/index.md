@@ -7,6 +7,9 @@ description: Practical self-hosting guides, Docker Compose tutorials, and homela
 
 <p class="tx-tagline">Your hub for self-hosting, Docker, and homelab builds — written to go deeper than the video.<br><em>Break things, start small, document everything.</em></p>
 
+[:material-rocket-launch: New to self-hosting? Start here](start-here.md){ .md-button .md-button--primary }
+[:material-tag-multiple: Browse by tag](tags.md){ .md-button }
+
 <div class="grid cards" markdown>
 
 -   :material-docker:{ .lg .middle } __Docker Containers__

@@ -1,6 +1,9 @@
 ---
 title: Deploying Glance with Docker Compose
 description: Glance is a customizable dashboard application that aggregates content from various sources. This guide provides steps for deploying Glance using Docker Compose, including setting up the `glance.yml` configuration file and configuring environment settings.
+tags:
+  - docker
+  - dashboard
 ---
 
 # Deploying Glance with Docker Compose
@@ -140,6 +143,16 @@ To deploy Glance, follow these steps:
 ## Conclusion
 
 By following this guide, you have successfully deployed Glance using Docker Compose with a custom configuration file. You can now enjoy a centralized dashboard with various integrations to enhance your productivity.
+
+## Updating Glance
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./glance.yml` configuration file mounted into the container. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

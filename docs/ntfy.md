@@ -1,6 +1,9 @@
 ---
 title: Deploying ntfy with Docker Compose
 description: ntfy is a simple and flexible notification service that allows you to send notifications to devices via web, email, or apps. This guide details deploying ntfy using Docker Compose, including configuration settings and health checks.
+tags:
+  - docker
+  - notifications
 ---
 
 # Deploying ntfy with Docker Compose
@@ -83,6 +86,16 @@ This command will start the ntfy service in detached mode, running it in the bac
 ## Accessing ntfy
 
 After deployment, ntfy will be accessible at `http://<your-server-ip>:80`. You can use this to send notifications or configure ntfy for further integrations.
+
+## Updating ntfy
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `/var/cache/ntfy` (cache) and `/etc/ntfy` (configuration) host directories. Back these up before major version updates.
 
 ## Conclusion
 

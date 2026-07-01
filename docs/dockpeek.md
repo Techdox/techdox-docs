@@ -1,6 +1,10 @@
 ---
 title: Deploying Dockpeek with Docker Compose
 description: Dockpeek is a self-hosted web UI for monitoring multiple Docker hosts in one place. This guide shows how to deploy Dockpeek using Docker Compose with optional remote host support.
+tags:
+  - docker
+  - docker-management
+  - dashboard
 ---
 
 # Deploying Dockpeek with Docker Compose
@@ -118,6 +122,16 @@ http://<your-server-ip>:3420
 
 4. **Login and Manage Docker Hosts**
    Log in using your configured username and password. All connected Docker hosts will be listed.
+
+## Updating Dockpeek
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Dockpeek has no data volumes — its configuration lives in the environment variables of your `docker-compose.yml`. Keep a copy of that file (and your `SECRET_KEY`) before major version updates.
 
 ## Conclusion
 

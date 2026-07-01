@@ -1,6 +1,10 @@
 ---
 title: Deploying PiHole Exporter with Docker Compose
 description: This guide provides step-by-step instructions for deploying PiHole Exporter using Docker Compose, including configuring the environment variables and integrating with Prometheus and Grafana for visualization.
+tags:
+  - docker
+  - monitoring
+  - dns
 ---
 
 # Setting Up Pi-hole Exporter with Docker Compose

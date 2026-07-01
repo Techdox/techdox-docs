@@ -1,6 +1,10 @@
 ---
 title: Setting Up Grafana with Docker Compose
 description: Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored.
+tags:
+  - docker
+  - monitoring
+  - dashboard
 ---
 
 # Setting Up Grafana with Docker Compose
@@ -56,6 +60,16 @@ After logging in:
 2. Select **Prometheus** and set the URL to `http://<prometheus-host-ip>:9090`
 3. Click **Save & Test** to verify the connection
 4. Go to **Dashboards → Import** and enter a community dashboard ID (e.g. `1860` for the Node Exporter Full dashboard)
+
+## Updating Grafana
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `grafana-storage` named volume. Back this up before major version updates.
 
 ## Youtube Video
 

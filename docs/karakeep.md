@@ -1,6 +1,9 @@
 ---
 title: Setting Up Karakeep with Docker Compose
 description: Karakeep (formerly Hoarder) is a self-hosted application for saving and organising bookmarks, links, and notes with AI-powered tagging. This guide explains how to deploy Karakeep using Docker Compose.
+tags:
+  - docker
+  - productivity
 ---
 
 # Setting Up Karakeep with Docker Compose
@@ -129,6 +132,16 @@ NEXTAUTH_URL=http://yourdomain.com:3000
 
 - **Service Not Starting**: Check for missing or incorrect values in the `.env` file.
 - **Connection Issues**: Verify that `MEILI_ADDR` and `BROWSER_WEB_URL` are correctly configured and that those services are running.
+
+## Updating Karakeep
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `data` and `meilisearch` Docker volumes. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

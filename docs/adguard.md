@@ -1,6 +1,11 @@
 ---
 title: AdGuard - Docker Setup
 description: AdGuard is a comprehensive, customizable network software that blocks ads, trackers, and malicious websites. It enhances user privacy and improves browsing speed and security.
+tags:
+  - docker
+  - dns
+  - security
+  - networking
 ---
 
 # AdGuard - Docker Setup
@@ -62,6 +67,15 @@ After setup, point your router or individual devices to use `<your-server-ip>` a
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a3rej5UVvKo?si=-wik4SQoF-A-WGEt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating AdGuard Home
+
+```bash
+docker pull adguard/adguardhome
+docker stop adguardhome && docker rm adguardhome
+```
+
+Then re-run the original `docker run` command. Your configuration is preserved in the mounted `workdir` and `confdir` volumes.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

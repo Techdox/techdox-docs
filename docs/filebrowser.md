@@ -1,6 +1,9 @@
 ---
 title: Setting Up Filebrowser with Docker Compose
 description: Filebrowser is a self-hosted file managing interface that allows you to manage files and directories through a web interface. It's a simple and convenient way to access, upload, and manage your files remotely.
+tags:
+  - docker
+  - file-management
 ---
 
 # Setting Up Filebrowser with Docker Compose
@@ -68,6 +71,15 @@ services:
 
 After deployment, use the Filebrowser web interface to manage your files. You can upload, download, and organize files, as well as customize settings according to your needs.
 
+## Updating Filebrowser
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `filebrowser.db` database file and `settings.json` on the host (e.g. `/home/techdox/docker/filebrowser/`). Back these up before major version updates.
 
 ## Youtube Video
 

@@ -1,6 +1,10 @@
 ---
 title: Deploying WG-Easy with Docker Compose
 description: WG-Easy is a simple, web-based management interface for WireGuard VPN.
+tags:
+  - docker
+  - vpn
+  - networking
 ---
 
 
@@ -89,6 +93,16 @@ Once deployed, access the WG-Easy web interface through `http://your-server-ip:5
 ## Conclusion
 
 Deploying WG-Easy with Docker Compose simplifies the setup of a WireGuard VPN server, providing an accessible and secure way to manage VPN connections through a web-based interface. This setup ensures that your VPN is robustly configured and easily manageable, even for those with minimal technical background.
+
+## Updating WG-Easy
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./wg-easy/` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

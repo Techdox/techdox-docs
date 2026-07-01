@@ -1,6 +1,9 @@
 ---
 title: Setting Up Excalidraw with Docker Compose
 description: Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams with a hand-drawn feel. It's designed to be simple, intuitive, and to allow rapid collaboration.
+tags:
+  - docker
+  - productivity
 ---
 
 # Setting Up Excalidraw with Docker Compose
@@ -46,6 +49,16 @@ After deployment, Excalidraw is ready to use through its web interface, providin
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yk5bBo8JAG4?si=8MztGs2h7a3i9ubE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Excalidraw
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    This compose file defines no volumes — Excalidraw stores your drawings in the browser's local storage, so there is no server-side data to back up before updating.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

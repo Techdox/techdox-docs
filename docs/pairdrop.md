@@ -1,6 +1,9 @@
 ---
 title: Setting Up Pairdrop with Docker Compose
 description: Pairdrop is an application designed for simple and secure file sharing. It's a self-hosted solution that allows easy file transfers within a network.
+tags:
+  - docker
+  - file-management
 ---
 
 # Setting Up Pairdrop with Docker Compose
@@ -59,6 +62,16 @@ Once running, open `http://<your-server-ip>:3000` in a browser on each device yo
 
 !!! note "Cross-network transfers"
     If devices are on different VLANs or networks, set the `RTC_CONFIG` environment variable to point to a TURN server for relayed connections.
+
+## Updating Pairdrop
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    This compose file defines no persistent volumes — Pairdrop transfers files directly between devices and stores no data on disk, so there is nothing to back up before updating.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

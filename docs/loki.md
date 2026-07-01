@@ -1,6 +1,10 @@
 ---
 title: Deploying Loki and Promtail with Docker Compose
 description: Loki is a log aggregation system and Promtail is an agent that ships the logs to Loki. This guide details deploying Loki and Promtail using Docker Compose, including the steps to download necessary configuration files and set up additional hosts.
+tags:
+  - docker
+  - logging
+  - monitoring
 ---
 
 # Deploying Loki and Promtail with Docker Compose
@@ -106,6 +110,21 @@ To add additional hosts for log shipping with Promtail, you can use the followin
       - url: http://<loki-host-ip>:3100/loki/api/v1/push
     ```
     Replace `<loki-host-ip>` with the IP of your Loki container host.
+
+## Updating Loki and Promtail
+
+The image tags in this guide are pinned to `3.0.0`. To update, change the image tags in your `docker-compose.yml` to the new version, then run:
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! note "Keep config files in sync with the image tag"
+    As noted in the warning above, the downloaded `loki-config.yaml` and `promtail-config.yaml` are pinned to a specific version. When you change the image tag, re-download the matching config files (updating the version in the wget URLs) — mismatched configs will cause startup failures.
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data` directory (Loki log storage), along with the `./loki-config.yaml` and `./promtail-config.yaml` configuration files. Back these up before major version updates.
 
 ## Conclusion
 

@@ -1,6 +1,10 @@
 ---
 title: Deploying Firefly III with Docker Compose
 description: Firefly III is a free and open-source personal finance manager. This guide provides steps for deploying Firefly III using Docker Compose, including important notes on configuring environment variables, setting up cron jobs, and handling optional configurations.
+tags:
+  - docker
+  - finance
+  - productivity
 ---
 
 # Deploying Firefly III with Docker Compose
@@ -299,6 +303,16 @@ Follow the on-screen instructions to complete the setup.
 ## Conclusion
 
 By following this guide, you have successfully deployed Firefly III using Docker Compose. You now have a powerful personal finance manager up and running, with persistent storage and scheduled tasks configured. Remember to secure all sensitive information and consider filling in optional configurations as needed to enhance your Firefly III experience.
+
+## Updating Firefly III
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `firefly_iii_upload` and `firefly_iii_db` Docker volumes. Back these up before major version updates.
 
 ---
 

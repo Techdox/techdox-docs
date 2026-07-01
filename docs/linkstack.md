@@ -1,6 +1,9 @@
 ---
 title: Setting Up Linkstack with Docker Compose
 description: Linkstack is a web application that provides a user-friendly platform for managing and organizing web links. It is designed for ease of use and convenience in storing a collection of links.
+tags:
+  - docker
+  - utilities
 ---
 
 # Setting Up Linkstack with Docker Compose
@@ -78,6 +81,16 @@ For custom domains, uncomment and set the `HTTP_SERVER_NAME` and `HTTPS_SERVER_N
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bHNNSFoMuAI?si=eOYtfpNEpnTvDJNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Linkstack
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `linkstack` named Docker volume (mounted at `/htdocs`). Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
