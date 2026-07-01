@@ -1,6 +1,9 @@
 ---
 title: Setting Up Watchtower with Docker Compose
 description: Watchtower is an application that automatically updates your running Docker containers to the latest images. It monitors all containers and updates them in real-time whenever a new image is released.
+tags:
+  - docker
+  - docker-management
 ---
 
 # Setting Up Watchtower with Docker Compose
@@ -56,6 +59,17 @@ services:
 Once deployed, Watchtower automatically checks for updates to the images of all running containers at the specified interval. The default check interval is **24 hours**. Customise it with `--interval <seconds>`, for example `--interval 3600` for hourly checks. If a new image is found, Watchtower updates the container without downtime.
 
 Remember to ensure that your containers are configured to handle updates gracefully!
+
+## Updating Watchtower
+
+Ironically, Watchtower does not update itself by default. The same commands apply to Watchtower's own container:
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+Watchtower is stateless — its only mount is the Docker socket — so there is no data to back up before updating.
 
 ## Youtube Video
 

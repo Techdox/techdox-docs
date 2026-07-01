@@ -1,6 +1,9 @@
 ---
 title: Deploying Beszel with Docker Compose
 description: Beszel is a lightweight, self-hosted server monitoring hub with agent-based metrics collection. This guide details deploying Beszel using Docker Compose.
+tags:
+  - docker
+  - monitoring
 ---
 
 # Deploying Beszel with Docker Compose
@@ -77,6 +80,16 @@ After deployment, Beszel will be accessible at `http://<your-server-ip>:8090` ba
     ```
 
     Replace `<beszel-hub-ip>` with the IP of your Beszel hub container.
+
+## Updating Beszel
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./beszel_data` directory. Back this up before major version updates.
 
 ## Conclusion
 

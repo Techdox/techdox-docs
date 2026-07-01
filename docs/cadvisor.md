@@ -1,6 +1,9 @@
 ---
 title: Deploying cAdvisor with Docker Compose
 description: cAdvisor (Container Advisor) is a tool that provides insights into the resource usage and performance characteristics of running containers. This guide details deploying cAdvisor alongside Prometheus and Redis using Docker Compose, including setup instructions for monitoring container metrics.
+tags:
+  - docker
+  - monitoring
 ---
 
 # Deploying cAdvisor with Docker Compose
@@ -158,6 +161,16 @@ After updating your `docker-compose.yml`, redeploy your services:
 ```bash
 docker compose up -d
 ```
+
+## Updating cAdvisor
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    cAdvisor itself is stateless, but this stack's data lives in the `prom_data` named volume (Prometheus metrics) and the `./prometheus` configuration directory. Back these up before major version updates.
 
 ## Conclusion
 

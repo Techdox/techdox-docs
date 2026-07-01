@@ -1,6 +1,9 @@
 ---
 title: Deploying Cosmos Cloud Server with Docker
 description: Learn how to deploy Cosmos Cloud Server with Docker — an intuitive platform for managing containers, services, and self-hosted apps.
+tags:
+  - docker
+  - docker-management
 ---
 
 # Deploying Cosmos Cloud Server with Docker
@@ -47,6 +50,10 @@ docker run -d -p 80:80 -p 443:443 -p 4242:4242/udp --privileged --name cosmos-se
 3. **Access Cosmos Cloud**: After deployment, access Cosmos Cloud through its web interface or according to its documentation to start managing your Docker containers and services.
 
 By following these instructions and using the Docker run command as recommended by Cosmos Cloud, you ensure a smooth and functional deployment of Cosmos Cloud Server, ready to orchestrate your containerized applications effectively.
+
+## Updating Cosmos
+
+Cosmos manages its own updates — when a new version is available you will see an update prompt in the Cosmos UI. Do not update it with Docker Compose or other container tools.
 
 ## Youtube Video
 

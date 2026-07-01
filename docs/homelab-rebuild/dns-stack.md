@@ -1,6 +1,9 @@
 ---
 title: Pi-hole + Unbound DNS Stack
 description: Build a fully self-contained DNS stack with Pi-hole for ad blocking and Unbound for recursive resolution. No queries leave to Cloudflare, Google, or your ISP.
+tags:
+  - homelab
+  - dns
 ---
 
 # Pi-hole + Unbound DNS Stack
@@ -127,7 +130,7 @@ With Pi-hole + Unbound:
 - **No DNS data leaves your network** to any third party
 - **Network-wide ad blocking** for all devices including phones, TVs, and IoT
 - **DNSSEC validation** prevents DNS spoofing and cache poisoning
-- **Local hostname resolution** via Dnsmasq host overrides on OPNsense (see [OPNsense setup](opnsense-zimaboard.md#host-overrides))
+- **Local hostname resolution** via Dnsmasq host overrides on OPNsense (see [OPNsense setup](opnsense-zimaboard.md#host-overrides-dhcp-reservations-local-dns-in-one))
 
 ---
 
@@ -138,7 +141,7 @@ With Pi-hole + Unbound:
 | Pi-hole showing no queries | Devices using a different DNS | Check DHCP option 6 is set to Pi-hole IP |
 | `SERVFAIL` on all domains | Unbound not running, or wrong IP in Pi-hole | Verify Unbound is enabled; check the upstream IP |
 | Ads still showing on some apps | App using DNS-over-HTTPS (DoH) bypassing Pi-hole | Block known DoH providers in Pi-hole, or block port 853 at the firewall |
-| Local hostnames not resolving | Dnsmasq host overrides not configured | See [OPNsense host overrides](opnsense-zimaboard.md#host-overrides) |
+| Local hostnames not resolving | Dnsmasq host overrides not configured | See [OPNsense host overrides](opnsense-zimaboard.md#host-overrides-dhcp-reservations-local-dns-in-one) |
 
 ---
 

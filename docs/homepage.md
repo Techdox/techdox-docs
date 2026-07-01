@@ -1,6 +1,9 @@
 ---
 title: Setting Up Homepage with Docker Compose
 description: Homepage is a customizable start page or dashboard for your browser, designed to provide quick access to your frequently used websites, services, and tools.
+tags:
+  - docker
+  - dashboard
 ---
 
 # Setting Up Homepage with Docker Compose
@@ -60,6 +63,16 @@ Full documentation is available at [gethomepage.dev](https://gethomepage.dev/lat
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a5-4u0qFKaE?si=lRG-wceSVlKYPkUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Homepage
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./config` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

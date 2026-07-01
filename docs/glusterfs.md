@@ -1,6 +1,10 @@
 ---
 title: Setting Up GlusterFS with Docker Compose
 description: Set up GlusterFS on Ubuntu 22.04 to create a replicated, distributed filesystem shared across multiple nodes.
+tags:
+  - storage
+  - networking
+  - linux
 ---
 
 # GlusterFS Setup

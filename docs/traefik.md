@@ -1,6 +1,10 @@
 ---
 title: Secure Web Services with Traefik and Docker Compose
 description: Traefik is a reverse proxy which allows for seamless service communication
+tags:
+  - docker
+  - reverse-proxy
+  - networking
 ---
 
 # Secure Web Services with Traefik and Docker Compose: A Practical Guide
@@ -209,6 +213,16 @@ volumes:
 4. **Deploy Services**: Repeat the deployment process for your services, ensuring they include the appropriate Traefik labels.
 
 This guide provides a structured approach to deploying Traefik with Docker Compose, creating a secure environment for hosting web services with automatic HTTPS configuration.
+
+## Updating Traefik
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./traefik.yml` configuration file and the `./acme.json` certificate store on the host. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

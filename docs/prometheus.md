@@ -1,6 +1,9 @@
 ---
 title: Setting Up Prometheus with Docker Compose
 description: Prometheus is an open-source monitoring and alerting toolkit, widely used for its powerful querying language, efficient storage, and ease of integration with various metrics sources.
+tags:
+  - docker
+  - monitoring
 ---
 
 # Setting Up Prometheus with Docker Compose
@@ -89,6 +92,16 @@ scrape_configs:
 ## Configuring and Using Prometheus
 
 After deployment, you can modify the `prometheus.yml` file to add new targets and change scrape intervals as needed. Prometheus provides a versatile platform for monitoring your infrastructure.
+
+## Updating Prometheus
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `prom_data` named volume (metrics data) and the `./prometheus` host directory (configuration). Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

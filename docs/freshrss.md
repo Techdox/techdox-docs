@@ -1,6 +1,9 @@
 ---
 title: Setting Up FreshRSS with Docker Compose
 description: FreshRSS is a self-hosted RSS feed aggregator. It is lightweight, easy to work with, and allows you to keep all your favorite news feeds and blogs organized in one place.
+tags:
+  - docker
+  - productivity
 ---
 
 # Setting Up FreshRSS with Docker Compose
@@ -71,6 +74,16 @@ After navigating to `http://<your-server-ip>:<port>`:
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/W0jRuq4v810?si=7l-yHBnQ6g9TGFYm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating FreshRSS
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the host directory you mapped to `/config` (`/path/to/data` in the compose file). Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

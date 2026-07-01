@@ -1,6 +1,9 @@
 ---
 title: Setting Up Dockge with Docker
 description: Dockge is a self-hosted, reactive Docker stack manager, offering an easy-to-use interface for managing Docker containers and compose stacks. It's created by the same developer as Uptime-Kuma.
+tags:
+  - docker
+  - docker-management
 ---
 
 # Setting Up Dockge with Docker
@@ -84,6 +87,16 @@ services:
 ## Configuring and Using Dockge
 
 After deployment, use the Dockge web interface to manage your Docker containers, images, and stacks. The interface provides tools for monitoring, starting, stopping, and removing Docker components.
+
+## Updating Dockge
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data` directory (Dockge's application data) and the `/opt/stacks` directory (your compose stacks). Back these up before major version updates.
 
 ## Youtube Video
 

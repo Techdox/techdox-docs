@@ -1,6 +1,9 @@
 ---
 title: Setting Up MkDocs with Docker Compose
 description: MkDocs is a static site generator that's geared towards project documentation. With the Material theme, it provides a sleek, responsive, and user-friendly interface for your documentation projects.
+tags:
+  - docker
+  - documentation
 ---
 
 # Setting Up MkDocs with Docker Compose
@@ -124,6 +127,16 @@ markdown_extensions:
 ## YouTube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K2RDsWgwDTU?si=sQkLDP4fI0JdhBzX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating MkDocs
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./mkdocs-data` host directory, which contains your `mkdocs.yml` and `docs/` folder. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

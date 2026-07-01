@@ -1,6 +1,10 @@
 ---
 title: Setting Up Authentik with Docker Compose
 description: Authentik is an open-source Identity Provider (IdP) designed to be flexible and versatile. It offers a robust solution for authentication, authorization, and federation, enabling secure access management across your applications.
+tags:
+  - docker
+  - security
+  - authentication
 ---
 
 # Setting Up Authentik with Docker Compose
@@ -243,6 +247,15 @@ volumes:
 - **Manual Preparation**: Prior to deployment, manually create necessary directories for volumes to avoid permission issues.
 - **App URL**: For public deployments, ensure the app URL is defined correctly to match  your domain or IP address.
 
+## Updating Authentik
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `database` and `redis` Docker volumes, plus the `./media`, `./certs`, and `./custom-templates` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

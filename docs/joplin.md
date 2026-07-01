@@ -1,6 +1,10 @@
 ---
 title: Setting Up Joplin with Docker Compose
 description: Joplin Server is a self-hosted sync server for Joplin notes, allowing you to sync across multiple devices securely and privately.
+tags:
+  - docker
+  - productivity
+  - notes
 ---
 
 # Setting Up Joplin Server with Docker Compose
@@ -125,6 +129,16 @@ To synchronize your Joplin notes across devices using your self-hosted Joplin Se
 6. **Initiate Synchronization**: Use the synchronize button or feature within your Joplin application to start syncing your notes with your self-hosted Joplin Server.
 
 By following these steps, you will have configured your Joplin applications to synchronize with your self-hosted Joplin Server, ensuring that your notes are up-to-date across all your devices. This setup provides a private and secure way to manage and sync your notes.
+
+## Updating Joplin Server
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data/postgres` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

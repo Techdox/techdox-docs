@@ -1,6 +1,9 @@
 ---
 title: Setting Up IT Tools with Docker Compose
 description: IT Tools Docker container using Docker Compose. IT Tools is a utility container providing various information technology tools.
+tags:
+  - docker
+  - utilities
 ---
 
 # Deploying IT Tools with Docker Compose
@@ -43,6 +46,16 @@ services:
    Open a web browser and navigate to `http://<host-ip>:8080` to access the IT Tools interface.
 
 By following these steps, you can easily deploy and manage the IT Tools container, which provides a suite of utilities for IT management and troubleshooting.
+
+## Updating IT Tools
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    IT Tools is stateless — this compose file mounts no volumes, so there is no data to back up before updating.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

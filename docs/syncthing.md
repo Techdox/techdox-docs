@@ -1,6 +1,10 @@
 ---
 title: Setting Up Syncthing with Docker Compose
 description: Syncthing is an open-source continuous file synchronization program. It synchronizes files between two or more computers in real time, safely and efficiently.
+tags:
+  - docker
+  - file-management
+  - backup
 ---
 
 # Setting Up Syncthing with Docker Compose
@@ -73,6 +77,16 @@ Once running, access the Syncthing web UI at `http://<your-server-ip>:8384`.
 ## Connecting Devices
 
 To sync between devices, open the Syncthing UI on both, copy the Device ID from one, and add it as a remote device on the other. Both devices must accept the connection before syncing begins.
+
+## Updating Syncthing
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `/path/to/appdata/config` directory and your synced data directories (`/path/to/data1` and `/path/to/data2`). Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

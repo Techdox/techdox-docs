@@ -1,6 +1,8 @@
 ---
 title: Homelab Rebuild 2026 — Overview & Architecture
 description: A complete rebuild of a personal homelab and identity stack, covering open-source routing, full DNS sovereignty, encrypted remote access, zero exposed ports, and identity privacy.
+tags:
+  - homelab
 ---
 
 # Homelab Rebuild 2026 — Overview

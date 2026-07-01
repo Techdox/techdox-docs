@@ -1,6 +1,10 @@
 ---
 title: macOS Security Hardening
 description: Practical macOS hardening using native protections and the Objective-See free toolkit. No third-party antivirus required.
+tags:
+  - homelab
+  - security
+  - macos
 ---
 
 # macOS Security Hardening

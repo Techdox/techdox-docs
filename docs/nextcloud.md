@@ -1,6 +1,10 @@
 ---
 title: Setting Up Nextcloud with Docker Compose
 description: Nextcloud is an open-source, self-hosted file share and collaboration platform. It provides a secure and private alternative to cloud-based storage services.
+tags:
+  - docker
+  - file-management
+  - productivity
 ---
 
 # Setting Up Nextcloud with Docker Compose
@@ -89,6 +93,16 @@ services:
 ## Configuring and Using Nextcloud
 
 After deployment, configure your Nextcloud instance through its web interface. This includes admin account setup, storage management, and app configurations.
+
+## Updating Nextcloud
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `nextcloud` and `db` Docker volumes. Back these up before major version updates.
 
 ## Youtube Video
 

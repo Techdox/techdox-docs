@@ -1,6 +1,10 @@
 ---
 title: Setting Up 2FAuth with Docker Compose
 description: 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
+tags:
+  - docker
+  - security
+  - authentication
 ---
 
 # Setting Up 2FAuth with Docker Compose and Configuration Guide
@@ -208,6 +212,16 @@ services:
 - **Ports Adjustment**: You're free to adjust the port mappings to fit your network environment and avoid conflicts with other services.
 
 This setup provides a robust foundation for deploying 2FAuth, ensuring you have a private, secure 2FA management system.
+
+## Updating 2FAuth
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./2fauth` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

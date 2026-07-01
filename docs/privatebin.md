@@ -1,6 +1,10 @@
 ---
 title: Setting Up PrivateBin with Docker Compose
 description: PrivateBin is a secure, minimalist, open-source online pastebin where the server has zero knowledge of pasted data. It allows you to share sensitive information securely and anonymously.
+tags:
+  - docker
+  - utilities
+  - security
 ---
 
 # Setting Up PrivateBin with Docker Compose

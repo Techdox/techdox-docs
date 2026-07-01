@@ -1,6 +1,9 @@
 ---
 title: Self-Hosting Matrix with Docker, Element, and Voice Calls
 description: Deploy a private Matrix homeserver with Synapse, Element Web, Element Call, LiveKit, coturn, Nginx Proxy Manager, and Cloudflare Tunnel. Full compose file, all config files, and voice/video setup included.
+tags:
+  - docker
+  - communication
 ---
 
 # Self-Hosting Matrix with Docker, Element, and Voice Calls

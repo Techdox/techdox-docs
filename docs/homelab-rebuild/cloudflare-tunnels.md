@@ -1,6 +1,9 @@
 ---
 title: Cloudflare Tunnels for Public Services
 description: Expose self-hosted services to the internet without opening a single port. Cloudflare Tunnels create an outbound-only connection from cloudflared to Cloudflare's edge.
+tags:
+  - homelab
+  - networking
 ---
 
 # Cloudflare Tunnels for Public Services

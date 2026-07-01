@@ -1,6 +1,10 @@
 ---
 title: Setting Up Stirling PDF with Docker Compose
 description: Stirling PDF is a self-hosted PDF toolbox for merging, splitting, compressing, converting, OCRing, signing, and editing PDFs from your own server.
+tags:
+  - docker
+  - documents
+  - utilities
 ---
 
 # Setting Up Stirling PDF with Docker Compose

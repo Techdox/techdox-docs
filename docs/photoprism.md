@@ -1,6 +1,9 @@
 ---
 title: Setting Up PhotoPrism with Docker Compose
 description: Learn how to deploy PhotoPrism using Docker Compose to easily manage your photo collections with powerful AI capabilities.
+tags:
+  - docker
+  - media
 ---
 
 # Setting Up PhotoPrism with Docker Compose
@@ -67,6 +70,16 @@ services:
 This command starts PhotoPrism in detached mode, running in the background.
 
 4. **Access PhotoPrism**: Once the services are up and running, you can access PhotoPrism through `http://<your-server-ip>:2342` or the domain you have configured. Update `PHOTOPRISM_SITE_URL` in your compose file to match the URL you use to access the instance.
+
+## Updating PhotoPrism
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./photos`, `./storage`, and `./database` host directories. Back these up before major version updates.
 
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

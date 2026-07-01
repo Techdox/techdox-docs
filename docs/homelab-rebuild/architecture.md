@@ -1,6 +1,8 @@
 ---
 title: Full Stack Architecture Diagram
 description: Complete architecture diagram of the homelab rebuild stack, showing all layers from network to identity.
+tags:
+  - homelab
 ---
 
 # Full Stack Architecture

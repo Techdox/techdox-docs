@@ -7,6 +7,7 @@ repo_name: Techdox/techdox-docs
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
+  - Start Here: start-here.md
   - Docker Containers:
       - Overview: docker-containers.md
       - Security & Authentication:
@@ -24,6 +25,7 @@ nav:
           - Filebrowser: filebrowser.md
           - Matrix: matrix.md
           - Nextcloud: nextcloud.md
+          - Pingvin Share: pingvin.md
           - Syncthing: syncthing.md
       - Backup & Sync:
           - Duplicati: duplicati.md
@@ -33,7 +35,7 @@ nav:
           - Excalidraw: excalidraw.md
           - Firefly III: firefly.md
           - Focalboard: focalboard.md
-          - Karakeep: hoarder.md
+          - Karakeep: karakeep.md
           - Joplin: joplin.md
           - Mealie: mealie.md
           - Memos: memos.md
@@ -95,6 +97,7 @@ nav:
   - Resources:
       - Donate / Get Support: support.md
       - RackNerd Deals - Cheap VPS: racknerd.md
+      - Browse by Tag: tags.md
       - Merch: https://store.techdox.nz
 
 #  - About: about.md
@@ -142,9 +145,18 @@ plugins:
           background_color: "#1e2030"
           color: "#ffffff"
     - search
+    - tags:
+        tags_file: tags.md
     - git-revision-date-localized:
         enable_creation_date: true
         type: timeago
+    - rss:
+        abstract_chars_count: 160
+        categories:
+          - tags
+    - redirects:
+        redirect_maps:
+          hoarder.md: karakeep.md
     - minify:
         minify_html: true
 markdown_extensions:

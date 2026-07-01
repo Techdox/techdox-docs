@@ -1,6 +1,9 @@
 ---
 title: Deploying Tududi with Docker Compose  
 description: Tududi is a lightweight, open-source task management tool. This guide provides step-by-step instructions for deploying Tududi using Docker Compose, including setting up the required directory, creating a `docker-compose.yml` file, and configuring the environment variables for secure and seamless operation.  
+tags:
+  - docker
+  - productivity
 ---
 
 # Deploying Tududi with Docker Compose  

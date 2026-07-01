@@ -1,6 +1,9 @@
 ---
 title: Setting Up Node Exporter
 description: The Node Exporter is a project that is maintained through the Prometheus project. 
+tags:
+  - monitoring
+  - linux
 ---
 
 # Setting Up Node Exporter
