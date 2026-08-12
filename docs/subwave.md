@@ -9,7 +9,7 @@ description: Turn your own music library into a continuous, self-hosted radio st
 
 It can schedule shows through the day, use music metadata to keep a show in a particular musical lane, accept requests, and optionally add an AI DJ for short links between tracks. It does **not** provide or generate a music catalogue. The library is yours.
 
-This guide uses [Navidrome](https://www.navidrome.org/) as the music-library server and Docker Compose for the station. It is a practical starting point. Check the [official SUB/WAVE setup guide](https://www.getsubwave.com/setup) and [operator manual](https://www.getsubwave.com/manual) for current upstream options.
+This guide uses [Navidrome](https://www.navidrome.org/) as the music-library server and Docker Compose for the station. It is a practical starting point. The complete project is available in the [official SUB/WAVE GitHub repository](https://github.com/perminder-klair/subwave), alongside the [official setup guide](https://www.getsubwave.com/setup) and [operator manual](https://www.getsubwave.com/manual).
 
 !!! warning
     Owning music files does not automatically give you public broadcasting rights. Keep a personal station private unless you have checked the licensing requirements where you live.
@@ -75,6 +75,24 @@ Replace `192.168.1.50` with your server's LAN address or hostname. If you later 
     ```
 
 ## Docker Compose configuration
+
+SUB/WAVE publishes its canonical deployment files in the upstream repository:
+
+- [Official `docker-compose.yml`](https://github.com/perminder-klair/subwave/blob/main/docker-compose.yml)
+- [Official `.env.example`](https://github.com/perminder-klair/subwave/blob/main/.env.example)
+- [Official bring-your-own-proxy Compose file](https://github.com/perminder-klair/subwave/blob/main/docker-compose.byo.yml)
+- [Official deployment notes](https://github.com/perminder-klair/subwave/blob/main/DEPLOY.md)
+
+You can download the standard upstream files directly:
+
+```bash
+curl -O https://raw.githubusercontent.com/perminder-klair/subwave/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/perminder-klair/subwave/main/.env.example
+mv .env.example .env
+```
+
+!!! note
+    The upstream files are the canonical deployment and should be your first choice when following new SUB/WAVE releases. The Compose example below is a compact Techdox starting point that places Navidrome and the SUB/WAVE all-in-one image in one project.
 
 Create `docker-compose.yml`:
 
@@ -276,9 +294,13 @@ Pause analysis or run it during quiet periods. BPM/key analysis is relatively mo
 ## Official resources
 
 - [SUB/WAVE project site](https://www.getsubwave.com/)
+- [SUB/WAVE GitHub repository](https://github.com/perminder-klair/subwave)
+- [Official Docker Compose file](https://github.com/perminder-klair/subwave/blob/main/docker-compose.yml)
+- [Official environment example](https://github.com/perminder-klair/subwave/blob/main/.env.example)
+- [Official bring-your-own-proxy Compose file](https://github.com/perminder-klair/subwave/blob/main/docker-compose.byo.yml)
 - [Official setup walkthrough](https://www.getsubwave.com/setup)
 - [Official operator manual](https://www.getsubwave.com/manual)
-- [SUB/WAVE source on GitHub](https://github.com/perminder-klair/subwave)
+- [Official deployment notes](https://github.com/perminder-klair/subwave/blob/main/DEPLOY.md)
 - [Navidrome documentation](https://www.navidrome.org/docs/)
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
