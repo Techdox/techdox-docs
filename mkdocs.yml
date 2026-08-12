@@ -43,6 +43,7 @@ nav:
       - Media:
           - Jellyfin: jellyfin.md
           - Logitech Media Server: logitech.md
+          - SUB/WAVE: subwave.md
           - Photoprism: photoprism.md
       - Tools & Utilities:
           - Dockpeek: dockpeek.md
