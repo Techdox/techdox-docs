@@ -1,10 +1,11 @@
 ---
 title: Setting Up PrivateBin with Docker Compose
 description: PrivateBin is a secure, minimalist, open-source online pastebin where the server has zero knowledge of pasted data. It allows you to share sensitive information securely and anonymously.
+tags:
+  - docker
+  - utilities
+  - security
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up PrivateBin with Docker Compose
 
@@ -15,6 +16,8 @@ PrivateBin is a secure, minimalist, open-source online pastebin where the server
 !!! note
 
     **PrivateBin must run via HTTPS**
+
+    The easiest way to achieve this is through [Nginx Proxy Manager](npm.md) or [Traefik](traefik.md), both of which support automatic Let's Encrypt certificates.
 
 ## Docker Compose Configuration for PrivateBin
 
@@ -98,7 +101,19 @@ It's important to regularly back up and monitor the contents of the `privatebin-
 
 ## Configuring and Using PrivateBin
 
-After deployment, PrivateBin is ready to use with minimal configuration required. Access the web interface to start sharing texts and files securely.
+PrivateBin works out of the box with no configuration required. To customise behaviour, edit `conf.php` inside the mounted `/srv/data` volume:
+
+- **Expiry options** — set available paste lifetimes in the `[expire_options]` section
+- **File uploads** — enable with `fileupload = true` under `[main]`
+- **Size limits** — adjust with `sizelimit` under `[main]`
+
+## Updating
+
+```bash
+docker compose pull && docker compose up -d
+```
+
+Paste data is stored in the `privatebin-data` named volume and is safe across updates.
 
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>

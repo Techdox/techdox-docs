@@ -1,10 +1,11 @@
 ---
 title: Deploying Firefly III with Docker Compose
 description: Firefly III is a free and open-source personal finance manager. This guide provides steps for deploying Firefly III using Docker Compose, including important notes on configuring environment variables, setting up cron jobs, and handling optional configurations.
+tags:
+  - docker
+  - finance
+  - productivity
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Firefly III with Docker Compose
 
@@ -19,8 +20,6 @@ Below is the Docker Compose file used to deploy Firefly III, along with explanat
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
-
 services:
   app:
     image: fireflyiii/core:latest            # Uses the latest Firefly III Docker image.
@@ -132,11 +131,15 @@ Create a `.env` file in the same directory as your `docker-compose.yml` with the
 APP_ENV=production
 APP_DEBUG=false
 SITE_OWNER=your_email@example.com          # Replace with your email address.
-APP_KEY=YOUR_APP_KEY                       # Generate using 'php artisan key:generate --show' inside the app container.
+APP_KEY=                                    # Leave blank on first run — generate with the command below after containers start.
 DEFAULT_LANGUAGE=en_US
 DEFAULT_LOCALE=equal
 TZ=Your/Timezone                           # Replace with your timezone, e.g., 'America/New_York'.
 TRUSTED_PROXIES=*
+
+!!! warning "Restrict TRUSTED_PROXIES in production"
+    Setting `TRUSTED_PROXIES=*` trusts all upstream IP addresses unconditionally. On publicly accessible instances, scope this to your specific reverse proxy IP or CIDR instead.
+
 LOG_CHANNEL=stack
 APP_LOG_LEVEL=notice
 AUDIT_LOG_LEVEL=emergency
@@ -218,6 +221,13 @@ FIREFLY_III_LAYOUT=v1
 
 ### Setting Up the Cron Service
 
+!!! warning "Replace the cron token before deploying"
+    The `YOUR_32_CHAR_CRON_TOKEN` placeholder **must** be replaced with a real 32-character token before starting the stack. Deploying with the placeholder means all scheduled tasks (recurring transactions, auto-budgets, etc.) will **silently never run**.
+
+    Generate a token with: `openssl rand -hex 16`
+
+    Set the same token in the cron service command and in the Firefly III environment variables.
+
 The `cron` service schedules a daily task to trigger Firefly III's scheduled jobs. To set this up:
 
 1. **Generate a Static Cron Token**: This token must be exactly 32 characters long. You can generate one using:
@@ -253,13 +263,22 @@ To deploy Firefly III, follow these steps:
 
    This command will start all the services in detached mode.
 
-4. **Generate the Application Key**: If you haven't generated the `APP_KEY` yet, run:
+4. **Generate the Application Key**: With `APP_KEY` left blank in `.env`, generate the key by running:
 
    ```bash
    docker compose exec app php artisan key:generate --show
    ```
 
-   Copy the output and paste it into the `APP_KEY` field in your `.env` file. Then, restart the app service:
+   !!! warning
+       You **must** leave `APP_KEY` blank (not a placeholder like `YOUR_APP_KEY`) before the first start, otherwise Laravel throws a cipher error when generating the key. If you see *"Unsupported cipher or incorrect key length"*, clear `APP_KEY=` in `.env` and restart the container before running the command again.
+
+   Copy the `base64:...` output and set it in your `.env` file:
+
+   ```ini
+   APP_KEY=base64:your_generated_key_here
+   ```
+
+   Then restart the app service:
 
    ```bash
    docker compose restart app
@@ -284,6 +303,16 @@ Follow the on-screen instructions to complete the setup.
 ## Conclusion
 
 By following this guide, you have successfully deployed Firefly III using Docker Compose. You now have a powerful personal finance manager up and running, with persistent storage and scheduled tasks configured. Remember to secure all sensitive information and consider filling in optional configurations as needed to enhance your Firefly III experience.
+
+## Updating Firefly III
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `firefly_iii_upload` and `firefly_iii_db` Docker volumes. Back these up before major version updates.
 
 ---
 

@@ -1,10 +1,11 @@
 ---
 title: Deploying Pocket ID with Docker Compose
 description: Pocket ID is a self-hosted, privacy-focused identity management solution. This guide provides step-by-step instructions for deploying Pocket ID using Docker Compose, including the required Docker Compose configuration and environment variables.
+tags:
+  - docker
+  - security
+  - authentication
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Pocket ID with Docker Compose
 
@@ -43,7 +44,7 @@ services:
 
 - **pocket-id**: Runs the Pocket ID application.
 - **Image**: Pulls the latest image from the Pocket ID GitHub Container Registry.
-- **Ports**: Maps port 3055 on the host to port 80 in the container, making Pocket ID accessible via `http://<your-server-ip>:3055`.
+- **Ports**: Maps port 3055 on the host to port 1411 in the container, making Pocket ID accessible via `http://<your-server-ip>:3055`.
 - **Volumes**:
   - `./data:/app/backend/data`: Mounts the local data directory for persistent storage.
 - **Healthcheck**: Ensures the container is running properly and provides automated health monitoring.
@@ -57,13 +58,13 @@ Pocket ID requires environment variables for proper configuration. These setting
 ```env
 # Documentation: https://pocket-id.org/docs/configuration/environment-variables
 APP_URL=https://pocket.techdox.nz         # Public URL for your Pocket ID instance
+ENCRYPTION_KEY=your_32_byte_base64_key    # REQUIRED – generate with: openssl rand -base64 32
 TRUST_PROXY=true                          # Enables reverse proxy support
 MAXMIND_LICENSE_KEY=                      # (Optional) License key for GeoIP features
-PUID=1000                                 # User ID for file permission management
-PGID=1000                                 # Group ID for file permission management
 ```
 
 **Note**:
+- `ENCRYPTION_KEY` is **mandatory** since Pocket ID v2.0. The container will not start without it. Generate a key with `openssl rand -base64 32`.
 - Replace the placeholder values with your specific configuration.
 - For detailed explanations, visit the [Pocket ID environment variables documentation](https://pocket-id.org/docs/configuration/environment-variables).
 
@@ -97,6 +98,16 @@ To deploy Pocket ID, follow these steps:
 ## Conclusion
 
 By following this guide, you have successfully deployed Pocket ID using Docker Compose. You can now securely manage identities for your applications in a self-hosted and privacy-focused environment.
+
+## Updating Pocket ID
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

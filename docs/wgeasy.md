@@ -1,10 +1,11 @@
 ---
 title: Deploying WG-Easy with Docker Compose
 description: WG-Easy is a simple, web-based management interface for WireGuard VPN.
+tags:
+  - docker
+  - vpn
+  - networking
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 
 # Deploying WG-Easy with Docker Compose
@@ -13,6 +14,15 @@ description: WG-Easy is a simple, web-based management interface for WireGuard V
 
 WG-Easy is a simple, web-based management interface for WireGuard VPN, which simplifies the configuration and management of VPN connections. It provides a user-friendly web interface to configure your VPN without the need for complex command-line tools.
 
+## Prerequisites
+
+- Docker and Docker Compose installed
+- **Linux kernel 5.6+** with WireGuard support (or `wireguard-dkms` installed on older kernels)
+- UDP port 51820 open in your firewall
+
+!!! warning "Open UDP port 51820"
+    WG-Easy requires **UDP port 51820** to be open in both your host firewall and any upstream cloud security group or router port forwarding rules. Without this, WireGuard connections will fail silently.
+
 ## Docker Compose Configuration
 
 Here's how to deploy WG-Easy using Docker Compose, detailing each component of the configuration to ensure clarity and proper setup.
@@ -20,7 +30,6 @@ Here's how to deploy WG-Easy using Docker Compose, detailing each component of t
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
 services:
   wg-easy:
     image: ghcr.io/wg-easy/wg-easy  # The Docker image to use.
@@ -84,6 +93,16 @@ Once deployed, access the WG-Easy web interface through `http://your-server-ip:5
 ## Conclusion
 
 Deploying WG-Easy with Docker Compose simplifies the setup of a WireGuard VPN server, providing an accessible and secure way to manage VPN connections through a web-based interface. This setup ensures that your VPN is robustly configured and easily manageable, even for those with minimal technical background.
+
+## Updating WG-Easy
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./wg-easy/` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

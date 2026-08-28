@@ -1,16 +1,16 @@
 ---
 title: Deploying Beszel with Docker Compose
-description: Beszel is a self-hosted web application designed to provide a chat interface for various platforms. This guide details deploying Beszel using Docker Compose, including configuration settings for optimized performance.
+description: Beszel is a lightweight, self-hosted server monitoring hub with agent-based metrics collection. This guide details deploying Beszel using Docker Compose.
+tags:
+  - docker
+  - monitoring
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Beszel with Docker Compose
 
 ## Introduction to Beszel
 
-Beszel is a self-hosted web application designed to provide a chat interface for various platforms. This guide details deploying Beszel using Docker Compose, including configuration settings for optimized performance.
+[Beszel](https://github.com/henrygd/beszel) is a lightweight, self-hosted server monitoring hub that collects CPU, memory, disk, and network metrics from agents running on your servers. It provides an intuitive web dashboard to monitor all your systems in one place. This guide details deploying Beszel using Docker Compose.
 
 ## Docker Compose Configuration for Beszel
 
@@ -19,7 +19,6 @@ Here's how to set up Beszel using Docker Compose, explaining each component of t
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
 services:
   beszel:
     image: 'henrygd/beszel'        # Specifies the Beszel Docker image.
@@ -59,11 +58,42 @@ This command starts the Beszel service in detached mode, running in the backgrou
 
 ## Accessing Beszel
 
-After deployment, Beszel will be accessible at `http://<your-server-ip>:8090` based on your port configuration. This setup ensures that Beszel is ready for chat interface management from your self-hosted environment.
+After deployment, Beszel will be accessible at `http://<your-server-ip>:8090` based on your port configuration. This setup ensures that Beszel is ready to collect metrics from your self-hosted environment.
+
+!!! warning "The Beszel agent is required"
+    Beszel requires a lightweight **agent** installed on each host you want to monitor. Without the agent, the Beszel hub will show no data.
+
+    Add the agent to each monitored host using the following Docker Compose snippet:
+
+    ```yaml
+    services:
+      beszel-agent:
+        image: henrygd/beszel-agent
+        container_name: beszel-agent
+        restart: unless-stopped
+        network_mode: host
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+        environment:
+          LISTEN_PORT: 45876
+          HUB_URL: http://<beszel-hub-ip>:8090
+    ```
+
+    Replace `<beszel-hub-ip>` with the IP of your Beszel hub container.
+
+## Updating Beszel
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./beszel_data` directory. Back this up before major version updates.
 
 ## Conclusion
 
-Deploying Beszel with Docker Compose allows for straightforward setup and management of a self-hosted chat interface. The configuration ensures optimal use of system resources while providing robust data persistence and easy accessibility.
+Deploying Beszel with Docker Compose gives you a lightweight, self-hosted monitoring hub for all your servers. Install the Beszel agent on each host you want to monitor, then add it via the web dashboard to start collecting metrics.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

@@ -1,6 +1,10 @@
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
+---
+title: Deploying Cosmos Cloud Server with Docker
+description: Learn how to deploy Cosmos Cloud Server with Docker — an intuitive platform for managing containers, services, and self-hosted apps.
+tags:
+  - docker
+  - docker-management
+---
 
 # Deploying Cosmos Cloud Server with Docker
 
@@ -36,9 +40,8 @@ docker run -d -p 80:80 -p 443:443 -p 4242:4242/udp --privileged --name cosmos-se
 
 ## Important Note on Deployment Method
 
-Cosmos Cloud explicitly states: **"DO NOT USE DOCKER-COMPOSE, UNRAID TEMPLATES, CASAOS, OR PORTAINER STACKS TO INSTALL COSMOS. IT WILL NOT WORK PROPERLY. JUST RUN THE DOCKER RUN COMMAND!"** This directive is due to Cosmos Cloud's specific networking and host resource management requirements that cannot be properly configured or fully supported through these tools.
-
-Using Docker Compose or similar tools might restrict certain necessary privileges or configurations that Cosmos Cloud needs for its operation, such as `--network host` or `--privileged` modes. Such limitations could lead to incomplete functionality or prevent Cosmos Cloud from operating as intended.
+!!! danger "Do not use Docker Compose or container managers to deploy Cosmos"
+    Cosmos **must** be deployed using the `docker run` command below. **Do not use** Docker Compose, Portainer Stacks, Unraid App Store, CasaOS, or any other container management tool to deploy it — doing so will cause Cosmos to malfunction.
 
 ## Deployment Instructions
 
@@ -47,6 +50,10 @@ Using Docker Compose or similar tools might restrict certain necessary privilege
 3. **Access Cosmos Cloud**: After deployment, access Cosmos Cloud through its web interface or according to its documentation to start managing your Docker containers and services.
 
 By following these instructions and using the Docker run command as recommended by Cosmos Cloud, you ensure a smooth and functional deployment of Cosmos Cloud Server, ready to orchestrate your containerized applications effectively.
+
+## Updating Cosmos
+
+Cosmos manages its own updates — when a new version is available you will see an update prompt in the Cosmos UI. Do not update it with Docker Compose or other container tools.
 
 ## Youtube Video
 

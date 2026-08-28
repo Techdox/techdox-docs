@@ -2,9 +2,6 @@
 title: About Techdox Docs
 description: Welcome to Techdox Docs, the official documentation source for the Techdox YouTube channel.
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # About Techdox Docs
 
@@ -25,6 +22,10 @@ At Techdox Docs, you'll find:
 ## Stay Connected
 
 Follow the Techdox YouTube channel to stay updated with the latest tech tutorials and guides. Your support and feedback drive our content and help us in delivering quality tech education.
+
+- :fontawesome-brands-youtube:{ style="color: #ff0000" } **[YouTube](https://www.youtube.com/@techdox)** — Watch the latest tutorials and homelab walkthroughs
+- :fontawesome-brands-discord:{ style="color: #5865f2" } **[Discord](http://discord.com/invite/8mX2KRxDw8)** — Join the community, ask questions, share your builds
+- :fontawesome-brands-github: **[GitHub](https://github.com/Techdox/techdox-docs)** — Contribute, report issues, or suggest a guide
 
 ---
 

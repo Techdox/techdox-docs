@@ -1,11 +1,13 @@
 ---
 title: Self-Hosting Pangolin with Installer
 description: Learn how to deploy Pangolin, a secure and self-hosted alternative to Cloudflare Tunnels, using the official installer.
+tags:
+  - docker
+  - networking
+  - reverse-proxy
+  - security
 ---
 
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Self-Hosting Pangolin with the Official Installer
 
@@ -27,11 +29,16 @@ If you're looking for an affordable VPS, consider [RackNerd](https://my.racknerd
 
 ### 1. Download and Run the Installer
 
-Download the installer for your system:
+Download the latest installer for your system:
 
 ```bash
-wget -O installer "https://github.com/fosrl/pangolin/releases/download/1.2.0/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && chmod +x ./installer
+PANGOLIN_VERSION=$(curl -s https://api.github.com/repos/fosrl/pangolin/releases/latest | grep '"tag_name"' | cut -d'"' -f4) && \
+wget -O installer "https://github.com/fosrl/pangolin/releases/download/${PANGOLIN_VERSION}/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')" && \
+chmod +x ./installer
 ```
+
+!!! tip
+    The command above automatically fetches the latest release. You can check available releases at the [Pangolin releases page](https://github.com/fosrl/pangolin/releases).
 
 Run the installer with root privileges:
 
@@ -90,6 +97,16 @@ Once completed:
 
 - Access Pangolin at your dashboard domain
 - Log in using the configured admin credentials
+
+## Updating Pangolin
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `config` directory created by the installer, alongside the generated `docker-compose.yml`. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

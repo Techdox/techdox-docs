@@ -1,10 +1,11 @@
 ---
 title: Setting Up Nextcloud with Docker Compose
 description: Nextcloud is an open-source, self-hosted file share and collaboration platform. It provides a secure and private alternative to cloud-based storage services.
+tags:
+  - docker
+  - file-management
+  - productivity
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Nextcloud with Docker Compose
 
@@ -18,16 +19,17 @@ This setup includes Nextcloud and a MariaDB database, ensuring an isolated and m
 
 ### Docker Compose File (`docker-compose.yml`)
 
-```yaml
-version: '2'
+!!! note "MariaDB version"
+    This guide uses `mariadb:lts` (Long Term Support). The previously referenced `10.6` tag reached end-of-life in July 2024.
 
+```yaml
 volumes:
   nextcloud:
   db:
 
 services:
   db:
-    image: mariadb:10.6
+    image: mariadb:lts
     restart: always
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
@@ -62,7 +64,7 @@ services:
 
 ### Services
 #### `db`
-- **Image**: `mariadb:10.6`
+- **Image**: `mariadb:lts`
 - **Restart**: Always ensures the container restarts after a crash or reboot.
 - **Command**: Configures MariaDB for optimal use with Nextcloud.
 - **Volumes**: Maps `db` volume to MariaDB data directory.
@@ -83,9 +85,24 @@ services:
 3. Run `docker compose up -d` to start Nextcloud in detached mode.
 4. Access Nextcloud via `http://<host-ip>:8080`.
 
+!!! warning "Trusted domains configuration"
+    Accessing Nextcloud from any address other than `localhost` will return a **400 Bad Request** error until you add your domain or IP to the trusted domains list.
+
+    Set the `NEXTCLOUD_TRUSTED_DOMAINS` environment variable in your compose file, or edit `config/config.php` inside the data volume to add your hostname to the `trusted_domains` array.
+
 ## Configuring and Using Nextcloud
 
 After deployment, configure your Nextcloud instance through its web interface. This includes admin account setup, storage management, and app configurations.
+
+## Updating Nextcloud
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `nextcloud` and `db` Docker volumes. Back these up before major version updates.
 
 ## Youtube Video
 

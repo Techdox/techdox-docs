@@ -1,10 +1,11 @@
 ---
 title: Setting Up Joplin with Docker Compose
-description: Joplin Server acts as a self-hosted synchronization server for Joplin notes. It allows you to synchronize your notes across multiple>
+description: Joplin Server is a self-hosted sync server for Joplin notes, allowing you to sync across multiple devices securely and privately.
+tags:
+  - docker
+  - productivity
+  - notes
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Joplin Server with Docker Compose
 
@@ -19,7 +20,6 @@ This Docker Compose setup deploys Joplin Server along with a PostgreSQL database
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3'
 services:
     db:
         image: postgres:16
@@ -49,6 +49,15 @@ services:
             - POSTGRES_PORT=5432
             - POSTGRES_HOST=db
 ```
+
+!!! warning "Update APP_BASE_URL"
+    The `APP_BASE_URL` is set to the author's private server IP. **Replace `192.168.68.105:22300` with your own server's IP or hostname**, e.g. `http://YOUR_SERVER_IP:22300`. Using the wrong URL causes "invalid origin" errors on all clients.
+
+!!! warning "Change the database password"
+    The password `testing123` appears in two places in this compose file (both the `joplin` and `db` service blocks). **Replace it with a strong, unique password in both locations before deploying.**
+
+!!! warning "Database port exposed to host"
+    Port 5432 is mapped to the host, making the PostgreSQL database directly accessible on your network. Remove the `ports:` block from the `db` service if you don't need direct database access from outside Docker.
 
 ## Key Components of the Configuration
 
@@ -82,6 +91,15 @@ These are the default login credentials for Joplin Server upon the first run. It
      ```
    - After startup, Joplin Server will be accessible at the `APP_BASE_URL` you've configured, e.g., `http://192.168.68.105:22300`.
 
+!!! warning "Using a Reverse Proxy or Cloudflare?"
+    If you are exposing Joplin Server via a reverse proxy (Nginx Proxy Manager, Traefik) or Cloudflare, you **must** update `APP_BASE_URL` to your public domain — for example:
+
+    ```yaml
+    - APP_BASE_URL=https://joplin.yourdomain.com
+    ```
+
+    Joplin Server uses `APP_BASE_URL` to validate the origin of incoming requests. If the URL doesn't match the host your clients connect to, you will get an **"invalid origin"** error. Make sure the value uses the correct scheme (`https://` when TLS is terminated by the proxy) and does **not** include a trailing slash.
+
 ## Initial Setup and Synchronization Configuration
 
 After successfully deploying Joplin Server and logging in with the default credentials (`admin@localhost` / `admin`), it's important to secure your instance and configure your Joplin applications (desktop, mobile) to synchronize with your self-hosted server.
@@ -111,6 +129,16 @@ To synchronize your Joplin notes across devices using your self-hosted Joplin Se
 6. **Initiate Synchronization**: Use the synchronize button or feature within your Joplin application to start syncing your notes with your self-hosted Joplin Server.
 
 By following these steps, you will have configured your Joplin applications to synchronize with your self-hosted Joplin Server, ensuring that your notes are up-to-date across all your devices. This setup provides a private and secure way to manage and sync your notes.
+
+## Updating Joplin Server
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data/postgres` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

@@ -1,10 +1,10 @@
 ---
 title: Setting Up Node Exporter
 description: The Node Exporter is a project that is maintained through the Prometheus project. 
+tags:
+  - monitoring
+  - linux
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Node Exporter
 
@@ -68,7 +68,7 @@ sudo nano /etc/systemd/system/node_exporter.service
 ```
 
 Then, paste the following configuration:
-```bash
+```ini
 [Unit]
 Description=Node Exporter
 Wants=network-online.target

@@ -1,10 +1,10 @@
 ---
 title: Setting Up Linkstack with Docker Compose
 description: Linkstack is a web application that provides a user-friendly platform for managing and organizing web links. It is designed for ease of use and convenience in storing a collection of links.
+tags:
+  - docker
+  - utilities
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Linkstack with Docker Compose
 
@@ -43,6 +43,9 @@ volumes:
   linkstack:
 ```
 
+!!! tip "Update the server admin email"
+    Replace `[email protected]` with your own email address for server administration notifications.
+
 ## Key Components of the Configuration
 ### Service: Linkstack
 - **Image**: `linkstackorg/linkstack` is the Docker image used for Linkstack.
@@ -67,11 +70,27 @@ volumes:
 
 ## Configuring and Using Linkstack
 
-After deployment, configure Linkstack through its web interface to start organizing and managing your web links.
+Linkstack lets you create a shareable link-in-bio page. After first login:
+
+1. Go to **Admin Panel → Profile** to set your username and public URL
+2. Use the **+ Add Link** button to add links to your page
+3. Share your page at `https://your-domain.com/@username`
+
+For custom domains, uncomment and set the `HTTP_SERVER_NAME` and `HTTPS_SERVER_NAME` environment variables in your compose file to your actual domain.
 
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bHNNSFoMuAI?si=eOYtfpNEpnTvDJNY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Linkstack
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `linkstack` named Docker volume (mounted at `/htdocs`). Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

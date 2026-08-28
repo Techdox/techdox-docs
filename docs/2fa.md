@@ -1,10 +1,11 @@
 ---
 title: Setting Up 2FAuth with Docker Compose
 description: 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
+tags:
+  - docker
+  - security
+  - authentication
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up 2FAuth with Docker Compose and Configuration Guide
 
@@ -13,7 +14,7 @@ description: 2FAuth is a self-hosted application that enhances your security by 
 2FAuth is a self-hosted application that enhances your security by providing a two-factor authentication system. It allows you to generate and manage 2FA codes, giving you an added layer of protection for your online accounts.
 
 !!! note
-    Offical documentaion for the Docker compose deployment can be found here - [2FAuth Docker Compose Installation Guide](https://docs.2fauth.app/getting-started/installation/docker/docker compose/)
+    Official documentation for the Docker compose deployment can be found here - [2FAuth Docker Compose Installation Guide](https://docs.2fauth.app/getting-started/installation/docker/docker compose/)
 
 ## Docker Compose Configuration
 
@@ -178,6 +179,13 @@ services:
 - **Environment Variables**: Provides detailed configuration for the app's operation, including:
   - `APP_NAME`: Customizable to change the name of your 2FAuth application.
   - `APP_KEY`: Critical for encryption; use `php artisan key:generate` to create a secure key.
+
+!!! tip "Generate your APP_KEY"
+    Generate a valid APP_KEY with this command:
+    ```bash
+    docker run --rm 2fauth/2fauth php artisan key:generate --show
+    ```
+    Copy the output (starting with `base64:`) into the `APP_KEY` environment variable.
   - `SITE_OWNER`: Your email address for site ownership verification.
   - `APP_URL` and `ASSET_URL`: Set these to match your installation's external address.
   - `LOG_CHANNEL` and `LOG_LEVEL`: Configure how and where your logs are stored and their verbosity.
@@ -188,7 +196,10 @@ services:
 ## Deployment Instructions
 
 1. **Prepare Environment**:
-   - Ensure the volume directory (`./2fauth`) exists on your host to store persistent data. Make this manually, otherwise it will be owned by root and it can lead to permission issues
+   - Ensure the volume directory (`./2fauth`) exists on your host to store persistent data.
+
+!!! warning
+    Create the `./2fauth` directory manually before starting the container. If Docker creates it automatically, it will be owned by root and can lead to permission issues.
 2. **Environment Configuration**:
    - Fill in or adjust the environment variables in the `docker-compose.yml` file as necessary. Pay special attention to secure values like `APP_KEY`.
 3. **Starting the Service**:
@@ -201,6 +212,16 @@ services:
 - **Ports Adjustment**: You're free to adjust the port mappings to fit your network environment and avoid conflicts with other services.
 
 This setup provides a robust foundation for deploying 2FAuth, ensuring you have a private, secure 2FA management system.
+
+## Updating 2FAuth
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./2fauth` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

@@ -1,10 +1,12 @@
 ---
 title: AdGuard - Docker Setup
 description: AdGuard is a comprehensive, customizable network software that blocks ads, trackers, and malicious websites. It enhances user privacy and improves browsing speed and security.
+tags:
+  - docker
+  - dns
+  - security
+  - networking
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # AdGuard - Docker Setup
 
@@ -18,6 +20,9 @@ To install and run AdGuard using Docker, you can use the following command. This
 
 ### Docker Run Command
 
+!!! warning "Replace the IP address"
+    The IP address `192.168.68.110` in this command is the author's private server IP. Replace it with your own server's IP address before running.
+
 ```bash
 docker run --name adguardhome \
     --restart unless-stopped \
@@ -30,6 +35,9 @@ docker run --name adguardhome \
     -p 5443:5443/tcp -p 5443:5443/udp \
     -d adguard/adguardhome
 ```
+
+!!! note "Customise volume paths"
+    The volume paths above use the author's directory structure. Replace them with paths that suit your own setup, e.g. `/home/<your-user>/docker/adguard/conf`.
 
 #### Breakdown of Docker Command
 - `docker run`: This command is used to run a new container.
@@ -50,9 +58,24 @@ docker run --name adguardhome \
 ## Docker Hub Link
 - [AdGuard Home on Docker Hub](https://hub.docker.com/r/adguard/adguardhome)
 
+## Post-Installation
+
+Once AdGuard Home is running, open your browser and navigate to `http://<your-server-ip>:3000` to complete the initial setup wizard. You will be prompted to create an admin account and configure your DNS settings.
+
+After setup, point your router or individual devices to use `<your-server-ip>` as their DNS server to start filtering ads and trackers.
+
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a3rej5UVvKo?si=-wik4SQoF-A-WGEt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating AdGuard Home
+
+```bash
+docker pull adguard/adguardhome
+docker stop adguardhome && docker rm adguardhome
+```
+
+Then re-run the original `docker run` command. Your configuration is preserved in the mounted `workdir` and `confdir` volumes.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

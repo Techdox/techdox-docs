@@ -1,10 +1,10 @@
 ---
 title: Setting Up Chibisafe with Docker Compose
 description: Chibisafe is a file uploader and manager that's easy to use, allowing for the quick and secure sharing of files. It's a self-hosted solution for those who need control over their file-sharing environment.
+tags:
+  - docker
+  - file-management
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Chibisafe with Docker Compose
 
@@ -34,7 +34,13 @@ services:
     restart: always
 ```
 
-##Key Components of the Configuration
+## Key Components of the Configuration
+
+!!! warning "Create required directories before starting"
+    You must create the following directories manually before running `docker compose up -d`, otherwise the container will fail with permission errors:
+    ```bash
+    mkdir -p database uploads logs
+    ```
 
 ### Service: Chibisafe
 - **Image**: `chibisafe/chibisafe:latest` is the Docker image used for Chibisafe.
@@ -42,7 +48,6 @@ services:
   - `./database:/home/node/chibisafe/database:rw` stores Chibisafe's database files.
   - `./uploads:/home/node/chibisafe/uploads:rw` stores the uploaded files.
   - `./logs:/home/node/chibisafe/logs:rw` stores logs.
-  Each of these folders needs to be created manually before starting the container to avoid permission issues.
 - **Ports**: 
   - `24424:8000` maps port 24424 on the host to port 8000 in the container, where Chibisafe's web interface is accessible.
 - **Restart Policy**: `always` ensures that Chibisafe restarts automatically after a crash or reboot.
@@ -63,6 +68,15 @@ services:
 
 Post-deployment, dive into Chibisafe's settings to customize your file-sharing environment. Remember, the initial setup like directory creation and app URL definition plays a significant role in the smooth operation of Chibisafe.
 
+## Updating Chibisafe
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./database`, `./uploads`, and `./logs` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

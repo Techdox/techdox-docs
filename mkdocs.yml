@@ -1,7 +1,13 @@
 site_name: Techdox Docs
 site_url: https://docs.techdox.nz
+site_description: Practical self-hosting guides, Docker Compose tutorials, and homelab resources for the Techdox community.
+site_author: Techdox
+repo_url: https://github.com/Techdox/techdox-docs
+repo_name: Techdox/techdox-docs
+edit_uri: edit/main/docs/
 nav:
   - Home: index.md
+  - Start Here: start-here.md
   - Docker Containers:
       - Overview: docker-containers.md
       - Security & Authentication:
@@ -19,6 +25,7 @@ nav:
           - Filebrowser: filebrowser.md
           - Matrix: matrix.md
           - Nextcloud: nextcloud.md
+          - Pingvin Share: pingvin.md
           - Syncthing: syncthing.md
       - Backup & Sync:
           - Duplicati: duplicati.md
@@ -28,7 +35,7 @@ nav:
           - Excalidraw: excalidraw.md
           - Firefly III: firefly.md
           - Focalboard: focalboard.md
-          - Hoarder: hoarder.md
+          - Karakeep: karakeep.md
           - Joplin: joplin.md
           - Mealie: mealie.md
           - Memos: memos.md
@@ -36,6 +43,7 @@ nav:
       - Media:
           - Jellyfin: jellyfin.md
           - Logitech Media Server: logitech.md
+          - SUB/WAVE: subwave.md
           - Photoprism: photoprism.md
       - Tools & Utilities:
           - Dockpeek: dockpeek.md
@@ -45,6 +53,8 @@ nav:
           - Linkstack: linkstack.md
           - Paperless: paperless.md
           - PrivateBin: privatebin.md
+          - SearXNG: searxng.md
+          - Stirling PDF: stirling-pdf.md
           - Tududi: tududi.md
           - MkDocs: mkdocs.md
           - FreshRSS: freshrss.md
@@ -75,38 +85,82 @@ nav:
       - Overview: general-guides.md
       - Access Pihole via NPM: pihole-on-npm.md
       - Setting up Pihole Exporter: piexporter.md
+  - Homelab Rebuild:
+      - Overview: homelab-rebuild/index.md
+      - OPNsense on Zimaboard 2: homelab-rebuild/opnsense-zimaboard.md
+      - Pi-hole + Unbound DNS: homelab-rebuild/dns-stack.md
+      - WireGuard VPN: homelab-rebuild/wireguard-vpn.md
+      - YubiKey SSH: homelab-rebuild/yubikey-ssh.md
+      - Cloudflare Tunnels: homelab-rebuild/cloudflare-tunnels.md
+      - Internal Hostnames: homelab-rebuild/internal-hostnames.md
+      - Proton Mail Migration: homelab-rebuild/proton-mail-custom-domain.md
+      - macOS Hardening: homelab-rebuild/macos-hardening.md
+      - Architecture: homelab-rebuild/architecture.md
   - Resources:
       - Donate / Get Support: support.md
       - RackNerd Deals - Cheap VPS: racknerd.md
+      - Browse by Tag: tags.md
       - Merch: https://store.techdox.nz
 
 #  - About: about.md
 theme:
   name: material
+  custom_dir: overrides
   logo: 0dq28DF.png
   favicon: favicon.png
   features:
     - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - content.code.copy
+    - content.action.edit
+    - content.tooltips
     - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
 
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: blue
+      scheme: default
+      primary: light blue
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
 
 plugins:
-    - social
+    - social:
+        cards_layout_options:
+          background_color: "#1e2030"
+          color: "#ffffff"
     - search
+    - tags:
+        tags_file: tags.md
+    - git-revision-date-localized:
+        enable_creation_date: true
+        type: timeago
+    - rss:
+        abstract_chars_count: 160
+        categories:
+          - tags
+    - redirects:
+        redirect_maps:
+          hoarder.md: karakeep.md
+    - minify:
+        minify_html: true
 markdown_extensions:
 
   # Python Markdown
@@ -137,7 +191,11 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -152,11 +210,7 @@ extra:
       link: https://discord.com/invite/8mX2KRxDw8
     - icon: fontawesome/brands/github
       link: https://github.com/Techdox/techdox-docs
-  analytics:
-    provider: google
-    property: G-1CXE00KE0K
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to enhance your experience on our site, recognize your repeat visits and preferences, as well as to track the effectiveness of our documentation and the relevance of the content we provide. Your consent will help us improve our resources and ensure they meet your needs. You have the option to customize your cookie settings to best suit your privacy preferences. Your support in this helps us continually refine our content and tools to better serve you and the community."
-copyright: Copyright &copy; 2024 Techdox
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2025 Techdox

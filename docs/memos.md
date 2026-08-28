@@ -1,12 +1,16 @@
 ---
 title: Setting Up Memos with Docker Compose
 description: Memos is a self-hosted note-taking application that offers a convenient way to organize and store personal notes, memos, and other pieces of information.
+tags:
+  - docker
+  - productivity
+  - notes
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Memos with Docker Compose
+
+!!! warning "Disable open registration for public instances"
+    Memos allows open registration by default. If your instance is accessible from the internet, go to **Settings → System** and disable **Allow user registration** after creating your account.
 
 ## Introduction to Memos
 
@@ -19,7 +23,6 @@ This Docker Compose setup deploys Memos in a Docker container, providing an easy
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: "3.0"
 services:
   memos:
     image: neosmemo/memos:latest
@@ -28,6 +31,7 @@ services:
       - ~/.memos/:/var/opt/memos
     ports:
       - 5230:5230
+    restart: unless-stopped
 ```
 
 ## Key Components of the Configuration
@@ -36,6 +40,10 @@ services:
 - **Image**: `neosmemo/memos:latest` is the Docker image used for Memos.
 - **Volumes**: 
   - `~/.memos/:/var/opt/memos` maps a local directory (`~/.memos/`) to the container's data storage directory (`/var/opt/memos`). This is where Memos stores its data.
+
+!!! tip "Use an absolute path for the data volume"
+    The `~/.memos/` path may behave unexpectedly with rootless Docker or systemd-managed services. Replace it with an absolute path, e.g. `/opt/memos/data:/var/opt/memos`.
+
 - **Ports**: 
   - `5230:5230` maps port 5230 on the host to port 5230 in the container, where Memos's web interface is accessible.
 
@@ -55,6 +63,16 @@ After deployment, you can start using Memos through its web interface for creati
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sUGgA991uOg?si=HQxIRtKhdymfw8T-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Memos
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `~/.memos/` host directory. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

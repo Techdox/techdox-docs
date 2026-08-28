@@ -1,10 +1,10 @@
 ---
 title: Setting Up Dockge with Docker
 description: Dockge is a self-hosted, reactive Docker stack manager, offering an easy-to-use interface for managing Docker containers and compose stacks. It's created by the same developer as Uptime-Kuma.
+tags:
+  - docker
+  - docker-management
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Dockge with Docker
 
@@ -18,14 +18,14 @@ Instead of directly using the setup from the project page, the following steps a
 
 1. **Create Dockge Directory**:
     Navigate to the directory where you keep your Docker containers. For example, if you store them in `~/Docker`, the commands would be:
-     ```shell
+     ```bash
      cd ~/Docker
      mkdir dockge && cd dockge
      ```
 
 2. **Link Your Containers Directory**:
     Check if `/opt/stacks` exists, and if not, create and link it to your containers' location:
-     ```shell
+     ```bash
      ls /opt/stacks # Check if it exists
      sudo mkdir -p /opt/stacks
      sudo ln -s <path-to-your-containers> /opt/stacks
@@ -36,16 +36,19 @@ Instead of directly using the setup from the project page, the following steps a
 
 3. **Download and Start Dockge**:
    Download the `compose.yaml` file and start the Dockge service:
-     ```shell
+     ```bash
      curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
      ```
+   Then start the stack:
+   ```bash
+   docker compose up -d
+   ```
 
 ### Docker Compose File (`docker-compose.yml`)
 
 Here's an example `docker-compose.yml` file for Dockge:
 
 ```yaml
-version: "3.8"
 services:
   dockge:
     image: louislam/dockge:latest
@@ -58,6 +61,8 @@ services:
       - /opt/stacks:/opt/stacks
     environment:
       - DOCKGE_STACKS_DIR=/opt/stacks
+      # Uncomment the line below to re-enable the built-in terminal (disabled by default since v1.5)
+      # - DOCKGE_ENABLE_CONSOLE=true
 ```
 
 ## Key Components of the Configuration
@@ -69,8 +74,9 @@ services:
   - `/var/run/docker.sock:/var/run/docker.sock` allows Dockge to interact with the Docker daemon.
   - `./data:/app/data` provides persistent storage for Dockge's data.
   - `/opt/stacks:/opt/stacks` maps a local directory for Docker stacks.
-- **Environment Variables**: 
+- **Environment Variables**:
   - `DOCKGE_STACKS_DIR=/opt/stacks` sets the directory path for Docker stacks within Dockge.
+  - `DOCKGE_ENABLE_CONSOLE=true` re-enables the built-in terminal, which is **disabled by default since v1.5** for security reasons.
 
 ## Deploying Dockge
 
@@ -82,12 +88,21 @@ services:
 
 After deployment, use the Dockge web interface to manage your Docker containers, images, and stacks. The interface provides tools for monitoring, starting, stopping, and removing Docker components.
 
-##Youtube Video
+## Updating Dockge
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data` directory (Dockge's application data) and the `/opt/stacks` directory (your compose stacks). Back these up before major version updates.
+
+## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ephiayS50jM?si=oK3z6ogKzxRRqC9D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Acknowledgments
----
 
 **Shoutout to Archigos** for their awesome tips and insights that helped shape this guide! 🌟
 

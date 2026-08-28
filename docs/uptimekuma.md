@@ -1,10 +1,10 @@
 ---
 title: Setting Up Uptime Kuma with Docker Compose
 description: Uptime Kuma is a self-hosted monitoring tool similar to "Uptime Robot." It monitors your websites, services, and applications and provides uptime notifications.
+tags:
+  - docker
+  - monitoring
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Uptime Kuma with Docker Compose
 
@@ -35,6 +35,9 @@ volumes:
   uptime-kuma:
 ```
 
+!!! warning "Docker socket mount is optional"
+    Mounting `/var/run/docker.sock` grants Uptime Kuma significant host access. This is only required if you want to monitor Docker containers directly. **Remove this volume line** if you only need to monitor URLs, ports, or services — it is not needed for basic monitoring.
+
 ## Key Components of the Configuration
 
 ### Service: Uptime Kuma
@@ -55,6 +58,16 @@ volumes:
 ## Configuring and Using Uptime Kuma
 
 After deployment, you can configure Uptime Kuma through its web interface to monitor your websites and services, set up notifications, and track uptime and response times.
+
+## Updating Uptime Kuma
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `uptime-kuma` named volume. Back this up before major version updates.
 
 ## Youtube Video
 

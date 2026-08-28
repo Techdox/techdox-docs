@@ -1,10 +1,11 @@
 ---
 title: Setting Up Nginx Proxy Manager with Docker Compose
 description: Nginx Proxy Manager (NPM) simplifies the process of managing Nginx proxy configurations for web services.
+tags:
+  - docker
+  - reverse-proxy
+  - networking
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 # Setting Up Nginx Proxy Manager with Docker Compose
 
 ## Introduction to Nginx Proxy Manager
@@ -16,6 +17,9 @@ Nginx Proxy Manager (NPM) simplifies the process of managing Nginx proxy configu
 This Docker Compose setup deploys Nginx Proxy Manager alongside a MariaDB database, ensuring a seamless and integrated environment for managing your proxies.
 
 ### Docker Compose File (`docker-compose.yml`)
+
+!!! warning "Change all database passwords"
+    The compose file uses `npm` as the password for `MYSQL_ROOT_PASSWORD`, `MYSQL_PASSWORD`, and `DB_MYSQL_PASSWORD`. **Replace all three with strong, unique passwords before deploying.**
 
 ```yaml
 version: '3.8'
@@ -80,10 +84,23 @@ services:
 3. **Access Admin Dashboard**:
    - Access the NPM admin dashboard through `http://<host-ip>:81` and proceed with the initial setup, including setting up your first admin user account.
 
+!!! warning "Change default admin credentials immediately"
+    The default admin email and password must be changed on first login. Do not leave the default credentials in place, especially on internet-accessible instances.
+
 ```text
 Email:    admin@example.com
 Password: changeme
 ```
+
+## Updating Nginx Proxy Manager
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./data`, `./letsencrypt`, and `./mysql` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

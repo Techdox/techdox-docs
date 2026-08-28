@@ -1,10 +1,10 @@
 ---
 title: Setting Up Prometheus with Docker Compose
 description: Prometheus is an open-source monitoring and alerting toolkit, widely used for its powerful querying language, efficient storage, and ease of integration with various metrics sources.
+tags:
+  - docker
+  - monitoring
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Prometheus with Docker Compose
 
@@ -19,7 +19,6 @@ This Docker Compose setup deploys Prometheus in a Docker container, along with a
 ### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
-version: '3.8'
 services:
   prometheus:
     image: prom/prometheus
@@ -49,7 +48,7 @@ alerting:
       - targets: []
       scheme: http
       timeout: 10s
-      api_version: v1
+      api_version: v2
 scrape_configs:
   - job_name: prometheus
     honor_timestamps: true
@@ -60,10 +59,13 @@ scrape_configs:
     static_configs:
       - targets:
         - localhost:9090
-  - job_name: elzim # Change to whatever you like
+  - job_name: node_exporter # Change to whatever you like
     static_configs:
-      - targets: ['192.168.68.109:9100'] #Change this to your server's IP
+      - targets: ['<node-exporter-host-ip>:9100'] #Change this to your server's IP
 ```
+
+!!! note "Update scrape targets"
+    Replace `<node-exporter-host-ip>` with the actual IP address of the host running Node Exporter. The job name can be anything — `node_exporter` is the conventional choice.
 
 ## Key Components of the Configuration
 ### Service: Prometheus
@@ -90,6 +92,16 @@ scrape_configs:
 ## Configuring and Using Prometheus
 
 After deployment, you can modify the `prometheus.yml` file to add new targets and change scrape intervals as needed. Prometheus provides a versatile platform for monitoring your infrastructure.
+
+## Updating Prometheus
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `prom_data` named volume (metrics data) and the `./prometheus` host directory (configuration). Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

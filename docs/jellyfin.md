@@ -1,10 +1,10 @@
 ---
 title: Setting Up Jellyfin with Docker Compose
 description: Jellyfin is a free and open-source media solution that allows you to organize, manage, and share your media files.
+tags:
+  - docker
+  - media
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Jellyfin with Docker Compose
 
@@ -40,6 +40,9 @@ services:
     restart: unless-stopped
 ```
 
+!!! tip "Set your timezone"
+    Replace `Pacific/Auckland` with your own timezone. Find valid TZ identifiers at [Wikipedia's TZ database list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
 ## Key Components of the Configuration
 
 ### Environment Variables
@@ -68,11 +71,26 @@ services:
 
 ## Configuring and Using Jellyfin
 
-Once deployed, you can configure Jellyfin through its web interface, including setting up media libraries, user accounts, and streaming settings.
+After navigating to `http://<your-server-ip>:8096`:
+
+1. Complete the **setup wizard** — create an admin account and set your preferred language/metadata
+2. Add your media libraries by pointing Jellyfin to the directories mounted in the compose file
+3. Create additional user accounts under **Dashboard → Users** if needed
+4. For hardware-accelerated transcoding, see **Dashboard → Playback** and enable your GPU's acceleration method (Intel QSV, NVIDIA NVENC, etc.)
 
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BICNCAQRPbc?si=YVGT1UL7h_HRbqbi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Jellyfin
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `/home/server/jellyfin/library`, `/home/server/jellyfin/tvseries`, and `/home/server/jellyfin/movies` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

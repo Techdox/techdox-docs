@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div style="text-align: center; padding: 3rem 1rem;">
+  <h1 style="font-size: 4rem; margin-bottom: 0;">404</h1>
+  <p style="font-size: 1.2rem;">This page has gone self-hosting somewhere else.</p>
+  <p>The guide may have moved or been renamed. Try one of these instead:</p>
+  <p style="margin-top: 1.5rem;">
+    <a class="md-button md-button--primary" href="{{ base_url }}/">Home</a>
+    <a class="md-button" href="{{ base_url }}/start-here/">Start Here</a>
+    <a class="md-button" href="{{ base_url }}/docker-containers/">All Docker Guides</a>
+  </p>
+  <p style="margin-top: 1rem; opacity: 0.7;">Or press <kbd>/</kbd> to search.</p>
+</div>
+{% endblock %}

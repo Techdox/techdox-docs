@@ -1,10 +1,11 @@
 ---
 title: Setting Up Wireguard and Wireguard UI with Docker Compose
 description: Wireguard is a modern VPN (Virtual Private Network) software that provides fast and secure connections. The Wireguard UI is a web interface that makes it easier to manage your Wireguard setup.
+tags:
+  - docker
+  - vpn
+  - networking
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Wireguard and Wireguard UI with Docker Compose
 
@@ -22,9 +23,10 @@ This Docker Compose setup deploys both Wireguard and Wireguard UI in Docker cont
 
     There is an issue with the latest image it seems, please make sure you use the image in the example compose below. If you use latest, the steps in this guide will not work.
 
-```yaml
-version: "3"
+!!! warning "Change default credentials"
+    The default `WGUI_PASSWORD=password` protects your entire VPN management UI. **Set both `WGUI_USERNAME` and `WGUI_PASSWORD` to strong, unique values before deploying.**
 
+```yaml
 services:
 
   wireguard:
@@ -104,6 +106,9 @@ iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j 
 iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 ```
 
+!!! note "Check your network interface name"
+    The `eth0` interface name used in these commands may not match your system. Run `ip link show` or `ip route` to find your actual interface name (commonly `ens3`, `enp0s3`, or similar) and replace `eth0` accordingly.
+
 The "Post Up" command and the "Post Down" command are used in the configuration of WireGuard to set up and tear down network routing rules for the WireGuard interface.
 
 The "Post Up" command performs the following actions:
@@ -121,6 +126,16 @@ These commands are typically used when configuring a WireGuard VPN server in sce
 ## Youtube Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QLL5lT0SDoQ?si=Q45zvQMTCsu-7tc-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Updating Wireguard and Wireguard UI
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./config` and `./db` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

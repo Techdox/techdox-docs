@@ -1,10 +1,10 @@
 ---
 title: Deploying ntfy with Docker Compose
 description: ntfy is a simple and flexible notification service that allows you to send notifications to devices via web, email, or apps. This guide details deploying ntfy using Docker Compose, including configuration settings and health checks.
+tags:
+  - docker
+  - notifications
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying ntfy with Docker Compose
 
@@ -43,6 +43,9 @@ services:
         start_period: 40s                              # Waits 40 seconds before starting the first check.
     restart: unless-stopped                            # Ensures ntfy restarts unless manually stopped.
 ```
+
+!!! warning "Replace UID:GID with numeric values"
+    The `user: UID:GID` placeholder must be replaced with actual numeric IDs before running. Find your values with `id -u` (UID) and `id -g` (GID), then update the compose file accordingly, e.g. `user: 1000:1000`.
 
 ### Explanation of Key Components
 
@@ -83,6 +86,16 @@ This command will start the ntfy service in detached mode, running it in the bac
 ## Accessing ntfy
 
 After deployment, ntfy will be accessible at `http://<your-server-ip>:80`. You can use this to send notifications or configure ntfy for further integrations.
+
+## Updating ntfy
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `/var/cache/ntfy` (cache) and `/etc/ntfy` (configuration) host directories. Back these up before major version updates.
 
 ## Conclusion
 

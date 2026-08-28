@@ -1,10 +1,11 @@
 ---
 title: Setting Up Authentik with Docker Compose
 description: Authentik is an open-source Identity Provider (IdP) designed to be flexible and versatile. It offers a robust solution for authentication, authorization, and federation, enabling secure access management across your applications.
+tags:
+  - docker
+  - security
+  - authentication
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Setting Up Authentik with Docker Compose
 
@@ -101,7 +102,8 @@ By default, authentik listens internally on port 9000 for HTTP and 9443 for HTTP
 
 ### Startup and Final Steps
 
-- **Important Note**: Authentik is designed to operate with its internal timezone set to UTC. Avoid altering timezone settings within the containers to prevent authentication issues.
+!!! warning "Do not change the timezone setting"
+    Authentik requires the container to run in **UTC**. Changing the timezone will cause authentication token validation failures.
 - Start Authentik:
   ```shell
   docker compose pull
@@ -128,9 +130,9 @@ By following these steps, you'll have Authentik up and running, ready to manage 
 
     Don't use this compose file, this is just a break down of the file you downloaded and are using.
 
-# Docker Compose Configuration for Authentik
+## Docker Compose Configuration for Authentik
 
-## Docker Compose File (`docker-compose.yml`)
+### Docker Compose File (`docker-compose.yml`)
 
 ```yaml
 version: "3.4"
@@ -245,6 +247,15 @@ volumes:
 - **Manual Preparation**: Prior to deployment, manually create necessary directories for volumes to avoid permission issues.
 - **App URL**: For public deployments, ensure the app URL is defined correctly to match  your domain or IP address.
 
+## Updating Authentik
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `database` and `redis` Docker volumes, plus the `./media`, `./certs`, and `./custom-templates` host directories. Back these up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

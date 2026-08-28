@@ -1,10 +1,10 @@
 ---
 title: Deploying cAdvisor with Docker Compose
 description: cAdvisor (Container Advisor) is a tool that provides insights into the resource usage and performance characteristics of running containers. This guide details deploying cAdvisor alongside Prometheus and Redis using Docker Compose, including setup instructions for monitoring container metrics.
+tags:
+  - docker
+  - monitoring
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying cAdvisor with Docker Compose
 
@@ -14,9 +14,10 @@ cAdvisor (Container Advisor) is a tool developed by Google that provides real-ti
 
 In this guide, we'll walk through deploying cAdvisor using Docker Compose, along with Prometheus and Redis for a complete monitoring setup. If you already have Prometheus running, you can add cAdvisor and Redis services to your existing setup.
 
-> **Note:** For more detailed information on deploying Prometheus, please refer to the [Prometheus deployment guide](https://docs.techdox.nz/prometheus/). This guide will focus primarily on setting up cAdvisor.
-> 
-> If you already have Prometheus installed, click [here](https://docs.techdox.nz/cadvisor/#adding-cadvisor-to-an-existing-prometheus-setup) to jump to the section on adding cAdvisor to your existing setup.
+!!! note
+    For more detailed information on deploying Prometheus, please refer to the [Prometheus deployment guide](https://docs.techdox.nz/prometheus/). This guide will focus primarily on setting up cAdvisor.
+
+    If you already have Prometheus installed, click [here](https://docs.techdox.nz/cadvisor/#adding-cadvisor-to-an-existing-prometheus-setup) to jump to the section on adding cAdvisor to your existing setup.
 
 
 ## Docker Compose Configuration for cAdvisor
@@ -26,6 +27,9 @@ Here's how to set up cAdvisor using Docker Compose, including Prometheus and Red
 ### Complete Docker Compose File (`docker-compose.yml`)
 
 Below is an example of a complete deployment with Prometheus, cAdvisor, and Redis:
+
+!!! warning "cAdvisor requires broad host access"
+    cAdvisor mounts `/:/rootfs:ro`, `/var/run:/var/run:rw`, `/sys:/sys:ro`, and `/var/lib/docker/:/var/lib/docker:ro`. Review these mounts and ensure you're comfortable with the level of host access granted before deploying.
 
 ```yaml
 services:
@@ -63,7 +67,7 @@ services:
       - 6379:6379
 
 volumes:
-  prom_data:                                  # Exposes Redis on port 6379.
+  prom_data:
 ```
 
 ### Explanation of Key Components
@@ -157,6 +161,16 @@ After updating your `docker-compose.yml`, redeploy your services:
 ```bash
 docker compose up -d
 ```
+
+## Updating cAdvisor
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    cAdvisor itself is stateless, but this stack's data lives in the `prom_data` named volume (Prometheus metrics) and the `./prometheus` configuration directory. Back these up before major version updates.
 
 ## Conclusion
 

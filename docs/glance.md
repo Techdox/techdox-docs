@@ -1,10 +1,10 @@
 ---
 title: Deploying Glance with Docker Compose
 description: Glance is a customizable dashboard application that aggregates content from various sources. This guide provides steps for deploying Glance using Docker Compose, including setting up the `glance.yml` configuration file and configuring environment settings.
+tags:
+  - docker
+  - dashboard
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Glance with Docker Compose
 
@@ -116,10 +116,8 @@ pages:
                 name: AMD
 ```
 
-**Note**:
-- Customize the `glance.yml` file based on your preferences.
-- Widgets are organized under pages and columns with options for size and type.  
-[See the Glance documentation for more info on widgets](https://github.com/glanceapp/glance/blob/main/docs/configuration.md).
+!!! tip "The example config is personalised — customise it for your setup"
+    The `glance.yml` above uses the author's personal defaults (location, Twitch streamers, etc.). Replace all values with your own. See the [Glance widget documentation](https://github.com/glanceapp/glance) for all available widget types and options.
 
 ## Deployment Steps
 
@@ -133,7 +131,7 @@ To deploy Glance, follow these steps:
    This command will start the Glance container in detached mode.
 
 3. **Verify Deployment**: Check that the Glance service is running by accessing:
-   ```bash
+   ```text
    http://<your-server-ip>:8280
    ```
 
@@ -145,6 +143,16 @@ To deploy Glance, follow these steps:
 ## Conclusion
 
 By following this guide, you have successfully deployed Glance using Docker Compose with a custom configuration file. You can now enjoy a centralized dashboard with various integrations to enhance your productivity.
+
+## Updating Glance
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `./glance.yml` configuration file mounted into the container. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 

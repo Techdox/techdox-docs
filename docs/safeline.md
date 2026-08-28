@@ -1,10 +1,11 @@
 ---
 title: Deploying Safeline with Docker Compose
 description: Safeline is a web application firewall that provides advanced protection against web threats. This guide provides steps for deploying Safeline using Docker Compose, setting up the required `.env` file, and breaking down the provided Compose configuration.
+tags:
+  - docker
+  - security
+  - reverse-proxy
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Safeline with Docker Compose
 
@@ -41,6 +42,9 @@ This file does not need editing, but you must create a `.env` file for the deplo
 ## `.env` File Configuration
 
 Create a `.env` file in the same directory as the Compose file. Below is an example `.env` file:
+
+!!! warning "Change the database password"
+    The `POSTGRES_PASSWORD=testing` value is a placeholder. **Change this to a strong, unique password before deploying.** Using the default exposes your WAF's database to trivial compromise.
 
 ```ini
 SAFELINE_DIR=/home/<user>/docker/safeline
@@ -195,6 +199,16 @@ services:
 ## Conclusion
 
 By following this guide, you have successfully deployed Safeline using Docker Compose. You can now access the Safeline management service via the port specified in the `.env` file (default: `9443`).
+
+## Updating Safeline
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `${SAFELINE_DIR}/resources` directories (e.g. `/home/<user>/docker/safeline/resources`), including the PostgreSQL data, management, and detector files. Back these up before major version updates.
 
 ---
 

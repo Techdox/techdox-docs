@@ -1,10 +1,13 @@
 ---
 title: Deploying PiHole Exporter with Docker Compose
 description: This guide provides step-by-step instructions for deploying PiHole Exporter using Docker Compose, including configuring the environment variables and integrating with Prometheus and Grafana for visualization.
+tags:
+  - docker
+  - monitoring
+  - dns
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
+
+# Setting Up Pi-hole Exporter with Docker Compose
 
 ## Introduction to PiHole Exporter
 
@@ -38,6 +41,9 @@ services:
       PIHOLE_HOSTNAME: "192.168.68.104" # IP address of your PiHole
       PIHOLE_PASSWORD: "password" # PiHole web admin password
 ```
+
+!!! warning "Avoid storing credentials in compose files"
+    The `PIHOLE_PASSWORD` is stored in plain text in the compose file. If you commit this file to a public repository, your Pi-hole password will be exposed. Use a `.env` file for sensitive values and add `.env` to your `.gitignore`.
 
 ### Configuration Details
 
@@ -79,7 +85,12 @@ docker restart prometheus
 ```
 ## Visualizing Data with Grafana
 
-In Grafana, you can import or create a dashboard to visualize PiHole metrics collected by Prometheus. Browse community dashboards or build your own for tailored monitoring.
+Import the [Pi-hole Exporter dashboard](https://grafana.com/grafana/dashboards/10176) (ID: **10176**) into Grafana:
+
+1. In Grafana, go to **Dashboards → Import**
+2. Enter dashboard ID `10176`
+3. Select your Prometheus data source
+4. Click **Import**
 
 ## Accessing PiHole Exporter
 

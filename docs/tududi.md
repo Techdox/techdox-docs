@@ -1,10 +1,10 @@
 ---
 title: Deploying Tududi with Docker Compose  
 description: Tududi is a lightweight, open-source task management tool. This guide provides step-by-step instructions for deploying Tududi using Docker Compose, including setting up the required directory, creating a `docker-compose.yml` file, and configuring the environment variables for secure and seamless operation.  
+tags:
+  - docker
+  - productivity
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Tududi with Docker Compose  
 
@@ -82,9 +82,19 @@ Once the deployment is complete, Tududi will be accessible via your browser at:
 
 Replace `localhost` with your server's IP or hostname if running Tududi on a remote machine.  
 
-## Conclusion  
+## Next Steps
 
-By following this guide, you have successfully deployed Tududi using Docker Compose. You can now log in with the email and password specified in the environment variables to start managing your tasks.  
+- Place Tududi behind a reverse proxy with HTTPS using [Nginx Proxy Manager](npm.md) or [Traefik](traefik.md)
+- Back up the `tududi_db` directory before updating — it contains all your task data
+
+## Updating
+
+```bash
+docker compose pull && docker compose up -d
+```
+
+!!! tip
+    Back up the `tududi_db` directory before updating.
 
 ---
 

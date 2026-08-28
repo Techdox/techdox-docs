@@ -1,10 +1,10 @@
 ---
 title: Deploying Mealie with Docker Compose
-description: Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>Mealie is a self-hosted recipe manager and meal planner that allows you to organize your recipes, create meal plans, and store yo>
+description: Mealie is a self-hosted recipe manager and meal planner. This guide covers deploying Mealie with Docker Compose including persistent storage and resource limits.
+tags:
+  - docker
+  - productivity
 ---
-<a href="https://my.racknerd.com/aff.php?aff=5792&ref=techdox.nz" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Hosting Deals">
-</a>
 
 # Deploying Mealie with Docker Compose
 
@@ -46,6 +46,9 @@ volumes:
   mealie-data:                                  # Declares a named volume for persisting application data.
 ```
 
+!!! warning "Disable open registration for public instances"
+    `ALLOW_SIGNUP=true` allows anyone to create an account on your Mealie instance. **Set this to `false` after creating your own account** if your instance is accessible from the internet.
+
 ### Explanation of Key Components
 
 - **Image**: Specifies the specific version of Mealie to be used, ensuring consistency and compatibility.
@@ -78,9 +81,22 @@ This command starts the Mealie service in detached mode, running in the backgrou
 
 After deployment, Mealie will be accessible at `https://mealie.yourdomain.com` or `http://<your-server-ip>:9925` based on your `BASE_URL` and port configuration. This setup ensures that Mealie is ready for recipe management and meal planning, all from your self-hosted environment.
 
+!!! warning "Change default credentials"
+    Mealie's default login credentials are `changeme@example.com` / `MyPassword`. **Change these immediately after first login.**
+
 ## Conclusion
 
 Deploying Mealie with Docker Compose allows for straightforward setup and management of a self-hosted recipe manager. The configuration ensures optimal use of system resources while providing robust data persistence and easy accessibility.
+
+## Updating Mealie
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+!!! tip "Back up before updating"
+    Your data lives in the `mealie-data` Docker volume. Back this up before major version updates.
 
 <a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
