@@ -60,6 +60,7 @@ nav:
           - FreshRSS: freshrss.md
           - Wallos: wallos.md
       - Monitoring & Management:
+          - Home Assistant Homelab Dashboard: home-assistant-homelab-dashboard.md
           - Beszel: beszel.md
           - cAdvisor: cadvisor.md
           - Grafana: grafana.md

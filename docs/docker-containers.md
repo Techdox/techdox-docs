@@ -63,9 +63,9 @@ Browse by category below to find Docker Compose files, configuration details, an
 
     ---
 
-    Beszel, cAdvisor, Grafana, Loki & Promtail, Nexterm, Nginx Proxy Manager, Ntfy, Prometheus, Speedtest Tracker, Traefik, Uptime Kuma, Watchtower
+    Beszel, cAdvisor, Grafana, Home Assistant Homelab Dashboard, Loki & Promtail, Nexterm, Nginx Proxy Manager, Ntfy, Prometheus, Speedtest Tracker, Traefik, Uptime Kuma, Watchtower
 
-    [:octicons-arrow-right-24: Browse guides](grafana.md)
+    [:octicons-arrow-right-24: Build a Home Assistant command centre](home-assistant-homelab-dashboard.md)
 
 -   :material-docker:{ .lg .middle } __Docker Management__
 
