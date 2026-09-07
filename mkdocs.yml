@@ -24,8 +24,8 @@ theme:
   name: material
   custom_dir: overrides
   font: false
-  logo: 0dq28DF.png
-  favicon: favicon.png
+  logo: assets/techdox-mark.png
+  favicon: assets/techdox-mark.png
   features:
     - navigation.tabs
     - navigation.tabs.sticky
