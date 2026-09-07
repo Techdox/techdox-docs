@@ -1,24 +1,12 @@
 ---
 title: Networking in Self-Hosting
-description: Welcome to the Networking section of our self-hosting documentation.
+description: Browse practical self-hosting guides by topic and task.
 ---
 
 # Networking in Self-Hosting
 
-Networking guides for homelab infrastructure — distributed storage, network segmentation, and related tooling.
+Find DNS, reverse proxy, HTTPS, VPN and tunnel guides, including networking chapters from the Homelab Rebuild. Distributed storage has its own [Storage, Files & Backup listing](topics/storage.md), including [GlusterFS](glusterfs.md).
 
-<div class="grid cards" markdown>
+[Browse all guides](guides/index.md)
 
--   :material-server-network:{ .lg .middle } __GlusterFS__
-
-    ---
-
-    Set up a replicated distributed filesystem across multiple nodes using GlusterFS on Ubuntu 22.04.
-
-    [:octicons-arrow-right-24: Read guide](glusterfs.md)
-
-</div>
-
----
-
-If there is an issue with this article or you wish to suggest changes, please raise an issue on [GitHub](https://github.com/Techdox/techdox-docs).
+<!-- tx:catalogue topic=networking -->

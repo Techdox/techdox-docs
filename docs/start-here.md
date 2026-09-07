@@ -184,7 +184,7 @@ Open `http://<server-ip>:3001`, create your admin account, and add a monitor for
 
 Stuck? Join the [Discord](http://discord.com/invite/8mX2KRxDw8) — the community is friendly and someone has hit your error before.
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img alt="Support Techdox on Buy Me a Coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

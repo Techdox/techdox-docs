@@ -8,96 +8,12 @@ edit_uri: edit/main/docs/
 nav:
   - Home: index.md
   - Start Here: start-here.md
-  - Docker Containers:
-      - Overview: docker-containers.md
-      - Security & Authentication:
-          - 2FAuth: 2fa.md
-          - Adguard: adguard.md
-          - Authentik: authentik.md
-          - Headscale: headscale.md
-          - Pangolin: pangolin.md
-          - Pocket ID: pocketid.md
-          - Safeline: safeline.md
-          - WG-Easy: wgeasy.md
-          - Wireguard: wireguard.md
-      - File Management:
-          - Chibisafe: chibisafe.md
-          - Filebrowser: filebrowser.md
-          - Matrix: matrix.md
-          - Nextcloud: nextcloud.md
-          - Pingvin Share: pingvin.md
-          - Syncthing: syncthing.md
-      - Backup & Sync:
-          - Duplicati: duplicati.md
-          - Pairdrop: pairdrop.md
-      - Productivity:
-          - Docmost: docmost.md
-          - Excalidraw: excalidraw.md
-          - Firefly III: firefly.md
-          - Focalboard: focalboard.md
-          - Karakeep: karakeep.md
-          - Joplin: joplin.md
-          - Mealie: mealie.md
-          - Memos: memos.md
-          - Peppermint: peppermint.md
-      - Media:
-          - Jellyfin: jellyfin.md
-          - Logitech Media Server: logitech.md
-          - SUB/WAVE: subwave.md
-          - Photoprism: photoprism.md
-      - Tools & Utilities:
-          - Dockpeek: dockpeek.md
-          - Glance: glance.md
-          - Homepage: homepage.md
-          - IT Tools: ittools.md
-          - Linkstack: linkstack.md
-          - Paperless: paperless.md
-          - PrivateBin: privatebin.md
-          - SearXNG: searxng.md
-          - Stirling PDF: stirling-pdf.md
-          - Tududi: tududi.md
-          - MkDocs: mkdocs.md
-          - FreshRSS: freshrss.md
-          - Wallos: wallos.md
-      - Monitoring & Management:
-          - Home Assistant Homelab Dashboard: home-assistant-homelab-dashboard.md
-          - Beszel: beszel.md
-          - cAdvisor: cadvisor.md
-          - Grafana: grafana.md
-          - Loki & Promtail: loki.md
-          - Nexterm: nexterm.md
-          - Nginx Proxy Manager: npm.md
-          - Ntfy: ntfy.md
-          - Prometheus: prometheus.md
-          - Speedtest Tracker: speedtest-tracker.md
-          - Traefik: traefik.md
-          - Uptime Kuma: uptimekuma.md
-          - Watchtower: watchtower.md
-      - Docker Management:
-          - Cosmos Cloud: cosmos.md
-          - Dockge: dockge.md
-  - Networking:
-      - Overview: networking-overview.md
-      - GlusterFS: glusterfs.md
-  - Logging:
-      - Overview: logging-overview.md
-      - Node Exporter: node-exporter.md
-  - General Guides:
-      - Overview: general-guides.md
-      - Access Pihole via NPM: pihole-on-npm.md
-      - Setting up Pihole Exporter: piexporter.md
+  - All Guides:
+      - Browse all guides: guides/index.md
   - Homelab Rebuild:
       - Overview: homelab-rebuild/index.md
-      - OPNsense on Zimaboard 2: homelab-rebuild/opnsense-zimaboard.md
-      - Pi-hole + Unbound DNS: homelab-rebuild/dns-stack.md
-      - WireGuard VPN: homelab-rebuild/wireguard-vpn.md
-      - YubiKey SSH: homelab-rebuild/yubikey-ssh.md
-      - Cloudflare Tunnels: homelab-rebuild/cloudflare-tunnels.md
-      - Internal Hostnames: homelab-rebuild/internal-hostnames.md
-      - Proton Mail Migration: homelab-rebuild/proton-mail-custom-domain.md
-      - macOS Hardening: homelab-rebuild/macos-hardening.md
-      - Architecture: homelab-rebuild/architecture.md
   - Resources:
+      - About: about.md
       - Donate / Get Support: support.md
       - RackNerd Deals - Cheap VPS: racknerd.md
       - Browse by Tag: tags.md
@@ -107,20 +23,16 @@ nav:
 theme:
   name: material
   custom_dir: overrides
+  font: false
   logo: 0dq28DF.png
   favicon: favicon.png
   features:
-    - navigation.footer
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
     - content.code.copy
     - content.action.edit
     - content.tooltips
-    - search.suggest
     - search.highlight
     - search.share
     - toc.follow
@@ -142,6 +54,12 @@ theme:
         name: Switch to dark mode
 
 
+hooks:
+  - hooks/catalogue.py
+
+extra_javascript:
+  - javascripts/docs.js
+
 plugins:
     - social:
         cards_layout_options:
@@ -151,9 +69,13 @@ plugins:
     - tags:
         tags_file: tags.md
     - git-revision-date-localized:
+        exclude:
+          - guides/*
+          - topics/*
         enable_creation_date: true
         type: timeago
     - rss:
+        match_path: '^(?!(?:guides|topics)/).*[.]md$'
         abstract_chars_count: 160
         categories:
           - tags

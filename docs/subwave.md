@@ -303,7 +303,7 @@ Pause analysis or run it during quiet periods. BPM/key analysis is relatively mo
 - [Official deployment notes](https://github.com/perminder-klair/subwave/blob/main/DEPLOY.md)
 - [Navidrome documentation](https://www.navidrome.org/docs/)
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img alt="Support Techdox on Buy Me a Coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

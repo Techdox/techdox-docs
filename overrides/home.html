@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="tx-home">
+  <section class="tx-hero" id="techdox-docs" aria-labelledby="docs-title">
+    <p class="tx-eyebrow">Techdox / Documentation</p>
+    <h1 id="docs-title">Build your homelab.<br>Know how it works.</h1>
+    <p class="tx-intro">Practical self-hosting guides, Docker Compose setups, and the details behind the videos.</p>
+    <button class="tx-home-search" type="button" data-open-search aria-label="Search guides, apps and homelab tasks">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <span>Find a guide, app or homelab task…</span><kbd aria-hidden="true">/</kbd>
+    </button>
+    <div class="tx-actions">
+      <a class="tx-button tx-button--primary" href="{{ 'start-here/' | url }}">Start here <span aria-hidden="true">→</span></a>
+      <a class="tx-button" href="{{ 'guides/' | url }}">Browse all guides{% if config.extra.tx_guide_count is defined %}<span class="tx-button-count">{{ config.extra.tx_guide_count }}</span>{% endif %}</a>
+    </div>
+  </section>
+  <section class="tx-shortcuts" aria-labelledby="task-title">
+    <h2 id="task-title" class="tx-section-label">What are you working on?</h2>
+    <div class="tx-task-links">
+      <a href="{{ 'npm/' | url }}"><span>Add HTTPS</span><small>Nginx Proxy Manager</small><span aria-hidden="true">↗</span></a>
+      <a href="{{ 'wireguard/' | url }}"><span>Connect remotely</span><small>WireGuard VPN</small><span aria-hidden="true">↗</span></a>
+      <a href="{{ 'uptimekuma/' | url }}"><span>Monitor your lab</span><small>Uptime Kuma</small><span aria-hidden="true">↗</span></a>
+      <a href="{{ 'duplicati/' | url }}"><span>Set up backups</span><small>Duplicati</small><span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="tx-topics" aria-labelledby="topics-title">
+    <div class="tx-section-heading"><div><p class="tx-eyebrow">Explore the library</p><h2 id="topics-title">Find your next guide</h2></div><a href="{{ 'guides/' | url }}">All guides <span aria-hidden="true">→</span></a></div>
+    <div class="tx-topic-grid">
+      {% for topic in config.extra.tx_topics | default([]) %}
+      <a class="tx-topic-card" href="{{ topic.url | url }}">
+        <span class="tx-card-top"><span class="tx-topic-number" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span><span class="tx-count">{{ topic.count }} {{ 'guide' if topic.count == 1 else 'guides' }}</span></span>
+        <h3>{{ topic.title }}</h3><p>{{ topic.description }}</p><span class="tx-card-arrow" aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  <section class="tx-series" aria-labelledby="series-title">
+    <div class="tx-series-mark" aria-hidden="true">~/lab<span>_</span></div>
+    <div><p class="tx-eyebrow">Follow the build</p><h2 id="series-title">The Homelab Rebuild</h2><p>From the firewall up: DNS, remote access, identity, and the decisions that tie it together.</p></div>
+    <a class="tx-button" href="{{ 'homelab-rebuild/' | url }}">Read the series <span aria-hidden="true">→</span></a>
+  </section>
+</div>
+{% endblock %}

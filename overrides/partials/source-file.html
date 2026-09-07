@@ -1,0 +1,11 @@
+{# These are source edit dates, not a claim of technical verification. #}
+{% if page and page.meta %}
+  {% set updated = page.meta.git_revision_date_localized or page.meta.revision_date %}
+  {% set created = page.meta.git_creation_date_localized %}
+  {% if updated or created %}
+  <aside class="md-source-file" aria-label="Article history">
+    {% if updated %}<span class="md-source-file__fact">Edited {{ updated }}</span>{% endif %}
+    {% if created %}<span class="md-source-file__fact">Published {{ created }}</span>{% endif %}
+  </aside>
+  {% endif %}
+{% endif %}

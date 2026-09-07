@@ -101,7 +101,7 @@ docker compose up -d
 
 Deploying ntfy with Docker Compose allows you to set up a self-hosted notification service quickly and efficiently. By following this guide, you can ensure that your ntfy instance is running with persistent data storage and optional health checks for reliability. Remember, you can adjust the volume bindings to suit your system's needs while keeping the standard structure for easier management.
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img alt="Support Techdox on Buy Me a Coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

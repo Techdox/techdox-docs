@@ -1,0 +1,1012 @@
+{
+  "topics": [
+    {
+      "slug": "networking",
+      "title": "Networking & Remote Access",
+      "description": "DNS, reverse proxies, HTTPS, VPNs and tunnels."
+    },
+    {
+      "slug": "security",
+      "title": "Security & Identity",
+      "description": "Authentication, access control and host hardening."
+    },
+    {
+      "slug": "storage",
+      "title": "Storage, Files & Backup",
+      "description": "File sharing, synchronization, backups and distributed storage."
+    },
+    {
+      "slug": "monitoring",
+      "title": "Monitoring & Observability",
+      "description": "Metrics, logs, health checks, dashboards and notifications."
+    },
+    {
+      "slug": "media",
+      "title": "Media",
+      "description": "Stream music and video, organize photos and run personal radio."
+    },
+    {
+      "slug": "productivity",
+      "title": "Productivity & Communication",
+      "description": "Notes, documents, finance, collaboration and messaging."
+    },
+    {
+      "slug": "platform",
+      "title": "Docker & Platform Tools",
+      "description": "Get started, deploy services and manage containers."
+    }
+  ],
+  "guides": [
+    {
+      "path": "2fa.md",
+      "title": "2FAuth",
+      "description": "Manage two-factor authentication codes with a self-hosted 2FAuth instance.",
+      "topic": "security",
+      "tags": [
+        "docker",
+        "security",
+        "authentication"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "adguard.md",
+      "title": "AdGuard Home",
+      "description": "Run network-wide DNS ad blocking with AdGuard Home and Docker.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "dns",
+        "security",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "authentik.md",
+      "title": "Authentik",
+      "description": "Deploy an identity provider for authentication and single sign-on.",
+      "topic": "security",
+      "tags": [
+        "docker",
+        "security",
+        "authentication"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "beszel.md",
+      "title": "Beszel",
+      "description": "Collect server metrics with a lightweight monitoring hub and agents.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "cadvisor.md",
+      "title": "cAdvisor",
+      "description": "Collect container resource metrics for Prometheus.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "chibisafe.md",
+      "title": "Chibisafe",
+      "description": "Deploy a web interface for uploading, managing and sharing files.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "cosmos.md",
+      "title": "Cosmos Cloud",
+      "description": "Deploy a platform for managing Docker containers and self-hosted services.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "docker-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "dockge.md",
+      "title": "Dockge",
+      "description": "Manage Docker Compose stacks through a web interface.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "docker-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "dockpeek.md",
+      "title": "Dockpeek",
+      "description": "View and manage containers across multiple Docker hosts.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "docker-management",
+        "dashboard"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "docmost.md",
+      "title": "Docmost",
+      "description": "Deploy a collaborative document workspace with PostgreSQL and Redis.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity",
+        "documents"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "duplicati.md",
+      "title": "Duplicati",
+      "description": "Deploy a backup service with encryption, compression and scheduling.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "backup"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "excalidraw.md",
+      "title": "Excalidraw",
+      "description": "Host a collaborative whiteboard for hand-drawn-style diagrams.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "filebrowser.md",
+      "title": "File Browser",
+      "description": "Manage server files and directories from a web browser.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "firefly.md",
+      "title": "Firefly III",
+      "description": "Deploy a personal finance manager with scheduled background jobs.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "finance",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "focalboard.md",
+      "title": "Focalboard",
+      "description": "Deploy the legacy project board; read the deprecation warning before choosing it.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "freshrss.md",
+      "title": "FreshRSS",
+      "description": "Read and organize RSS feeds with a self-hosted aggregator.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "glance.md",
+      "title": "Glance",
+      "description": "Build a self-hosted dashboard for feeds, services and useful widgets.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "dashboard"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "glusterfs.md",
+      "title": "GlusterFS",
+      "description": "Set up distributed file storage across multiple servers.",
+      "topic": "storage",
+      "tags": [
+        "storage",
+        "networking",
+        "linux"
+      ],
+      "aliases": [],
+      "type": "how-to"
+    },
+    {
+      "path": "grafana.md",
+      "title": "Grafana",
+      "description": "Visualize monitoring data with self-hosted Grafana dashboards.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring",
+        "dashboard"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "headscale.md",
+      "title": "Headscale",
+      "description": "Host a control server for a Tailscale-compatible private network.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "vpn",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "home-assistant-homelab-dashboard.md",
+      "title": "Home Assistant Homelab Dashboard",
+      "description": "Bring homelab service and system status into Home Assistant.",
+      "topic": "monitoring",
+      "tags": [
+        "monitoring",
+        "dashboard",
+        "homelab",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "how-to"
+    },
+    {
+      "path": "homepage.md",
+      "title": "Homepage",
+      "description": "Build a service dashboard with integrations and status widgets.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "dashboard"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "ittools.md",
+      "title": "IT Tools",
+      "description": "Host a browser-based collection of utilities for common technical tasks.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "utilities"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "jellyfin.md",
+      "title": "Jellyfin",
+      "description": "Deploy a media server to stream your own video and music library.",
+      "topic": "media",
+      "tags": [
+        "docker",
+        "media"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "joplin.md",
+      "title": "Joplin Server",
+      "description": "Host a synchronization server for Joplin notes.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity",
+        "notes"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "karakeep.md",
+      "title": "Karakeep",
+      "description": "Deploy a bookmark manager for saving and organizing web content.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [
+        "Hoarder"
+      ],
+      "type": "deployment"
+    },
+    {
+      "path": "linkstack.md",
+      "title": "LinkStack",
+      "description": "Host a personal landing page for sharing your links.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "utilities"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "logitech.md",
+      "title": "Logitech Media Server",
+      "description": "Host a music server for your audio library and compatible players.",
+      "topic": "media",
+      "tags": [
+        "docker",
+        "media"
+      ],
+      "aliases": [
+        "LMS"
+      ],
+      "type": "deployment"
+    },
+    {
+      "path": "loki.md",
+      "title": "Loki & Promtail",
+      "description": "Collect and query logs using Loki, Promtail and Grafana.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "logging",
+        "monitoring"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "matrix.md",
+      "title": "Matrix",
+      "description": "Deploy a Matrix messaging server for self-hosted communication.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "communication"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "mealie.md",
+      "title": "Mealie",
+      "description": "Organize recipes and meal plans with a self-hosted recipe manager.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "memos.md",
+      "title": "Memos",
+      "description": "Host a lightweight service for short notes and personal knowledge.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity",
+        "notes"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "mkdocs.md",
+      "title": "MkDocs",
+      "description": "Publish a documentation site using MkDocs and Docker.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "documentation"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "nexterm.md",
+      "title": "Nexterm",
+      "description": "Deploy a web interface for remote server connections.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "utilities"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "node-exporter.md",
+      "title": "Node Exporter",
+      "description": "Expose Linux host metrics for collection by Prometheus.",
+      "topic": "monitoring",
+      "tags": [
+        "monitoring",
+        "linux"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "npm.md",
+      "title": "Nginx Proxy Manager",
+      "description": "Deploy a reverse proxy with a web interface and HTTPS certificates.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "reverse-proxy",
+        "networking"
+      ],
+      "aliases": [
+        "NPM"
+      ],
+      "type": "deployment"
+    },
+    {
+      "path": "ntfy.md",
+      "title": "ntfy",
+      "description": "Host a notification service for alerts from your homelab.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "notifications"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "nextcloud.md",
+      "title": "Nextcloud",
+      "description": "Deploy a personal cloud for file access and sharing.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-management",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "pairdrop.md",
+      "title": "PairDrop",
+      "description": "Share files between devices through a browser-based transfer service.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "pangolin.md",
+      "title": "Pangolin",
+      "description": "Install a tunneling platform for reaching private services remotely.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "networking",
+        "reverse-proxy",
+        "security"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "paperless.md",
+      "title": "Paperless-ngx",
+      "description": "Create a searchable document archive with OCR and document conversion.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "documents",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment",
+      "prerequisites": [
+        "Docker and Docker Compose installed",
+        "At least 2 GB free RAM",
+        "A directory for document storage"
+      ]
+    },
+    {
+      "path": "peppermint.md",
+      "title": "Peppermint",
+      "description": "Deploy a support ticket and knowledge management service.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "photoprism.md",
+      "title": "PhotoPrism",
+      "description": "Host a photo library with indexing and search.",
+      "topic": "media",
+      "tags": [
+        "docker",
+        "media"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "piexporter.md",
+      "title": "Pi-hole Exporter",
+      "description": "Export Pi-hole metrics to Prometheus and visualize them in Grafana.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring",
+        "dns"
+      ],
+      "aliases": [
+        "Pihole Exporter"
+      ],
+      "type": "deployment",
+      "prerequisites": [
+        "Pi-hole v6",
+        "Prometheus and Grafana configured"
+      ]
+    },
+    {
+      "path": "pihole-on-npm.md",
+      "title": "Pi-hole via Nginx Proxy Manager",
+      "description": "Configure a reverse proxy, custom location and HTTPS for Pi-hole.",
+      "topic": "networking",
+      "tags": [
+        "dns",
+        "reverse-proxy",
+        "networking"
+      ],
+      "aliases": [
+        "Pihole proxy"
+      ],
+      "type": "how-to",
+      "prerequisites": [
+        "A running Pi-hole instance",
+        "Nginx Proxy Manager"
+      ]
+    },
+    {
+      "path": "pingvin.md",
+      "title": "Pingvin Share",
+      "description": "Deploy a file-sharing service and complete its first-login setup.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-sharing"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "pocketid.md",
+      "title": "Pocket ID",
+      "description": "Deploy an identity provider for your self-hosted applications.",
+      "topic": "security",
+      "tags": [
+        "docker",
+        "security",
+        "authentication"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "privatebin.md",
+      "title": "PrivateBin",
+      "description": "Share encrypted text through a self-hosted pastebin served over HTTPS.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "utilities",
+        "security"
+      ],
+      "aliases": [],
+      "type": "deployment",
+      "prerequisites": [
+        "Docker and Docker Compose installed",
+        "HTTPS endpoint"
+      ]
+    },
+    {
+      "path": "prometheus.md",
+      "title": "Prometheus",
+      "description": "Deploy a metrics server and configure monitoring targets.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "safeline.md",
+      "title": "SafeLine",
+      "description": "Deploy a web application firewall with Docker Compose.",
+      "topic": "security",
+      "tags": [
+        "docker",
+        "security",
+        "reverse-proxy"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "searxng.md",
+      "title": "SearXNG",
+      "description": "Deploy and configure a private metasearch interface.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "utilities",
+        "privacy"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "speedtest-tracker.md",
+      "title": "Speedtest Tracker",
+      "description": "Track internet connection performance with scheduled speed tests.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "stirling-pdf.md",
+      "title": "Stirling PDF",
+      "description": "Host a PDF toolbox for conversion, editing, merging and OCR.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "documents",
+        "utilities"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "subwave.md",
+      "title": "SUB/WAVE",
+      "description": "Turn your own music library into a scheduled personal radio station.",
+      "topic": "media",
+      "tags": [
+        "docker",
+        "music"
+      ],
+      "aliases": [
+        "Subwave"
+      ],
+      "type": "deployment"
+    },
+    {
+      "path": "syncthing.md",
+      "title": "Syncthing",
+      "description": "Synchronize files between computers; sync is not a substitute for backups.",
+      "topic": "storage",
+      "tags": [
+        "docker",
+        "file-management",
+        "sync"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "traefik.md",
+      "title": "Traefik",
+      "description": "Route Docker services through a reverse proxy with automatic HTTPS.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "reverse-proxy",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "tududi.md",
+      "title": "Tududi",
+      "description": "Deploy a task manager for personal or small-team work.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "productivity"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "uptimekuma.md",
+      "title": "Uptime Kuma",
+      "description": "Monitor service availability and configure uptime notifications.",
+      "topic": "monitoring",
+      "tags": [
+        "docker",
+        "monitoring"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "wallos.md",
+      "title": "Wallos",
+      "description": "Track subscriptions and recurring expenses on your own server.",
+      "topic": "productivity",
+      "tags": [
+        "docker",
+        "finance"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "watchtower.md",
+      "title": "Watchtower",
+      "description": "Configure automatic container image updates and review their operational risks.",
+      "topic": "platform",
+      "tags": [
+        "docker",
+        "docker-management"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "wgeasy.md",
+      "title": "WG-Easy",
+      "description": "Deploy WireGuard with a web interface for managing VPN clients.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "vpn",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment",
+      "prerequisites": [
+        "Docker and Docker Compose installed",
+        "WireGuard-capable Linux kernel",
+        "UDP port 51820 open"
+      ]
+    },
+    {
+      "path": "wireguard.md",
+      "title": "WireGuard & WireGuard UI",
+      "description": "Run WireGuard and its management interface with Docker Compose.",
+      "topic": "networking",
+      "tags": [
+        "docker",
+        "vpn",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "deployment"
+    },
+    {
+      "path": "start-here.md",
+      "title": "Start Here",
+      "description": "Go from hardware and Ubuntu to Docker and your first self-hosted service.",
+      "topic": "platform",
+      "tags": [
+        "getting-started",
+        "docker",
+        "linux"
+      ],
+      "aliases": [],
+      "type": "getting-started"
+    },
+    {
+      "path": "homelab-rebuild/opnsense-zimaboard.md",
+      "title": "OPNsense on Zimaboard 2",
+      "description": "Replace a consumer router with OPNsense, including DHCP and physical cutover.",
+      "topic": "networking",
+      "tags": [
+        "homelab",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 1
+      }
+    },
+    {
+      "path": "homelab-rebuild/dns-stack.md",
+      "title": "Pi-hole + Unbound DNS",
+      "description": "Combine DNS ad blocking with recursive resolution and DNSSEC.",
+      "topic": "networking",
+      "tags": [
+        "homelab",
+        "dns"
+      ],
+      "aliases": [
+        "Pihole",
+        "Pi-hole"
+      ],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 2
+      }
+    },
+    {
+      "path": "homelab-rebuild/wireguard-vpn.md",
+      "title": "WireGuard on OPNsense",
+      "description": "Configure router-based remote access with split or full tunneling.",
+      "topic": "networking",
+      "tags": [
+        "homelab",
+        "vpn"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 3
+      }
+    },
+    {
+      "path": "homelab-rebuild/yubikey-ssh.md",
+      "title": "YubiKey SSH",
+      "description": "Set up hardware-bound FIDO2 SSH keys with PIN and touch authentication.",
+      "topic": "security",
+      "tags": [
+        "homelab",
+        "security"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 4
+      }
+    },
+    {
+      "path": "homelab-rebuild/cloudflare-tunnels.md",
+      "title": "Cloudflare Tunnels",
+      "description": "Publish services through outbound tunnels without inbound port forwarding.",
+      "topic": "networking",
+      "tags": [
+        "homelab",
+        "networking"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 5
+      }
+    },
+    {
+      "path": "homelab-rebuild/internal-hostnames.md",
+      "title": "Internal Hostnames & HTTPS",
+      "description": "Combine Pi-hole DNS and Nginx Proxy Manager for internal HTTPS service names.",
+      "topic": "networking",
+      "tags": [
+        "homelab",
+        "dns",
+        "reverse-proxy"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 6
+      }
+    },
+    {
+      "path": "homelab-rebuild/proton-mail-custom-domain.md",
+      "title": "Proton Mail Migration",
+      "description": "Move custom-domain email to Proton Mail with DNS authentication and mail import.",
+      "topic": "productivity",
+      "tags": [
+        "homelab",
+        "email"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 7
+      }
+    },
+    {
+      "path": "homelab-rebuild/macos-hardening.md",
+      "title": "macOS Hardening",
+      "description": "Configure native macOS protections and security tools.",
+      "topic": "security",
+      "tags": [
+        "homelab",
+        "security",
+        "macos"
+      ],
+      "aliases": [],
+      "type": "how-to",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 8
+      }
+    },
+    {
+      "path": "homelab-rebuild/architecture.md",
+      "title": "Homelab Architecture",
+      "description": "Explore how the rebuild network, DNS, remote access and identity layers connect.",
+      "topic": "platform",
+      "tags": [
+        "homelab"
+      ],
+      "aliases": [],
+      "type": "reference",
+      "series": {
+        "slug": "homelab-rebuild",
+        "order": 9
+      }
+    }
+  ]
+}
