@@ -23,6 +23,7 @@ npm test
 npm run test:interactions
 mkdocs build --strict
 python tests/check_links.py
+python tests/check_brand_build.py
 python -m http.server 8766 --bind 127.0.0.1 --directory site
 # In another terminal:
 npm run test:browser
@@ -42,6 +43,14 @@ Topics: `networking`, `security`, `storage`, `monitoring`, `media`, `productivit
 Aliases support old product names and abbreviations, for example `npm` and `hoarder`. They affect directory filtering and the compact matching-guide section of search; Material's full-text search remains available below it.
 
 Do **not** infer technical verification from a Git edit date. This theme does not manufacture last-tested dates or claim that existing deployments have been revalidated. Guide instructions, particularly security-sensitive examples, need separate checks against official documentation and real deployments.
+
+## Brand reference
+
+[DESIGN.md](DESIGN.md) is the checked-in reference derived from the supplied Techdox Brand Kit. Outlined masters and icons in `docs/assets/brand/` and canonical primitives in `docs/stylesheets/techdox.css` are unchanged kit exports; `tests/brand-assets.json` pins their SHA-256 provenance. `extra.css` maps dark primitives to docs semantics while retaining the existing accessible light theme, local WOFF2 fonts and compact control radii.
+
+The header/footer share `partials/wordmark.html`: dark masters have off-white text; light masters have dark text. A 240×45 CSS-pixel master canvas is cropped only to remove transparent surplus, yielding a **144×26.5 visible mark**, with 13.5px protected padding. Both main-site and docs-home destinations stay explicit. At narrow widths search/menu text labels become icons with their existing accessible names; the full visible mark still fits at 320px.
+
+Social cards retain actual page titles/descriptions through the existing plugin, with the supplied `~/` icon and canonical dark colors. The inspected `social/blog-og.png` is an editorial blog fallback, not a replacement for guide-specific cards. Material 9.5 caches by text rather than styling: bump `social.cache_dir` when changing card identity to avoid stale warm-build artwork. Social cards use bundled kit-derived Hanken 800/400 static fonts through Material 9.5’s supported font cache; cold builds need no font downloads. These build-only TTFs do not replace or enlarge the existing UI WOFF2 payload. See [font provenance](assets/social-brand-kit-v2/README.md). `tests/check_brand_build.py` verifies actual output pixels as well as metadata.
 
 ## Navigation and theme
 

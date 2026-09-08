@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 artifacts/
 .venv/
+# Material social-card cache; bundled source fonts remain tracked.
+/assets/social-brand-kit-v2/*.png

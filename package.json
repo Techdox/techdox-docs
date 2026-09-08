@@ -4,7 +4,7 @@
   "scripts": {
     "test": "node --test tests/search.test.cjs",
     "test:interactions": "node tests/interactions.cjs",
-    "test:browser": "node tests/browser.cjs"
+    "test:browser": "node tests/browser.cjs && node tests/brand.cjs"
   },
   "devDependencies": {
     "axe-core": "4.11.0",

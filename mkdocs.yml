@@ -24,8 +24,8 @@ theme:
   name: material
   custom_dir: overrides
   font: false
-  logo: assets/techdox-mark.png
-  favicon: assets/techdox-mark.png
+  logo: assets/brand/icon-512.png
+  favicon: assets/brand/favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -62,9 +62,13 @@ extra_javascript:
 
 plugins:
     - social:
+        # Material 9.5 hashes card text only, not logo/colors/fonts. Version the
+        # cache; its tracked fonts/ seed prevents runtime Google Fonts downloads.
+        cache_dir: assets/social-brand-kit-v2
         cards_layout_options:
-          background_color: "#1e2030"
-          color: "#ffffff"
+          font_family: "Hanken Grotesk"
+          background_color: "#090c12"
+          color: "#f4f7fb"
     - search
     - tags:
         tags_file: tags.md
@@ -134,6 +138,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Techdox/techdox-docs
 extra_css:
+  - stylesheets/techdox.css
   - stylesheets/extra.css
 
 copyright: Copyright &copy; 2025 Techdox
