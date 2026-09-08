@@ -53,11 +53,11 @@ fs.mkdirSync(artifacts, { recursive: true });
             assert.equal(logo.visible, 1, 'only the matching themed wordmark is visible');
             const image = logo.images[0];
             assert.ok(image.loaded);
-            assert.ok(image.src.endsWith(`primary-${scheme === 'slate' ? 'dark' : 'light'}.svg`));
+            assert.ok(image.src.endsWith(`wordmark-web-${scheme === 'slate' ? 'dark' : 'light'}.svg`));
             assert.ok(image.artworkWidth >= 140, 'visible full wordmark minimum 140 CSS px, excluding transparent canvas');
             assert.ok(Math.abs(image.sourceWidth / image.sourceHeight - 960 / 180) < 0.01, 'undistorted master');
             assert.ok(image.clearspace.every(space => space >= image.height / 2 - 0.1), 'half-height clearspace on all sides');
-            assert.equal(image.animation, 'none', 'static supplied cursor');
+            assert.equal(image.animation, 'none', 'image/letters stay static; pixel suite checks internal cursor');
           }
           assert.equal(new URL(await page.locator('.tx-docs-link').getAttribute('href'), page.url()).pathname, '/');
           if (width === 320) {

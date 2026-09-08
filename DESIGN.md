@@ -85,7 +85,7 @@ The exported panel radius is 18px; smaller controls may retain fit-for-purpose r
 
 Use supplied outlined SVG masters from `logos/` for production, not editable text SVGs from `templates/`. Inspect primary-light.svg and primary-dark.svg against the actual background before use; do not infer suitability from the filename alone.
 
-Full wordmark: minimum 140 CSS px wide, clear space at least half its rendered height on all sides. Below 140px use the ~/ icon. Keep the supplied cursor attached and static. Logo link destinations and accessible names must remain explicit; docs retains a separate docs-home link if the main wordmark links to techdox.nz.
+Full wordmark: minimum 140 CSS px wide, clear space at least half its rendered height on all sides. Below 140px use the ~/ icon. Nick explicitly overrides the kit static-cursor rule for techdox.nz, docs.techdox.nz and blog.techdox.nz: blink only the supplied attached cursor at 1.2s with step timing in web-only SVG derivatives. Keep all paths, fills, transforms, canvas geometry, visible size, clearspace, themed variants and accessible link names unchanged. Never add a second cursor or animate the letters. Reduced motion selects the unchanged static artwork via a native picture source; retain the SVG media-query safeguard too. Original masters, icons, favicons and social artwork remain byte-identical and static. Logo link destinations and accessible names must remain explicit; docs retains a separate docs-home link if the main wordmark links to techdox.nz.
 
 Supply the kit favicon, matching app/touch icons and default social artwork. Preserve article-specific OG images rather than replacing all posts with one generic card. Use `social/blog-og.png` for the blog fallback; don't assume it suits the homepage/docs without inspecting its content.
 
@@ -94,7 +94,7 @@ Supply the kit favicon, matching app/touch icons and default social artwork. Pre
 - Do retain the blog serif, accessible light mode, responsive navigation and existing functionality.
 - Do compare original assets by checksum and validate desktop/mobile, dark/light, loaded fonts, logo spacing, favicon and OG output.
 - Do keep production changes behind existing release workflows; Nick hardware-signs production commits.
-- Don't animate, stretch, rotate, outline, glow or recreate the logo with substitute fonts.
+- Don't animate the letters, stretch, rotate, outline, glow or recreate the logo with substitute fonts; only the website cursor has an explicit animation override.
 - Don't promote the secondary mascot back into the primary logo. No mascot source is included.
 - Don't apply this identity to separate products without a new scope decision.
 

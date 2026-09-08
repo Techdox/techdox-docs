@@ -31,7 +31,7 @@ class BrandTests(unittest.TestCase):
         elements = Elements(markup).elements
         images = [a for tag, a in elements if tag == 'img']
         self.assertEqual({a['src'] for a in images}, {
-            '/assets/brand/primary-dark.svg', '/assets/brand/primary-light.svg'})
+            '/assets/brand/wordmark-web-dark.svg', '/assets/brand/wordmark-web-light.svg'})
         links = {a.get('aria-label'): a['href'] for tag, a in elements if tag == 'a'}
         self.assertEqual(links['Techdox main site'], 'https://techdox.nz')
         self.assertEqual(links['Docs home'], '/')

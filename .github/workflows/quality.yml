@@ -46,6 +46,8 @@ jobs:
           trap 'kill "$SERVER_PID"' EXIT
           curl --fail --silent --retry 10 --retry-connrefused --retry-delay 1 http://127.0.0.1:8766/ > /dev/null
           npm run test:browser
+          BASE_URL=http://127.0.0.1:8766 ARTIFACT_DIR=artifacts/browser/cursor node scripts/cursor-temporal.cjs
+          python scripts/check-cursor-pixels.py artifacts/browser/cursor
       - name: Save browser evidence
         if: always()
         uses: actions/upload-artifact@v4

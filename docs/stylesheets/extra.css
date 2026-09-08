@@ -409,3 +409,6 @@ button:disabled{cursor:default}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media(prefers-contrast:more){[data-md-color-scheme="slate"]{--tx-border:#66758b;--tx-muted:#c0cbdb}[data-md-color-scheme="default"]{--tx-border:#7c8ca3;--tx-muted:#34445c}}
 @media print{.tx-header,.tx-footer,.tx-mobile-toc,.tx-related{display:none!important}.md-content__inner{margin:0}.md-typeset{color:#111}.md-typeset a{text-decoration:underline}.md-typeset pre>code{white-space:pre-wrap;overflow-wrap:anywhere}}
+
+/* Native reduced-motion source without changing logo layout. */
+.wordmark-picture { display: contents; }
