@@ -2,7 +2,9 @@
    Font files are the same locally hosted variable fonts as techdox.nz. */
 @font-face{font-family:"Hanken Grotesk";src:url("../fonts/hanken-latin.woff2") format("woff2");font-style:normal;font-weight:400 800;font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url("../fonts/jetbrains-latin.woff2") format("woff2");font-style:normal;font-weight:400 700;font-display:swap}
-:root{--md-text-font:"Hanken Grotesk";--md-code-font:"JetBrains Mono";--tx-radius:10px}
+:root{--md-text-font:var(--td-font-sans);--md-code-font:var(--td-font-mono);--tx-radius:10px}
+/* The kit exports dark primitives only. Light surfaces, contrast-safe controls,
+   syntax colors and compact docs radii remain deliberate semantic adaptations. */
 [data-md-color-scheme="default"]{
   color-scheme:light;
   --tx-bg:#f8fafc;--tx-raised:#fff;--tx-panel:#f0f4f9;--tx-soft:#e9eff7;
@@ -14,10 +16,10 @@
 }
 [data-md-color-scheme="slate"]{
   color-scheme:dark;
-  --tx-bg:#090c12;--tx-raised:#0d121b;--tx-panel:#111824;--tx-soft:#151e2c;
-  --tx-text:#f4f7fb;--tx-muted:#9aa8bc;--tx-link:#79aaff;--tx-cyan:#65dce9;
-  --tx-border:#293345;--tx-control:#66758b;--tx-focus:#a8c5ff;
-  --tx-blue:#4d8dff;--tx-button:#4d8dff;--tx-button-text:#061020;--tx-wash:#13233e;
+  --tx-bg:var(--td-bg);--tx-raised:var(--td-raised);--tx-panel:var(--td-panel);--tx-soft:var(--td-soft);
+  --tx-text:var(--td-text);--tx-muted:var(--td-muted);--tx-link:var(--td-bright);--tx-cyan:var(--td-cyan);
+  --tx-border:var(--td-line);--tx-control:#66758b;--tx-focus:#a8c5ff;
+  --tx-blue:var(--td-blue);--tx-button:var(--td-blue);--tx-button-text:#061020;--tx-wash:#13233e;
   --tx-shadow:0 12px 40px #0004;
   --tx-syntax-comment:#9aa8bc;--tx-syntax-keyword:#c5a7ff;--tx-syntax-string:#8be4b0;--tx-syntax-number:#ffd166;--tx-syntax-function:#91b9ff;--tx-syntax-special:#ff9fbb;
 }
@@ -66,9 +68,15 @@ button:disabled{cursor:default}
 .tx-header{background:var(--tx-raised);color:var(--tx-text);box-shadow:none;border-bottom:1px solid var(--tx-border);padding:0 .6rem}
 .tx-header-inner{height:3.65rem;gap:1.3rem;padding:0 .6rem;position:relative}
 .tx-brand{display:flex;align-items:center;gap:.6rem;flex-shrink:0;white-space:nowrap}
-.tx-wordmark{font-family:var(--md-code-font),monospace;font-size:.96rem;font-weight:700;letter-spacing:-.065em;color:var(--tx-text)}
-.tx-brand-path{color:var(--tx-muted)}
-.tx-cursor{color:var(--tx-blue)}
+/* Master canvas 960×180, painted bounds (54,32)–(630,138). At 1/4 scale
+   the visible mark is 144×26.5. Crop ONLY surplus transparent canvas,
+   leaving the supplied SVG unchanged and 13.5px clearspace on every side. */
+.tx-wordmark{display:inline-flex;flex:none;align-items:center;padding:13.5px;line-height:0}
+.tx-wordmark-art{display:block;position:relative;width:144px;height:27px;overflow:hidden}
+.tx-wordmark img{display:block;position:absolute;left:-13.5px;top:-8px;width:240px;min-width:240px;height:45px;max-width:none}
+.tx-wordmark .tx-wordmark-dark{display:none}
+[data-md-color-scheme="slate"] .tx-wordmark .tx-wordmark-dark{display:block}
+[data-md-color-scheme="slate"] .tx-wordmark .tx-wordmark-light{display:none}
 .tx-brand-divider{color:var(--tx-control);font-size:.9rem}
 .tx-docs-link{color:var(--tx-muted);font-family:var(--md-code-font),monospace;font-size:.78rem;letter-spacing:-.025em}
 .tx-docs-link:hover,.tx-wordmark:hover{color:var(--tx-link)}
@@ -352,8 +360,9 @@ button:disabled{cursor:default}
 @media(max-width:29.984375em){
   .tx-header{padding:0 .5rem}
   .tx-header-inner{padding:0;gap:.15rem}
-  .tx-brand{gap:.3rem}
-  .tx-wordmark{font-size:.81rem}
+  .tx-brand{gap:.15rem}
+  .tx-brand-divider{display:none}
+  .tx-search-toggle>span,.tx-mobile-menu summary>span{display:none}
   .tx-docs-link{font-size:.68rem}
   .tx-brand-divider{font-size:.7rem}
   .tx-header-controls{gap:.05rem}
@@ -394,7 +403,7 @@ button:disabled{cursor:default}
   .tx-catalogue label{flex-basis:100%}
   .tx-guide-facts{grid-template-columns:1fr;gap:.15rem}
   .tx-footer{padding:1.2rem .8rem .8rem}
-  .tx-footer-inner{padding:0;gap:1rem}
+  .tx-footer-inner{grid-template-columns:1fr;padding:0;gap:1rem}
   .tx-footer-bottom{padding:.8rem 0 0}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

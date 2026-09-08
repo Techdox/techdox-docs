@@ -1,0 +1,18 @@
+:root {
+  --td-bg: #090c12;
+  --td-raised: #0d121b;
+  --td-panel: #111824;
+  --td-soft: #151e2c;
+  --td-text: #f4f7fb;
+  --td-muted: #9aa8bc;
+  --td-blue: #4d8dff;
+  --td-bright: #79aaff;
+  --td-cyan: #65dce9;
+  --td-green: #65e6a7;
+  --td-yellow: #ffd166;
+  --td-line: #293445;
+  --td-font-sans: "Hanken Grotesk", system-ui, sans-serif;
+  --td-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --td-font-editorial: "Fraunces", Georgia, serif;
+  --td-radius: 18px;
+}

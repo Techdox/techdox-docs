@@ -4,6 +4,8 @@
 {% endblock %}
 {% block extrahead %}
   {{ super() }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/brand/icon-32.png' | url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/brand/icon-180.png' | url }}">
   <link rel="preload" href="{{ 'fonts/hanken-latin.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <script defer src="https://umami.techdox.nz/script.js" data-website-id="e583ce1a-d3c4-47e7-9cbf-f7a8a086bab5"></script>
 {% endblock %}
@@ -32,7 +34,7 @@
 {% block footer %}
 <footer class="tx-footer md-footer">
   <div class="md-grid tx-footer-inner">
-    <div><a class="tx-wordmark" href="https://techdox.nz"><span class="tx-brand-path">~/</span>techdox<span class="tx-cursor" aria-hidden="true">_</span></a><p>Build something you understand.</p></div>
+    <div>{% include "partials/wordmark.html" %}<p>Build something you understand.</p></div>
     <nav id="connect-with-techdox" aria-label="Connect with Techdox"><a href="https://youtube.com/@techdox">YouTube ↗</a><a href="https://discord.com/invite/8mX2KRxDw8">Community ↗</a><a href="https://github.com/Techdox/techdox-docs/issues">Report an issue ↗</a></nav>
     <div class="tx-support"><span class="tx-eyebrow">Support the guides</span><p>Help keep the documentation open.</p><a href="{{ 'support/' | url }}">Ways to support <span aria-hidden="true">→</span></a></div>
   </div>
