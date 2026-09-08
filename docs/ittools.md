@@ -57,7 +57,7 @@ docker compose up -d
 !!! tip "Back up before updating"
     IT Tools is stateless — this compose file mounts no volumes, so there is no data to back up before updating.
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img alt="Support Techdox on Buy Me a Coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 
 ---

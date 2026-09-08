@@ -1,0 +1,13 @@
+{
+  "name": "techdox-docs-checks",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/search.test.cjs",
+    "test:interactions": "node tests/interactions.cjs",
+    "test:browser": "node tests/browser.cjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.11.0",
+    "playwright": "1.62.0"
+  }
+}

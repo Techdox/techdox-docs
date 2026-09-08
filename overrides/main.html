@@ -1,15 +1,41 @@
 {% extends "base.html" %}
-
+{% block htmltitle %}
+  {% if page and page.meta.tx_guide %}<title>{{ page.meta.tx_guide.title }} - {{ config.site_name }}</title>{% else %}{{ super() }}{% endif %}
+{% endblock %}
 {% block extrahead %}
   {{ super() }}
+  <link rel="preload" href="{{ 'fonts/hanken-latin.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <script defer src="https://umami.techdox.nz/script.js" data-website-id="e583ce1a-d3c4-47e7-9cbf-f7a8a086bab5"></script>
 {% endblock %}
-
 {% block content %}
-<div style="text-align: center; margin-bottom: 1.5rem;">
-  <a href="https://my.racknerd.com/aff.php?aff=5792" target="_blank">
-    <img src="https://racknerd.com/banners/728x90.gif" alt="RackNerd Leaderboard Banner" width="728" height="90" style="max-width: 100%;">
-  </a>
-</div>
+{% if page and page.meta.tx_guide %}
+  {% set guide = page.meta.tx_guide %}
+  {% set topic_link = namespace(url='guides/') %}
+  {% for topic in config.extra.tx_topics | default([]) %}{% if topic.slug == guide.topic %}{% set topic_link.url = topic.url %}{% endif %}{% endfor %}
+  <nav class="tx-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="{{ '' | url }}">Docs</a></li><li><a href="{{ topic_link.url | url }}">{{ guide.topic_label }}</a></li><li aria-current="page">{{ guide.title }}</li></ol></nav>
+  <div class="tx-guide-intro">
+    <p class="tx-eyebrow">{{ guide.type | replace('-', ' ') | replace('_', ' ') }}</p>
+    <p class="tx-guide-outcome">{{ guide.description }}</p>
+    {% if guide.prerequisites %}<dl class="tx-guide-facts"><dt>Before you begin</dt><dd>{% if guide.prerequisites is string %}{{ guide.prerequisites }}{% else %}{{ guide.prerequisites | join(' · ') }}{% endif %}</dd></dl>{% endif %}
+  </div>
+  {% if page.toc %}<details class="tx-mobile-toc"><summary>On this page</summary><nav aria-label="On this page"><ul>{% for item in page.toc recursive %}<li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.children %}<ul>{{ loop(item.children) }}</ul>{% endif %}</li>{% endfor %}</ul></nav></details>{% endif %}
+{% endif %}
 {{ super() }}
+{% if page and page.meta.tx_series %}
+{% set series = page.meta.tx_series %}
+<nav class="tx-series-nav" aria-label="Series navigation"><p class="tx-eyebrow">Part of <a href="{{ series.url | url }}">{{ series.title }}</a></p><div>{% if series.previous %}<a class="tx-series-previous" href="{{ series.previous.url | url }}"><span>← Previous in series</span><strong>{{ series.previous.title }}</strong></a>{% endif %}{% if series.next %}<a class="tx-series-next" href="{{ series.next.url | url }}"><span>Next in series →</span><strong>{{ series.next.title }}</strong></a>{% endif %}</div></nav>
+{% endif %}
+{% if page and page.meta.tx_related %}
+<section class="tx-related" aria-labelledby="related-title"><p class="tx-eyebrow">Keep building</p><h2 id="related-title">Related guides</h2><div class="tx-related-grid">{% for guide in page.meta.tx_related[:3] %}<a class="tx-guide-card" href="{{ guide.url | url }}"><h3>{{ guide.title }}</h3>{% if guide.description %}<p>{{ guide.description }}</p>{% endif %}<span class="tx-card-arrow" aria-hidden="true">→</span></a>{% endfor %}</div></section>
+{% endif %}
+{% endblock %}
+{% block footer %}
+<footer class="tx-footer md-footer">
+  <div class="md-grid tx-footer-inner">
+    <div><a class="tx-wordmark" href="https://techdox.nz"><span class="tx-brand-path">~/</span>techdox<span class="tx-cursor" aria-hidden="true">_</span></a><p>Build something you understand.</p></div>
+    <nav id="connect-with-techdox" aria-label="Connect with Techdox"><a href="https://youtube.com/@techdox">YouTube ↗</a><a href="https://discord.com/invite/8mX2KRxDw8">Community ↗</a><a href="https://github.com/Techdox/techdox-docs/issues">Report an issue ↗</a></nav>
+    <div class="tx-support"><span class="tx-eyebrow">Support the guides</span><p>Help keep the documentation open.</p><a href="{{ 'support/' | url }}">Ways to support <span aria-hidden="true">→</span></a></div>
+  </div>
+  <div class="md-grid tx-footer-bottom"><span>Techdox · Self-hosting, documented.</span><a href="https://github.com/Techdox/techdox-docs">Source on GitHub ↗</a></div>
+</footer>
 {% endblock %}

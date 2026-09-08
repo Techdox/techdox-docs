@@ -164,7 +164,7 @@ To create a Standard account: go to **System Settings → Users & Groups → Add
 - [YubiKey SSH](yubikey-ssh.md) — hardware-bound SSH authentication for your servers
 - [Proton Mail Migration](proton-mail-custom-domain.md) — privacy-focused email to pair with device hardening
 
-<a href="https://www.buymeacoffee.com/techdox"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/techdox"><img alt="Support Techdox on Buy Me a Coffee" src="https://img.buymeacoffee.com/button-api/?text=Buy me a cup of tea&emoji=🍵&slug=techdox&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 ---
 

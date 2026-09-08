@@ -1,0 +1,8 @@
+{# Keep Material's palette component and its native radio behavior. Labels
+   switch to the next scheme; radios remain accessible to keyboard/AT users. #}
+<form class="md-header__option tx-palette" data-md-component="palette" aria-label="Color theme">
+  {% for option in config.theme.palette %}
+  <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ option.scheme | default('default', true) | replace(' ', '-') }}" data-md-color-primary="{{ option.primary | default('indigo', true) | replace(' ', '-') }}" data-md-color-accent="{{ option.accent | default('indigo', true) | replace(' ', '-') }}" aria-label="{{ 'Dark theme' if option.scheme == 'slate' else 'Light theme' }}" type="radio" name="__palette" id="__palette_{{ loop.index0 }}">
+  {% if option.toggle %}<label class="md-header__button md-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index % loop.length }}" hidden>{% include '.icons/' ~ option.toggle.icon ~ '.svg' %}</label>{% endif %}
+  {% endfor %}
+</form>
