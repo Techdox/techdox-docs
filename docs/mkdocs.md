@@ -28,6 +28,7 @@ services:
       - ./mkdocs-data:/docs
     stdin_open: true
     tty: true
+    restart: unless-stopped
 ```
 
 ## Key Components of the Configuration
@@ -47,28 +48,33 @@ To deploy MkDocs with Docker Compose, follow these steps:
    - Create a directory on your host system for the MkDocs stack (e.g. `mkdocs`).
 
 2. **Docker Compose File**:
-   - Inside that directory, create a `docker-compose.yml` file with the configuration above.
+   - Inside this new directory, create a `docker-compose.yml` file.
+   - Save the directoryfollowing Docker Compose configuration into this file:
 
-3. **Create the Data Directory and Docs Folder**:
-   - Inside the `mkdocs` directory, create the `mkdocs-data` subdirectory and a `docs` folder inside it:
+    ```yaml
+    version: '3'
+    services:
+      mkdocs:
+        image: squidfunk/mkdocs-material
+        ports:
+          - "8005:8000"
+        volumes:
+          - ./mkdocs-data:/docs
+        stdin_open: true
+        tty: true
+        restart: unless-stopped
+    ```
 
-     ```bash
-     mkdir -p mkdocs-data/docs
-     ```
-
-   Your directory structure should look like this:
-
-   ```text
-   mkdocs/
-   ├── docker-compose.yml
-   └── mkdocs-data/
-       ├── docs/
-       └── mkdocs.yml
-   ```
+3. **Create Documentation Directory**:
+   - Within the `mkdocs` directory, create another directory called `mkdocs-data`. This will hold all your documentation files.
 
 4. **Create MkDocs Configuration File**:
-   - Inside `mkdocs-data/`, create a file named `mkdocs.yml` with the following base structure:
-
+  
+   - In the root of your `mkdocs-data` directory,
+      - Create a folder called `docs`
+      - create a file named `mkdocs.yml`.
+   - Add the following base structure to the `mkdocs.yml` file:
+   
     ```yaml
     site_name: My Docs
 
